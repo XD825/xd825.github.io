@@ -199,6 +199,7 @@ def teardown_hook_sleep_N_secs(response, n_secs):
 | **startswith**   | **def startswith(*check_value*, *expect_value*):**           | **字符串是否以什么开头**           |
 | **endswith**     | **def endswith(*check_value*, *expect_value*):**             | **字符串是否以什么结尾**           |
 |                  |                                                              |                                    |
+
 #### 2）断言内容-`check_value`
 - status_code：响应状态码
 - encoding：字符集
