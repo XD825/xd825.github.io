@@ -443,6 +443,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#2-check_value" class="md-nav__link">
+    2）断言内容-check_value
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -772,6 +779,13 @@
           <li class="md-nav__item">
   <a href="#1_1" class="md-nav__link">
     1）断言方式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-check_value" class="md-nav__link">
+    2）断言内容-check_value
   </a>
   
 </li>
@@ -1140,73 +1154,23 @@ def teardown_hook_sleep_N_secs(response, n_secs):
 <td></td>
 <td></td>
 </tr>
-<tr>
-<td>#### 2）断言内容-<code>check_value</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- status_code：响应状态码</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- encoding：字符集</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- ok：是否OK</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- reason：</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- url：请求地址</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- headers：请求头</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- headers.content-type</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- cookies：cookie信息</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- content：响应体</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- content.person.name.first_name</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- text：响应体文本格式</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- json：响应体json格式</td>
-<td></td>
-<td></td>
-</tr>
 </tbody>
 </table>
+<h4 id="2-check_value">2）断言内容-<code>check_value</code></h4>
+<ul>
+<li>status_code：响应状态码</li>
+<li>encoding：字符集</li>
+<li>ok：是否OK</li>
+<li>reason：</li>
+<li>url：请求地址</li>
+<li>headers：请求头</li>
+<li>headers.content-type</li>
+<li>cookies：cookie信息</li>
+<li>content：响应体</li>
+<li>content.person.name.first_name</li>
+<li>text：响应体文本格式</li>
+<li>json：响应体json格式</li>
+</ul>
 <h3 id="extract">八、提取数据 <code>extract</code></h3>
 <pre><code class="language-yml">
 config:
