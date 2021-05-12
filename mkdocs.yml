@@ -1,2 +1,7 @@
-site_name: XD825 Docs
-theme: material
+site_name: Desire
+theme: 
+  # name: simplex
+  name: material
+repo_url: https://github.com/XD825/xd825.github.io
+site_author: Desire
+edit_uri: '/XD825/xd825.github.io/edit/main/docs/'
