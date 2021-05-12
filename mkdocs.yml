@@ -5,3 +5,4 @@ theme:
 repo_url: https://github.com/XD825/xd825.github.io
 site_author: Desire
 edit_uri: '/XD825/xd825.github.io/edit/main/docs/'
+dev_addr: '0.0.0.0:8888'
