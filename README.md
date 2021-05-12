@@ -1,5 +1,11 @@
 # xd825.github.io
 
+## 第三方库安装
+```bash
+pip install mkdocs
+pip install mkdocs-material
+```
+
 ## mkdocs操作
 
 ```bash
