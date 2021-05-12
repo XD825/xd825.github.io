@@ -8,13 +8,15 @@
       
       
       
+        <meta name="author" content="Desire">
+      
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.4">
     
     
       
-        <title>Selenium - XD825 Docs</title>
+        <title>FastAPI简单使用 - Desire</title>
       
     
     
@@ -59,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#selenium" class="md-skip">
+        <a href="#fastapi" class="md-skip">
           Skip to content
         </a>
       
@@ -70,7 +72,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="XD825 Docs" class="md-header__button md-logo" aria-label="XD825 Docs" data-md-component="logo">
+    <a href="../.." title="Desire" class="md-header__button md-logo" aria-label="Desire" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -83,13 +85,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            XD825 Docs
+            Desire
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Selenium
+              FastAPI简单使用
             
           </span>
         </div>
@@ -129,6 +131,19 @@
 </div>
     
     
+      <div class="md-header__source">
+        
+<a href="https://github.com/XD825/xd825.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
   </nav>
 </header>
     
@@ -150,14 +165,27 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="XD825 Docs" class="md-nav__button md-logo" aria-label="XD825 Docs" data-md-component="logo">
+    <a href="../.." title="Desire" class="md-nav__button md-logo" aria-label="Desire" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
-    XD825 Docs
+    Desire
   </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/XD825/xd825.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -170,7 +198,7 @@
   
     <li class="md-nav__item">
       <a href="../.." class="md-nav__link">
-        Welcome to MkDocs
+        主頁
       </a>
     </li>
   
@@ -205,50 +233,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/docker%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+      <a href="../../Docker/docker%E7%AC%94%E8%AE%B0/" class="md-nav__link">
         docker笔记
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      <label class="md-nav__link" for="__nav_3">
-        Shell
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Shell" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          Shell
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../shell/shell%E7%AC%94%E8%AE%B0/" class="md-nav__link">
-        shell笔记
       </a>
     </li>
   
@@ -273,16 +259,16 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
-      <label class="md-nav__link" for="__nav_4">
-        测试
+      <label class="md-nav__link" for="__nav_3">
+        FastAPI
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="测试" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
+      <nav class="md-nav" aria-label="FastAPI" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          测试
+          FastAPI
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -297,20 +283,24 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Selenium
+          FastAPI简单使用
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Selenium
+        FastAPI简单使用
       </a>
       
         
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -320,56 +310,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#selenium" class="md-nav__link">
-    Selenium自动化测试（八）之上传文件
-  </a>
-  
-    <nav class="md-nav" aria-label="Selenium自动化测试（八）之上传文件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#send_keys" class="md-nav__link">
-    第一种：直接使用send_keys
+  <a href="#1" class="md-nav__link">
+    1、安装
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#pyautogui" class="md-nav__link">
-    第二种：使用pyautogui
-  </a>
-  
-    <nav class="md-nav" aria-label="第二种：使用pyautogui">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1pyautogui" class="md-nav__link">
-    1）安装pyautogui模块
+      
+        <li class="md-nav__item">
+  <a href="#2demo" class="md-nav__link">
+    2、简单的demo
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#2pyautogui" class="md-nav__link">
-    2）导入pyautogui模块
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、运行
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#3pyautogui" class="md-nav__link">
-    3）使用pyautogui模拟鼠标点击
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、 访问
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -386,8 +350,92 @@
   
   
     <li class="md-nav__item">
-      <a href="../index2/" class="md-nav__link">
-        Welcome to MkDocs
+      <a href="../002FastAPI-JWT%E9%AA%8C%E8%AF%81/" class="md-nav__link">
+        JWT(JSON Web Tokens)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        HTTPRunner
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="HTTPRunner" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          HTTPRunner
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HTTPRunner/HTTPRunner2.x/" class="md-nav__link">
+        HTTPRunner2.x
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Shell
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Shell" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Shell
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Shell/shell%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        shell笔记
       </a>
     </li>
   
@@ -415,6 +463,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -423,56 +473,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#selenium" class="md-nav__link">
-    Selenium自动化测试（八）之上传文件
-  </a>
-  
-    <nav class="md-nav" aria-label="Selenium自动化测试（八）之上传文件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#send_keys" class="md-nav__link">
-    第一种：直接使用send_keys
+  <a href="#1" class="md-nav__link">
+    1、安装
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#pyautogui" class="md-nav__link">
-    第二种：使用pyautogui
-  </a>
-  
-    <nav class="md-nav" aria-label="第二种：使用pyautogui">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1pyautogui" class="md-nav__link">
-    1）安装pyautogui模块
+      
+        <li class="md-nav__item">
+  <a href="#2demo" class="md-nav__link">
+    2、简单的demo
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#2pyautogui" class="md-nav__link">
-    2）导入pyautogui模块
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、运行
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#3pyautogui" class="md-nav__link">
-    3）使用pyautogui模拟鼠标点击
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、 访问
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -488,39 +512,43 @@
             <article class="md-content__inner md-typeset">
               
                 
+                  <a href="https://github.com/XD825/xd825.github.io/edit/main/docs/FastAPI/001FastAPI简单使用.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
                 
-                  <h1>Selenium</h1>
                 
-                <h2 id="selenium">Selenium自动化测试（八）之上传文件</h2>
-<h3 id="send_keys">第一种：直接使用<code>send_keys</code></h3>
-<p><strong>注意：只针对input表单上传文件才可以使用</strong></p>
-<pre><code class="language-python"># 定位到input表单上传文件的元素
-ele = driver.find_element_by_id(&quot;upload&quot;)
-# 使用send_keys上传文件
-ele.send_keys(&quot;D:\title.png&quot;)
+                <h1 id="fastapi">FastAPI简单使用</h1>
+<h2 id="1">1、安装</h2>
+<pre><code class="language-bash">pip install fastapi pip install uvicorn
 </code></pre>
-<h3 id="pyautogui">第二种：使用<code>pyautogui</code></h3>
-<p>有些时候上传文件使用的并不是input表单，此时就没有办法使用第一种方式进行上传了，那么我们就可以使用<code>pyautogui</code>进行模拟鼠标操作来上传文件。</p>
-<h4 id="1pyautogui">1）安装<code>pyautogui</code>模块</h4>
-<pre><code class="language-bash">pip install pyautogui
+<h2 id="2demo">2、简单的demo</h2>
+<blockquote>
+<p>main.py</p>
+</blockquote>
+<pre><code class="language-python">from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get(&quot;/&quot;)
+async def root():
+    return {&quot;message&quot;: &quot;Hello World&quot;}
 </code></pre>
-<h4 id="2pyautogui">2）导入<code>pyautogui</code>模块</h4>
-<pre><code class="language-python">import pyautogui
+<h2 id="3">3、运行</h2>
+<pre><code class="language-bash">uvicorn main:app --port 8888 --reload
 </code></pre>
-<h4 id="3pyautogui">3）使用<code>pyautogui</code>模拟鼠标点击</h4>
-<p><strong>注意：建议最大化浏览器进行坐标定位<code>driver.maximize_window()</code></strong></p>
-<p><strong>坐标定位可以借助于截图工具</strong></p>
-<pre><code class="language-python"># 通过坐标定位到上传文件按钮
-pyautogui.moveTo(39, 156)
-# 点击按钮，弹出资源文件弹框
-pyautogui.click()
-# 设置强制等待，等待弹出框弹出（不设置的话会出现输入上传的文件名混乱）
-time.sleep(3)
-# 通过write输入要上传的文件名
-pyautogui.write(r'D:\title.png', interval=0.2)
-# 点击回车进行上传
-pyautogui.press('enter', presses=2)
-</code></pre>
+<blockquote>
+<p>命令含义如下:</p>
+</blockquote>
+<ul>
+<li>main：main.py 文件（一个 Python「模块」）。</li>
+<li>app：在 main.py 文件中通过 app = FastAPI() 创建的对象。</li>
+<li>--port：执行端口号</li>
+<li>--reload：让服务器在更新代码后重新启动。仅在开发时使用该选项。</li>
+</ul>
+<h2 id="4">4、 访问</h2>
+<p>http://127.0.0.1:8888 # 访问接口</p>
+<p>http://127.0.0.1:8888/docs # 交互式API文档（Swagger UI）</p>
+<p>http://127.0.0.1:8888/redoc # 可选的API文档</p>
                 
               
               
@@ -539,7 +567,7 @@ pyautogui.press('enter', presses=2)
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../../shell/shell%E7%AC%94%E8%AE%B0/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../../Docker/docker%E7%AC%94%E8%AE%B0/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -548,19 +576,19 @@ pyautogui.press('enter', presses=2)
               <span class="md-footer__direction">
                 Previous
               </span>
-              shell笔记
+              docker笔记
             </div>
           </div>
         </a>
       
       
-        <a href="../index2/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../002FastAPI-JWT%E9%AA%8C%E8%AF%81/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Welcome to MkDocs
+              JWT(JSON Web Tokens)
             </div>
           </div>
           <div class="md-footer__button md-icon">

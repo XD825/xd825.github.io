@@ -1,0 +1,1148 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="Desire">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.4">
+    
+    
+      
+        <title>JWT(JSON Web Tokens) - Desire</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#jwtjson-web-tokens" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Desire" class="md-header__button md-logo" aria-label="Desire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Desire
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              JWT(JSON Web Tokens)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/XD825/xd825.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Desire" class="md-nav__button md-logo" aria-label="Desire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Desire
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/XD825/xd825.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        主頁
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Docker
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Docker" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Docker
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docker/docker%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        docker笔记
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        FastAPI
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="FastAPI" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          FastAPI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../001FastAPI%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+        FastAPI简单使用
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          JWT(JSON Web Tokens)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        JWT(JSON Web Tokens)
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、依赖库安装
+  </a>
+  
+    <nav class="md-nav" aria-label="一、依赖库安装">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jwt" class="md-nav__link">
+    jwt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-jose" class="md-nav__link">
+    python-jose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passlib" class="md-nav__link">
+    passlib
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    二、哈希并校验密码
+  </a>
+  
+    <nav class="md-nav" aria-label="二、哈希并校验密码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、创建对象，进行哈希和校验密码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2hashpassword" class="md-nav__link">
+    2、哈希密码：hash(password)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3verifyplain_password-hashed_password" class="md-nav__link">
+    3、校验密码：verify(plain_password, hashed_password)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jwt_1" class="md-nav__link">
+    三、JWT令牌验证加密
+  </a>
+  
+    <nav class="md-nav" aria-label="三、JWT令牌验证加密">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1jwt" class="md-nav__link">
+    1、生成一个随机的密钥，用于对JWT令牌进行签名
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2、创建密钥变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3jwt" class="md-nav__link">
+    3、创建用于设定JWT令牌签名算法的变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、创建设置令牌过期时间变量（单位：分钟）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5、模拟数据库用户信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6、创建所需模型类
+  </a>
+  
+    <nav class="md-nav" aria-label="6、创建所需模型类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1) 用户模型基类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2token" class="md-nav__link">
+    2）登录成功返回token模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3）用户登录模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    4）创建用户模型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7、创建生成访问令牌的函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8、校验用户功能函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9api" class="md-nav__link">
+    9、创建登录接口api
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jwt_2" class="md-nav__link">
+    四、JWT令牌验证解密
+  </a>
+  
+    <nav class="md-nav" aria-label="四、JWT令牌验证解密">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1token" class="md-nav__link">
+    1、验证token
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2api" class="md-nav__link">
+    2、访问当前用户信息接口api
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3tokenapi" class="md-nav__link">
+    3、需要token验证但不需要用户信息数据接口api
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        HTTPRunner
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="HTTPRunner" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          HTTPRunner
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HTTPRunner/HTTPRunner2.x/" class="md-nav__link">
+        HTTPRunner2.x
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Shell
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Shell" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Shell
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Shell/shell%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        shell笔记
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、依赖库安装
+  </a>
+  
+    <nav class="md-nav" aria-label="一、依赖库安装">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jwt" class="md-nav__link">
+    jwt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-jose" class="md-nav__link">
+    python-jose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passlib" class="md-nav__link">
+    passlib
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    二、哈希并校验密码
+  </a>
+  
+    <nav class="md-nav" aria-label="二、哈希并校验密码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、创建对象，进行哈希和校验密码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2hashpassword" class="md-nav__link">
+    2、哈希密码：hash(password)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3verifyplain_password-hashed_password" class="md-nav__link">
+    3、校验密码：verify(plain_password, hashed_password)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jwt_1" class="md-nav__link">
+    三、JWT令牌验证加密
+  </a>
+  
+    <nav class="md-nav" aria-label="三、JWT令牌验证加密">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1jwt" class="md-nav__link">
+    1、生成一个随机的密钥，用于对JWT令牌进行签名
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2、创建密钥变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3jwt" class="md-nav__link">
+    3、创建用于设定JWT令牌签名算法的变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、创建设置令牌过期时间变量（单位：分钟）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5、模拟数据库用户信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6、创建所需模型类
+  </a>
+  
+    <nav class="md-nav" aria-label="6、创建所需模型类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1) 用户模型基类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2token" class="md-nav__link">
+    2）登录成功返回token模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3）用户登录模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    4）创建用户模型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7、创建生成访问令牌的函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8、校验用户功能函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9api" class="md-nav__link">
+    9、创建登录接口api
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jwt_2" class="md-nav__link">
+    四、JWT令牌验证解密
+  </a>
+  
+    <nav class="md-nav" aria-label="四、JWT令牌验证解密">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1token" class="md-nav__link">
+    1、验证token
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2api" class="md-nav__link">
+    2、访问当前用户信息接口api
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3tokenapi" class="md-nav__link">
+    3、需要token验证但不需要用户信息数据接口api
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/XD825/xd825.github.io/edit/main/docs/FastAPI/002FastAPI-JWT验证.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="jwtjson-web-tokens">JWT(JSON Web Tokens)</h1>
+<h2 id="_1">一、依赖库安装</h2>
+<h3 id="jwt">jwt</h3>
+<pre><code class="language-bash">pip install jwt==1.2.0
+</code></pre>
+<h3 id="python-jose">python-jose</h3>
+<ul>
+<li>用于生成和检验JWT令牌</li>
+</ul>
+<pre><code class="language-bash">pip install python-jose==3.2.0
+</code></pre>
+<h3 id="passlib">passlib</h3>
+<ul>
+<li>用于处理哈希密码的包</li>
+<li>支持许多安全哈希算法以及配合算法使用的实用程序</li>
+<li>推荐的算法是 Bcrypt</li>
+</ul>
+<pre><code class="language-bash">pip install passlib[Bcrypt]==1.7.4
+</code></pre>
+<h2 id="_2">二、哈希并校验密码</h2>
+<h3 id="1">1、创建对象，进行哈希和校验密码</h3>
+<pre><code class="language-python">from passlib.context import CryptContext
+# 使用的算法是Bcrypt
+pwd_context = CryptContext(schemes=[&quot;bcrypt&quot;], deprecated=&quot;auto&quot;)
+</code></pre>
+<h3 id="2hashpassword">2、哈希密码：hash(password)</h3>
+<pre><code class="language-python">def get_password_hash(password):
+    &quot;&quot;&quot;
+    哈希来自用户的密码
+    :param password: 原密码
+    :return: 哈希后的密码
+    &quot;&quot;&quot;
+    return pwd_context.hash(password)
+# 哈希后的密码
+# $2b$12$sErK932BEaLyIisz30PubepN7w91RLwkISWbAFYgUgoIqh8goJLEW
+</code></pre>
+<h3 id="3verifyplain_password-hashed_password">3、校验密码：verify(plain_password, hashed_password)</h3>
+<pre><code class="language-python">def verify_password(plain_password, hashed_password):
+    &quot;&quot;&quot;
+    校验接收的密码是否与存储的哈希值匹配
+    :param plain_password: 原密码
+    :param hashed_password: 哈希后的密码
+    :return: 返回值为bool类型，校验成功返回True,反之False
+    &quot;&quot;&quot;
+    return pwd_context.verify(plain_password, hashed_password)
+</code></pre>
+<h2 id="jwt_1">三、JWT令牌验证加密</h2>
+<h3 id="1jwt">1、生成一个随机的密钥，用于对JWT令牌进行签名</h3>
+<pre><code class="language-bash">openssl rand -hex 32
+# eac77e4e9a9a767b792779132e84ea37b1f4c31bec56714607f617a3fbdfbd53
+</code></pre>
+<h3 id="2">2、创建密钥变量</h3>
+<pre><code class="language-python">SECRET_KEY = &quot;eac77e4e9a9a767b792779132e84ea37b1f4c31bec56714607f617a3fbdfbd53&quot;
+</code></pre>
+<h3 id="3jwt">3、创建用于设定JWT令牌签名算法的变量</h3>
+<pre><code class="language-python">ALGORITHM = &quot;HS256&quot;
+</code></pre>
+<h3 id="4">4、创建设置令牌过期时间变量（单位：分钟）</h3>
+<pre><code class="language-python">ACCESS_TOKEN_EXPIRE_MINUTES = 30
+</code></pre>
+<h3 id="5">5、模拟数据库用户信息</h3>
+<pre><code class="language-python">users_db = {
+    &quot;mockuser&quot;:{
+        &quot;id&quot;: 1,
+        &quot;username&quot;: &quot;mockuser&quot;,
+        &quot;email&quot;: &quot;mock@user.com&quot;,
+        &quot;password&quot;: &quot;$2b$12$sErK932BEaLyIisz30PubepN7w91RLwkISWbAFYgUgoIqh8goJLEW&quot;,
+    }
+}
+</code></pre>
+<h3 id="6">6、创建所需模型类</h3>
+<pre><code class="language-python">from typing import Optional
+from pydantic import BaseModel, EmailStr
+</code></pre>
+<h4 id="1_1">1) 用户模型基类</h4>
+<pre><code class="language-python">class UserBase(BaseModel):
+    id: Optional[int] = False
+    username: str = None
+    # pip install pydantic[email]
+    email: Optional[EmailStr] = None
+</code></pre>
+<h4 id="2token">2）登录成功返回token模型</h4>
+<pre><code class="language-python">class TokenModel(UserBase):
+    token: str = None
+</code></pre>
+<h4 id="3">3）用户登录模型</h4>
+<pre><code class="language-python">class LoginModel(BaseModel):
+    username: str = None
+    password: str = None
+</code></pre>
+<h4 id="4_1">4）创建用户模型</h4>
+<pre><code class="language-python">class CreateModel(UserBase):
+    password: str
+</code></pre>
+<h3 id="7">7、创建生成访问令牌的函数</h3>
+<pre><code class="language-python">def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
+    &quot;&quot;&quot;
+
+    :param data: 需要进行JWT令牌加密的数据（解密的时候会用到） 
+    :param expires_delta: 令牌有效期
+    :return: token
+    &quot;&quot;&quot;
+    to_encode = data.copy()
+    if expires_delta:
+        expire = datetime.utcnow() + expires_delta
+    else:
+        expire = datetime.utcnow() + timedelta(minutes=15)
+    # 添加失效时间
+    to_encode.update({&quot;exp&quot;: expire})
+    # SECRET_KEY：密钥
+    # ALGORITHM：JWT令牌签名算法
+    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+    return encoded_jwt
+</code></pre>
+<h3 id="8">8、校验用户功能函数</h3>
+<pre><code class="language-python">def check_user(username, password):
+    &quot;&quot;&quot;
+    校验用户（真实的应该是跟DB进行校验，这里只是做演示）
+    :param username: 
+    :param password: 
+    :return: 
+    &quot;&quot;&quot;
+    user = users_db.get(username)
+    if not user:
+        return False
+    if not verify_password(password, user.get(&quot;password&quot;)):
+        return False
+    return user
+</code></pre>
+<h3 id="9api">9、创建登录接口api</h3>
+<pre><code class="language-python"># 使用表单格式参数需要安装模块：python-multipart
+@app.post(&quot;/token&quot;, response_model=TokenModel)
+async def login_for_access_token(username: str = Form(...), password: str = Form(...)):
+    user = check_user(username, password)
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail=&quot;用户名或密码错误&quot;
+        )
+    # 过期时间
+    access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    # 把id进行username加密，要使用str类型
+    access_token = create_access_token(
+        data={&quot;sub&quot;: user.get(&quot;username&quot;)}, expires_delta=access_token_expires
+    )
+    user.update({&quot;token&quot;: access_token})
+    return user
+</code></pre>
+<h2 id="jwt_2">四、JWT令牌验证解密</h2>
+<h3 id="1token">1、验证token</h3>
+<pre><code class="language-python">def check_jwt_token(token: Optional[str] = Header(None)):
+    &quot;&quot;&quot;
+    验证token
+    :param token:
+    :return: 返回用户信息
+    &quot;&quot;&quot;
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=ALGORITHM)
+        username: str = payload.get(&quot;sub&quot;)
+        # 通过解析得到的username,获取用户信息,并返回
+        return users_db.get(username)
+    except (jwt.JWTError, jwt.ExpiredSignatureError, ValidationError):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail={
+                'code': 5000,
+                'message': &quot;Token Error&quot;,
+                'data': &quot;Token Error&quot;,
+            }
+        )
+</code></pre>
+<h3 id="2api">2、访问当前用户信息接口api</h3>
+<pre><code class="language-python"># 定义返回数据格式为UserBase模型格式数据
+# 把校验token函数当做依赖项进行赋值给user
+# 验证成功，并返回user
+@app.get(&quot;/user&quot;, response_model=UserBase)
+async def get_user(*, user: UserBase = Depends(check_jwt_token)):
+    return user
+</code></pre>
+<h3 id="3tokenapi">3、需要token验证但不需要用户信息数据接口api</h3>
+<pre><code class="language-python"># 当不需要依赖项的返回值时，可以将依赖项添加到路径中，只做验证使用
+@app.get(&quot;/pro&quot;, dependencies=[Depends(check_jwt_token)])
+async def get_projects():
+    return {&quot;projects&quot;: &quot;pro&quot;}
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../001FastAPI%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              FastAPI简单使用
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../../HTTPRunner/HTTPRunner2.x/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              HTTPRunner2.x
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
+      
+    
+  </body>
+</html>

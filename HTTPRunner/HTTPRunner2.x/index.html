@@ -1,0 +1,1490 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="Desire">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.4">
+    
+    
+      
+        <title>HTTPRunner2.x - Desire</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#httprunner" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Desire" class="md-header__button md-logo" aria-label="Desire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Desire
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HTTPRunner2.x
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/XD825/xd825.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Desire" class="md-nav__button md-logo" aria-label="Desire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Desire
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/XD825/xd825.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        主頁
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Docker
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Docker" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Docker
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docker/docker%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        docker笔记
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        FastAPI
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="FastAPI" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          FastAPI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FastAPI/001FastAPI%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+        FastAPI简单使用
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FastAPI/002FastAPI-JWT%E9%AA%8C%E8%AF%81/" class="md-nav__link">
+        JWT(JSON Web Tokens)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        HTTPRunner
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="HTTPRunner" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          HTTPRunner
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          HTTPRunner2.x
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        HTTPRunner2.x
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#httprunner" class="md-nav__link">
+    HTTPRunner
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTPRunner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、简介
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    二、安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httprunner_1" class="md-nav__link">
+    三、创建httprunner工程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    四、目录结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    五、简单使用
+  </a>
+  
+    <nav class="md-nav" aria-label="五、简单使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1yml" class="md-nav__link">
+    1）yml用例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2yml" class="md-nav__link">
+    2）运行yml用例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    六、特殊用法
+  </a>
+  
+    <nav class="md-nav" aria-label="六、特殊用法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1）局部变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2base_url" class="md-nav__link">
+    2）base_url
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3env" class="md-nav__link">
+    3）环境变量.env文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-debugtalkpy" class="md-nav__link">
+    4）使用自定义函数-debugtalk.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5setup_hooks-or-teardown_hookshooktestsuite" class="md-nav__link">
+    5）前置（setup_hooks） OR 后置（teardown_hooks）hook(不可用于testsuite中)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate" class="md-nav__link">
+    七、断言 validate
+  </a>
+  
+    <nav class="md-nav" aria-label="七、断言 validate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1）断言方式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extract" class="md-nav__link">
+    八、提取数据 extract
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httprunner_2" class="md-nav__link">
+    九、整个HttpRunner项目目录文件解析
+  </a>
+  
+    <nav class="md-nav" aria-label="九、整个HttpRunner项目目录文件解析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1apiloginyml" class="md-nav__link">
+    1）api\login.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2apiprojectsyml" class="md-nav__link">
+    2）api\projects.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3testcaseslogin_testcaseyml" class="md-nav__link">
+    3）testcases\login_testcase.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4testcasesprojects_testcaseyml" class="md-nav__link">
+    4）testcases\projects_testcase.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5testsuitestestsuiteyml" class="md-nav__link">
+    5）testsuites\testsuite.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6debugtalkpy" class="md-nav__link">
+    6）debugtalk.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7env" class="md-nav__link">
+    7）.env
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7runpy" class="md-nav__link">
+    7）run.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Shell
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Shell" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Shell
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Shell/shell%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        shell笔记
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#httprunner" class="md-nav__link">
+    HTTPRunner
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTPRunner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、简介
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    二、安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httprunner_1" class="md-nav__link">
+    三、创建httprunner工程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    四、目录结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    五、简单使用
+  </a>
+  
+    <nav class="md-nav" aria-label="五、简单使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1yml" class="md-nav__link">
+    1）yml用例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2yml" class="md-nav__link">
+    2）运行yml用例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    六、特殊用法
+  </a>
+  
+    <nav class="md-nav" aria-label="六、特殊用法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1）局部变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2base_url" class="md-nav__link">
+    2）base_url
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3env" class="md-nav__link">
+    3）环境变量.env文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-debugtalkpy" class="md-nav__link">
+    4）使用自定义函数-debugtalk.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5setup_hooks-or-teardown_hookshooktestsuite" class="md-nav__link">
+    5）前置（setup_hooks） OR 后置（teardown_hooks）hook(不可用于testsuite中)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate" class="md-nav__link">
+    七、断言 validate
+  </a>
+  
+    <nav class="md-nav" aria-label="七、断言 validate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1）断言方式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extract" class="md-nav__link">
+    八、提取数据 extract
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httprunner_2" class="md-nav__link">
+    九、整个HttpRunner项目目录文件解析
+  </a>
+  
+    <nav class="md-nav" aria-label="九、整个HttpRunner项目目录文件解析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1apiloginyml" class="md-nav__link">
+    1）api\login.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2apiprojectsyml" class="md-nav__link">
+    2）api\projects.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3testcaseslogin_testcaseyml" class="md-nav__link">
+    3）testcases\login_testcase.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4testcasesprojects_testcaseyml" class="md-nav__link">
+    4）testcases\projects_testcase.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5testsuitestestsuiteyml" class="md-nav__link">
+    5）testsuites\testsuite.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6debugtalkpy" class="md-nav__link">
+    6）debugtalk.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7env" class="md-nav__link">
+    7）.env
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7runpy" class="md-nav__link">
+    7）run.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/XD825/xd825.github.io/edit/main/docs/HTTPRunner/HTTPRunner2.x.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>HTTPRunner2.x</h1>
+                
+                <h2 id="httprunner">HTTPRunner</h2>
+<h3 id="_1">一、简介</h3>
+<p>2.x版本集成了</p>
+<p>3.x版本集成了pytest</p>
+<h3 id="_2">二、安装</h3>
+<pre><code class="language-bash">pip install httprunner==2.3.0
+</code></pre>
+<h3 id="httprunner_1">三、创建httprunner工程</h3>
+<pre><code class="language-bash">hrun --startproject ./hrdemo
+</code></pre>
+<h3 id="_3">四、目录结构</h3>
+<pre><code class="language-bash">|-hrdemo
+|--api：主要存放接口的最小执行单位（正向用例）
+|--reports：用于存放测试报告
+|--testcases：用于处理接口的负责执行逻辑，实现接口间的依赖
+|--testsuites：用于添加多条测试用例，批量执行，处理数据驱动测试（参数化）
+|--.env：用于自定义全局环境变量，可以在整个项目的测试脚本中调用
+|--.gitignore
+|--debugtalk.py：用于处理动态参数，也可以处理参数化动态数据
+</code></pre>
+<h3 id="_4">五、简单使用</h3>
+<h4 id="1yml">1）yml用例</h4>
+<pre><code class="language-yml">name: get demo
+request:
+  method: GET
+  url: https://httpbin.org/get
+validate:
+  - eq: [&quot;status_code&quot;,200]
+</code></pre>
+<h4 id="2yml">2）运行yml用例</h4>
+<pre><code class="language-bash">hrun api/get_demo.yml --report-dir reports
+OR
+httprunner api/get_demo.yml --report-dir reports
+</code></pre>
+<h3 id="_5">六、特殊用法</h3>
+<h4 id="1">1）局部变量</h4>
+<p>在yml文件中，在variables节点下定义的参数为局部变量，作用域只在当前yml下</p>
+<pre><code class="language-yml">name: get params
+variables:
+  value1: value1
+  value2: value2
+</code></pre>
+<p><strong>使用：</strong></p>
+<p>固定语法：<code>$变量名</code></p>
+<pre><code class="language-yml">name: get params
+variables:
+  value1: value1
+  value2: value2
+request:
+  method: GET
+  url: 'https://httpbin.org/get'
+  params:
+    value1: $value1
+    value2: $value2
+validate:
+  - eq: ['status_code', 200]
+</code></pre>
+<h4 id="2base_url">2）base_url</h4>
+<p>在yml文件中，添加一个新的节点base_url(名字为固定写法)</p>
+<pre><code class="language-yml">base_url: 'https://httpbin.org'
+</code></pre>
+<h4 id="3env">3）环境变量<code>.env</code>文件</h4>
+<p>在<code>.env</code>中定义的变量为环境变量</p>
+<pre><code>USERNAME=leolee
+PASSWORD=123456
+BASE_URL=https://httpbin.org
+</code></pre>
+<p><strong>使用：</strong></p>
+<p>固定语法：<code>${ENV(定义的环境变量名)}</code></p>
+<pre><code class="language-yml">name: get params
+variables:
+  value1: value1
+  value2: value2
+base_url: ${ENV(BASE_URL)}
+request:
+  method: GET
+  url: /get
+  params:
+    value1: $value1
+    value2: $value2
+validate:
+  - eq: ['status_code', 200]
+</code></pre>
+<h4 id="4-debugtalkpy">4）使用自定义函数-<code>debugtalk.py</code></h4>
+<p>在<code>debugtalk.py</code>中定义函数</p>
+<pre><code class="language-python">import random
+
+def get_agent():
+    agents = [&quot;Mozilla/5.0 Desire&quot;, &quot;Mozilla/5.0 Tommy&quot;,
+              &quot;Mozilla/5.0 Ronin&quot;, &quot;Mozilla/5.0 DD&quot;]
+    return random.choice(agents)
+</code></pre>
+<p><strong>使用：</strong></p>
+<p>固定语法：<code>${函数调用}</code></p>
+<pre><code class="language-yml">name: get params
+variables:
+  value1: value1
+  value2: value2
+base_url: ${ENV(BASE_URL)}
+request:
+  method: GET
+  url: /get
+  params:
+    value1: $value1
+    value2: $value2
+  headers:
+    User-Agent: ${get_agent()}
+validate:
+  - eq: ['status_code', 200]
+</code></pre>
+<h4 id="5setup_hooks-or-teardown_hookshooktestsuite">5）前置（setup_hooks） OR 后置（teardown_hooks）hook(不可用于testsuite中)</h4>
+<pre><code class="language-yml">
+name: login api
+variables:
+    username: desire
+    password: 123456
+    n_secs: 1
+
+base_url: ${ENV(BASE_URL)}
+request:
+    url: /user/login/
+    method: POST
+    headers:
+        Content-Type: &quot;application/json&quot;
+    json:
+        username: $username
+        password: $password
+# 前置条件
+setup_hooks:
+    # 调用自定义的前置函数，修改请求信息headers中的User-Agent为Desire
+    - ${setup_hook_add_kwargs($request)}
+# 后置条件
+teardown_hooks:
+    # 调用自定义的后置函数，如果响应成功则休眠5秒，响应非200则休眠n_secs
+    - ${teardown_hook_sleep_N_secs($response, $n_secs)}
+validate:
+    - eq: [&quot;status_code&quot;, 200]
+</code></pre>
+<p><strong>debugtalk.py自定义函数</strong></p>
+<pre><code class="language-python">import time
+
+def setup_hook_add_kwargs(request):
+    request[&quot;headers&quot;][&quot;User-Agent&quot;] = &quot;Desire&quot;
+
+
+def teardown_hook_sleep_N_secs(response, n_secs):
+    &quot;&quot;&quot; sleep n seconds after request
+    &quot;&quot;&quot;
+    if response.status_code == 200:
+        time.sleep(5)
+    else:
+        time.sleep(n_secs)
+</code></pre>
+<h3 id="validate">七、断言 <code>validate</code></h3>
+<h4 id="1_1">1）断言方式</h4>
+<table>
+<thead>
+<tr>
+<th>断言方法</th>
+<th>源码（httprunner/built_in.py）</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>eq</strong></td>
+<td><strong>def equals(<em>check_value</em>, <em>expect_value</em>):</strong></td>
+<td><strong>是否相等</strong></td>
+</tr>
+<tr>
+<td><strong>lt</strong></td>
+<td><strong>def less_than(<em>check_value</em>, <em>expect_value</em>):</strong></td>
+<td><strong>小于</strong></td>
+</tr>
+<tr>
+<td><strong>le</strong></td>
+<td><strong>def less_than_or_equals(<em>check_value</em>, <em>expect_value</em>):</strong></td>
+<td><strong>小于等于</strong></td>
+</tr>
+<tr>
+<td><strong>gt</strong></td>
+<td><strong>def greater_than(<em>check_value</em>, <em>expect_value</em>):</strong></td>
+<td><strong>大于</strong></td>
+</tr>
+<tr>
+<td><strong>ge</strong></td>
+<td><strong>def greater_than_or_equals(<em>check_value</em>, <em>expect_value</em>):</strong></td>
+<td><strong>大于等于</strong></td>
+</tr>
+<tr>
+<td><strong>ne</strong></td>
+<td><strong>def not_equals(<em>check_value</em>, <em>expect_value</em>):</strong></td>
+<td><strong>不等于</strong></td>
+</tr>
+<tr>
+<td><strong>str_eq</strong></td>
+<td><strong>def string_equals(<em>check_value</em>, <em>expect_value</em>):</strong></td>
+<td><strong>字符串等于</strong></td>
+</tr>
+<tr>
+<td><strong>len_eq</strong></td>
+<td><strong>def length_equals(<em>check_value</em>, <em>expect_value</em>):</strong></td>
+<td><strong>长度等于</strong></td>
+</tr>
+<tr>
+<td><strong>len_gt</strong></td>
+<td><strong>def length_greater_than(<em>check_value</em>, <em>expect_value</em>):</strong></td>
+<td><strong>长度大于</strong></td>
+</tr>
+<tr>
+<td><strong>len_ge</strong></td>
+<td><strong>def length_greater_than_or_equals(<em>check_value</em>, <em>expect_value</em>):</strong></td>
+<td><strong>长度大于等于</strong></td>
+</tr>
+<tr>
+<td><strong>len_lt</strong></td>
+<td><strong>def length_less_than(<em>check_value</em>, <em>expect_value</em>):</strong></td>
+<td><strong>长度小于</strong></td>
+</tr>
+<tr>
+<td><strong>len_le</strong></td>
+<td><strong>def length_less_than_or_equals(<em>check_value</em>, <em>expect_value</em>):</strong></td>
+<td><strong>长度小于等于</strong></td>
+</tr>
+<tr>
+<td><strong>contains</strong></td>
+<td><strong>def contains(<em>check_value</em>, <em>expect_value</em>):</strong></td>
+<td><strong>预期结果是否被包含在预期结果中</strong></td>
+</tr>
+<tr>
+<td><strong>contained_by</strong></td>
+<td><strong>def contained_by(<em>check_value</em>, <em>expect_value</em>):</strong></td>
+<td><strong>实际结果是否被包含在预期结果中</strong></td>
+</tr>
+<tr>
+<td><strong>type_match</strong></td>
+<td><strong>def type_match(<em>check_value</em>, <em>expect_value</em>):</strong></td>
+<td><strong>类型是否匹配</strong></td>
+</tr>
+<tr>
+<td><strong>regex_match</strong></td>
+<td><strong>def regex_match(<em>check_value</em>, <em>expect_value</em>):</strong></td>
+<td><strong>正则表达式是否匹配</strong></td>
+</tr>
+<tr>
+<td><strong>startswith</strong></td>
+<td><strong>def startswith(<em>check_value</em>, <em>expect_value</em>):</strong></td>
+<td><strong>字符串是否以什么开头</strong></td>
+</tr>
+<tr>
+<td><strong>endswith</strong></td>
+<td><strong>def endswith(<em>check_value</em>, <em>expect_value</em>):</strong></td>
+<td><strong>字符串是否以什么结尾</strong></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>#### 2）断言内容-<code>check_value</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- status_code：响应状态码</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- encoding：字符集</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- ok：是否OK</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- reason：</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- url：请求地址</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- headers：请求头</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- headers.content-type</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- cookies：cookie信息</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- content：响应体</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- content.person.name.first_name</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- text：响应体文本格式</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- json：响应体json格式</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="extract">八、提取数据 <code>extract</code></h3>
+<pre><code class="language-yml">
+config:
+    name: &quot;demo testcase&quot;
+    variables:
+        device_sn: &quot;ABC&quot;
+        # username: ${ENV(USERNAME)}
+        # password: ${ENV(PASSWORD)}
+    base_url: ${ENV(BASE_URL)}
+
+teststeps:
+-
+    name: $title
+    api: api\login.yml
+    variables:
+        user_agent: 'iOS/10.3'
+        device_sn: $device_sn
+    # 提取用例执行的结果，并给赋值给token
+    extract:
+        - token: content.token
+    validate:
+        - eq: [&quot;status_code&quot;, $status_code]
+        - contains: [&quot;content&quot;, $msg]
+</code></pre>
+<h3 id="httprunner_2">九、整个HttpRunner项目目录文件解析</h3>
+<h4 id="1apiloginyml">1）api\login.yml</h4>
+<pre><code class="language-yml"># 用例的名称
+name: login api
+# 局部变量
+variables:
+    username: desire
+    password: 123456
+# base url 指定用法
+base_url: ${ENV(BASE_URL)}
+# 请求数据
+request:
+    # 请求url，如果有base_url会自动进行拼接url
+    url: /user/login/
+    # 请求方式
+    method: POST
+    # 请求头信息
+    headers:
+        Content-Type: &quot;application/json&quot;
+    # 请求参数（data/json/params）
+    json:
+        username: $username
+        password: $password
+# 断言信息
+validate:
+    - eq: [&quot;status_code&quot;, 200]
+</code></pre>
+<h4 id="2apiprojectsyml">2）api\projects.yml</h4>
+<pre><code class="language-yml">name: projects api
+variables:
+    page: 1
+    size: 3
+
+base_url: ${ENV(BASE_URL)}
+request:
+    url: /projects/
+    method: GET
+    headers:
+        Content-Type: &quot;application/json&quot;
+    params:
+        page: $page
+        size: $size
+    headers:
+        # 此接口需要token鉴权，要添加此请求头，并且token是从登陆接口中获取的
+        Authorization: &quot;JWT $token&quot;
+validate:
+    - eq: [&quot;status_code&quot;, 200]
+</code></pre>
+<h4 id="3testcaseslogin_testcaseyml">3）testcases\login_testcase.yml</h4>
+<pre><code class="language-yml">config:
+    name: &quot;demo testcase&quot;
+    # 局部变量，作用域在整个testcases中
+    variables:
+        device_sn: &quot;ABC&quot;
+        title: 登录用例
+        status_code: 200
+        msg: token
+    base_url: ${ENV(BASE_URL)}
+
+teststeps:
+-
+    name: $title
+    api: api\login.yml
+    # 定义变量，作用域在本step下
+    variables:
+        user_agent: 'iOS/10.3'
+        device_sn: $device_sn
+    validate:
+        - eq: [&quot;status_code&quot;, $status_code]
+        - contains: [&quot;content&quot;, $msg]
+</code></pre>
+<h4 id="4testcasesprojects_testcaseyml">4）testcases\projects_testcase.yml</h4>
+<pre><code class="language-yml"># 用例集配置信息
+config:
+    # 用例集名称
+    name: &quot;demo testcase&quot;
+    # 局部变量，作用域为整个用例集（yml）
+    variables:
+        title: 获取项目列表
+        status_code: 200
+    # url 使用全局配置文件变量（.env）
+    base_url: ${ENV(BASE_URL)}
+
+# 测试步骤
+teststeps:
+# 用例一
+-
+    # 用例名称
+    name: 正常登录
+    # 用例接口所在yml文件 or 用例接口
+    api: api\login.yml
+    # 提取返回值
+    extract:
+        # 提取返回值，中的token值，然后赋值给变量token
+        # token的作用域是在整个testcases，用例二中的projects.yml是可以获取到的
+        - token: content.token
+    # 断言
+    validate:
+        - eq: [&quot;status_code&quot;, 200]
+# 用例二
+-
+    name: $title
+    # 用例接口，
+    api: api\projects.yml
+    validate:
+        - eq: [&quot;status_code&quot;, $status_code]
+</code></pre>
+<h4 id="5testsuitestestsuiteyml">5）testsuites\testsuite.yml</h4>
+<pre><code class="language-yml">config:
+    # 套件名称
+    name: &quot;接口套件&quot;
+    # 套件全局变量定义
+    # 如果在测试集或者接口用例中，跟这里的变量有一样的，这里的优先级最高，其次是测试集中，最后是接口用例
+    variables:
+         device_sn: &quot;XYZ&quot;
+    # 这里的base_url优先级最高
+    base_url: &quot;http://127.0.0.1:5000&quot;
+
+testcases:
+-
+    name: 登录接口套件-$title
+    # 测试用例集
+    testcase: testcases\login_testcase.yml
+    # 进行参数化，这里的变量优先级最高，作用域只在当前的用例集中
+    parameters: 
+        # 参数化使用规则：变量之间用-拼接，使用自定义函数进行参数化，见：debugtalk.py文件中的get_accounts方法
+        - title-username-password-status_code-msg: ${get_accounts()}
+-
+    name: 项目接口套件-$title
+    testcase: testcases\projects_testcase.yml
+    parameters:
+        # 参数化使用规则：变量之间用-拼接，然后每一个用例数据就是一个列表，列表中的元素跟定义的变量一一对应
+        - title-page-size-status_code:
+            - [&quot;获取项目列表数据，每页2条，第一页&quot;, &quot;1&quot;, &quot;2&quot;, 200]
+            - [&quot;获取项目列表数据，每页3条，第2页&quot;, &quot;2&quot;, &quot;3&quot;, 200]
+            - [&quot;获取项目列表数据，不指定每页数量，第一页&quot;, &quot;1&quot;, &quot;&quot;, 200]
+            - [&quot;获取项目列表数据，每页2条，，不指定页数&quot;, &quot;&quot;, &quot;2&quot;, 404]
+</code></pre>
+<h4 id="6debugtalkpy">6）debugtalk.py</h4>
+<pre><code class="language-python"># 可以根据实际情况创建带参数的函数
+def get_accounts():
+
+    # 定义参数化用例数据（嵌套字典的列表），每一个用例为一个字典，没个字典的key对应到设置的参数化
+    accounts = [
+        {&quot;title&quot;: &quot;正常登录&quot;, &quot;username&quot;: &quot;desire&quot;, &quot;password&quot;: &quot;123456&quot;,
+            &quot;status_code&quot;: 200, &quot;msg&quot;: &quot;token&quot;},
+        {&quot;title&quot;: &quot;密码错误&quot;, &quot;username&quot;: &quot;desire&quot;, &quot;password&quot;: &quot;123457&quot;,
+            &quot;status_code&quot;: 400, &quot;msg&quot;: &quot;non_field_errors&quot;},
+        {&quot;title&quot;: &quot;账号错误&quot;, &quot;username&quot;: &quot;desire111&quot;, &quot;password&quot;: &quot;123456&quot;,
+            &quot;status_code&quot;: 400, &quot;msg&quot;: &quot;non_field_errors&quot;},
+        {&quot;title&quot;: &quot;用户名为空&quot;, &quot;username&quot;: &quot;&quot;, &quot;password&quot;: &quot;123456&quot;,
+            &quot;status_code&quot;: 400, &quot;msg&quot;: &quot;username&quot;},
+        {&quot;title&quot;: &quot;密码为空&quot;, &quot;username&quot;: &quot;desire&quot;, &quot;password&quot;: &quot;&quot;,
+            &quot;status_code&quot;: 400, &quot;msg&quot;: &quot;password&quot;},
+    ]
+    # 把参数化数据返回
+    return accounts
+</code></pre>
+<h4 id="7env">7）.env</h4>
+<pre><code># 环境变量名，一般是以大写定义，=后面是变量值（固定写法）
+BASE_URL=http://127.0.0.1:8000/
+</code></pre>
+<h4 id="7runpy">7）run.py</h4>
+<pre><code class="language-python">from httprunner.api import HttpRunner
+
+hr = HttpRunner()
+
+# 使用HttpRunner提供的run方法进行执行用例
+
+# 指定执行单个用例
+# hr.run(r&quot;api\login.yml&quot;)
+
+# 指定执行测试集（相同变量，测试集中的变量优先级最高）
+# hr.run(r&quot;testcases\projects_testcase.yml&quot;)
+
+# 指定执行测试套件（相同变量，测试套件中的变量优先级最高）
+hr.run(r&quot;testsuites\testsuite.yml&quot;)
+
+# 通过HttpRunner提供的summary方法可以获取到执行的结果信息
+print(hr.summary)
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../../FastAPI/002FastAPI-JWT%E9%AA%8C%E8%AF%81/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              JWT(JSON Web Tokens)
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../../Shell/shell%E7%AC%94%E8%AE%B0/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              shell笔记
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
+      
+    
+  </body>
+</html>
