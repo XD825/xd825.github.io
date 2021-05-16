@@ -380,6 +380,94 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sqlalchemy" class="md-nav__link">
+    六、集成SQLAlchemy使用
+  </a>
+  
+    <nav class="md-nav" aria-label="六、集成SQLAlchemy使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1、简单使用
+  </a>
+  
+    <nav class="md-nav" aria-label="1、简单使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-paginatefastapi_paginationextsqlalchemy" class="md-nav__link">
+    1） 更改【paginate】包的路径为【fastapi_pagination.ext.sqlalchemy】
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2） 创建数据返回模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-sqlalchemypaginate" class="md-nav__link">
+    3） 使用【sqlalchemy.paginate】
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    2、使用异步
+  </a>
+  
+    <nav class="md-nav" aria-label="2、使用异步">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1sqlalchemy" class="md-nav__link">
+    1）sqlalchemy引擎需要异步创建
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    2）创建异步的数据库会话
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3）创建异步的数据库依赖项
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4paginateasync_sqlalchemy" class="md-nav__link">
+    4）paginate使用async_sqlalchemy模块下的
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -688,6 +776,94 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sqlalchemy" class="md-nav__link">
+    六、集成SQLAlchemy使用
+  </a>
+  
+    <nav class="md-nav" aria-label="六、集成SQLAlchemy使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1、简单使用
+  </a>
+  
+    <nav class="md-nav" aria-label="1、简单使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-paginatefastapi_paginationextsqlalchemy" class="md-nav__link">
+    1） 更改【paginate】包的路径为【fastapi_pagination.ext.sqlalchemy】
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2） 创建数据返回模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-sqlalchemypaginate" class="md-nav__link">
+    3） 使用【sqlalchemy.paginate】
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    2、使用异步
+  </a>
+  
+    <nav class="md-nav" aria-label="2、使用异步">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1sqlalchemy" class="md-nav__link">
+    1）sqlalchemy引擎需要异步创建
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    2）创建异步的数据库会话
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3）创建异步的数据库依赖项
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4paginateasync_sqlalchemy" class="md-nav__link">
+    4）paginate使用async_sqlalchemy模块下的
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -946,6 +1122,58 @@ from pagination import Page
 @app.get('/users', response_model=Page[User])
 async def get_users():
     return paginate(users)
+</code></pre>
+<h2 id="sqlalchemy">六、集成SQLAlchemy使用</h2>
+<h3 id="1_1">1、简单使用</h3>
+<h4 id="1-paginatefastapi_paginationextsqlalchemy">1） 更改【paginate】包的路径为【fastapi_pagination.ext.sqlalchemy】</h4>
+<pre><code class="language-python">from fastapi_pagination.ext.sqlalchemy import paginate
+</code></pre>
+<h4 id="2_1">2） 创建数据返回模型</h4>
+<pre><code class="language-python">class User(BaseModel):
+    email: str
+    password: str
+    is_active: bool
+
+    # 这个配置必须得要
+    class Config:
+        orm_mode = True
+</code></pre>
+<h4 id="3-sqlalchemypaginate">3） 使用【sqlalchemy.paginate】</h4>
+<pre><code class="language-python"># 【db: Session = Depends(get_db)】：数据库依赖项
+@app.get('/users', response_model=Page[User])
+async def get_users(db: Session = Depends(get_db)):
+    # 此处的参数为【db.query(models.User)】
+    # 【sqlalchemy.paginate】的参数为【sqlalchemy.orm.query.Query】类型
+    return paginate(db.query(models.User))
+</code></pre>
+<h3 id="2_2">2、使用异步</h3>
+<h4 id="1sqlalchemy">1）sqlalchemy引擎需要异步创建</h4>
+<pre><code class="language-python">from sqlalchemy.ext.asyncio import create_async_engine
+
+# 注意sqlite不支持异步
+engine = create_async_engine(SQLALCHEMY_DATABASE_URL)
+</code></pre>
+<h4 id="2_3">2）创建异步的数据库会话</h4>
+<pre><code class="language-python">from sqlalchemy.ext.asyncio import AsyncSession
+
+SessionLocal = sessionmaker(bind=engine, class_=AsyncSession)
+</code></pre>
+<h4 id="3">3）创建异步的数据库依赖项</h4>
+<pre><code class="language-python"># 依赖项要定义为异步函数
+async def get_db():
+    async with SessionLocal() as session:
+        yield session
+</code></pre>
+<h4 id="4paginateasync_sqlalchemy">4）paginate使用async_sqlalchemy模块下的</h4>
+<pre><code class="language-python">from fastapi_pagination.ext.async_sqlalchemy import paginate
+from sqlalchemy.future import select
+
+@app.get('/users', response_model=Page[User])
+async def get_users(db: Session = Depends(get_db)):
+    # 第一个参数为数据库连接
+    # 第二个参数为Select类型的参数
+    # 要添加await关键字
+    return await paginate(db, select(models.User))
 </code></pre>
                 
               
