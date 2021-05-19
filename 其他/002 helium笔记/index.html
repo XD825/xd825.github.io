@@ -16,7 +16,7 @@
     
     
       
-        <title>JWT(JSON Web Tokens) - Desire</title>
+        <title>helium(selenium-python-helium)笔记 - Desire</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#jwtjson-web-tokens" class="md-skip">
+        <a href="#heliumselenium-python-helium" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              JWT(JSON Web Tokens)
+              helium(selenium-python-helium)笔记
             
           </span>
         </div>
@@ -210,14 +210,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       <label class="md-nav__link" for="__nav_2">
         FastAPI
@@ -235,7 +233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../001FastAPI%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+      <a href="../../FastAPI/001FastAPI%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="md-nav__link">
         FastAPI简单使用
       </a>
     </li>
@@ -245,256 +243,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          JWT(JSON Web Tokens)
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../FastAPI/002FastAPI-JWT%E9%AA%8C%E8%AF%81/" class="md-nav__link">
         JWT(JSON Web Tokens)
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    一、依赖库安装
-  </a>
-  
-    <nav class="md-nav" aria-label="一、依赖库安装">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#jwt" class="md-nav__link">
-    jwt
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#python-jose" class="md-nav__link">
-    python-jose
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#passlib" class="md-nav__link">
-    passlib
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    二、哈希并校验密码
-  </a>
-  
-    <nav class="md-nav" aria-label="二、哈希并校验密码">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1、创建对象，进行哈希和校验密码
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2hashpassword" class="md-nav__link">
-    2、哈希密码：hash(password)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3verifyplain_password-hashed_password" class="md-nav__link">
-    3、校验密码：verify(plain_password, hashed_password)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#jwt_1" class="md-nav__link">
-    三、JWT令牌验证加密
-  </a>
-  
-    <nav class="md-nav" aria-label="三、JWT令牌验证加密">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1jwt" class="md-nav__link">
-    1、生成一个随机的密钥，用于对JWT令牌进行签名
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2、创建密钥变量
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3jwt" class="md-nav__link">
-    3、创建用于设定JWT令牌签名算法的变量
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4、创建设置令牌过期时间变量（单位：分钟）
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    5、模拟数据库用户信息
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    6、创建所需模型类
-  </a>
-  
-    <nav class="md-nav" aria-label="6、创建所需模型类">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_1" class="md-nav__link">
-    1) 用户模型基类
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2token" class="md-nav__link">
-    2）登录成功返回token模型
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3）用户登录模型
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4_1" class="md-nav__link">
-    4）创建用户模型
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7" class="md-nav__link">
-    7、创建生成访问令牌的函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8" class="md-nav__link">
-    8、校验用户功能函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9api" class="md-nav__link">
-    9、创建登录接口api
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#jwt_2" class="md-nav__link">
-    四、JWT令牌验证解密
-  </a>
-  
-    <nav class="md-nav" aria-label="四、JWT令牌验证解密">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1token" class="md-nav__link">
-    1、验证token
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2api" class="md-nav__link">
-    2、访问当前用户信息接口api
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3tokenapi" class="md-nav__link">
-    3、需要token验证但不需要用户信息数据接口api
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -504,7 +257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../003%E5%88%86%E9%A1%B5%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/" class="md-nav__link">
+      <a href="../../FastAPI/003%E5%88%86%E9%A1%B5%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/" class="md-nav__link">
         分页功能实现
       </a>
     </li>
@@ -516,7 +269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../005Docker%2BGunicorn%2BUvicorn%E9%83%A8%E7%BD%B2FastAPI/" class="md-nav__link">
+      <a href="../../FastAPI/005Docker%2BGunicorn%2BUvicorn%E9%83%A8%E7%BD%B2FastAPI/" class="md-nav__link">
         Docker+Gunicorn+Uvicorn部署FastAPI
       </a>
     </li>
@@ -703,12 +456,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
       
       <label class="md-nav__link" for="__nav_7">
         其他
@@ -726,7 +481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E5%85%B6%E4%BB%96/001%20CentOS%208%20%E5%AE%89%E8%A3%85%E6%97%A0%E5%A4%B4%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8/" class="md-nav__link">
+      <a href="../001%20CentOS%208%20%E5%AE%89%E8%A3%85%E6%97%A0%E5%A4%B4%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8/" class="md-nav__link">
         CentOS 8 安装无头谷歌浏览器
       </a>
     </li>
@@ -736,11 +491,217 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../%E5%85%B6%E4%BB%96/002%20helium%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          helium(selenium-python-helium)笔记
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         helium(selenium-python-helium)笔记
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、前言
+  </a>
+  
+    <nav class="md-nav" aria-label="一、前言">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 资料
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 优点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helium" class="md-nav__link">
+    二、安装helium
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    三、浏览器常用操作
+  </a>
+  
+    <nav class="md-nav" aria-label="三、浏览器常用操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1. 导包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2. 启动浏览器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 打开网址
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-driver" class="md-nav__link">
+    4. driver操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 输入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6. 使用键盘按键
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7. 点击
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8. 双击
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    9. 拖动
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-alert" class="md-nav__link">
+    10. Alert弹窗处理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    11. 窗口切换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    12. 滚动
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    13. 悬停
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    14. 刷新
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    15. 等待元素出現
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    16. 关闭浏览器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-s" class="md-nav__link">
+    17. S表达式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    18. 查找所有符合的标签
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -778,173 +739,22 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    一、依赖库安装
+    一、前言
   </a>
   
-    <nav class="md-nav" aria-label="一、依赖库安装">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#jwt" class="md-nav__link">
-    jwt
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#python-jose" class="md-nav__link">
-    python-jose
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#passlib" class="md-nav__link">
-    passlib
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    二、哈希并校验密码
-  </a>
-  
-    <nav class="md-nav" aria-label="二、哈希并校验密码">
+    <nav class="md-nav" aria-label="一、前言">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
-    1、创建对象，进行哈希和校验密码
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2hashpassword" class="md-nav__link">
-    2、哈希密码：hash(password)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3verifyplain_password-hashed_password" class="md-nav__link">
-    3、校验密码：verify(plain_password, hashed_password)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#jwt_1" class="md-nav__link">
-    三、JWT令牌验证加密
-  </a>
-  
-    <nav class="md-nav" aria-label="三、JWT令牌验证加密">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1jwt" class="md-nav__link">
-    1、生成一个随机的密钥，用于对JWT令牌进行签名
+    1. 资料
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
-    2、创建密钥变量
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3jwt" class="md-nav__link">
-    3、创建用于设定JWT令牌签名算法的变量
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4、创建设置令牌过期时间变量（单位：分钟）
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    5、模拟数据库用户信息
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    6、创建所需模型类
-  </a>
-  
-    <nav class="md-nav" aria-label="6、创建所需模型类">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_1" class="md-nav__link">
-    1) 用户模型基类
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2token" class="md-nav__link">
-    2）登录成功返回token模型
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3）用户登录模型
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4_1" class="md-nav__link">
-    4）创建用户模型
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7" class="md-nav__link">
-    7、创建生成访问令牌的函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8" class="md-nav__link">
-    8、校验用户功能函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9api" class="md-nav__link">
-    9、创建登录接口api
+    2. 优点
   </a>
   
 </li>
@@ -955,30 +765,142 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#jwt_2" class="md-nav__link">
-    四、JWT令牌验证解密
+  <a href="#helium" class="md-nav__link">
+    二、安装helium
   </a>
   
-    <nav class="md-nav" aria-label="四、JWT令牌验证解密">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    三、浏览器常用操作
+  </a>
+  
+    <nav class="md-nav" aria-label="三、浏览器常用操作">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1token" class="md-nav__link">
-    1、验证token
+  <a href="#1_1" class="md-nav__link">
+    1. 导包
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2api" class="md-nav__link">
-    2、访问当前用户信息接口api
+  <a href="#2_1" class="md-nav__link">
+    2. 启动浏览器
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3tokenapi" class="md-nav__link">
-    3、需要token验证但不需要用户信息数据接口api
+  <a href="#3" class="md-nav__link">
+    3. 打开网址
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-driver" class="md-nav__link">
+    4. driver操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 输入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6. 使用键盘按键
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7. 点击
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8. 双击
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    9. 拖动
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-alert" class="md-nav__link">
+    10. Alert弹窗处理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    11. 窗口切换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    12. 滚动
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    13. 悬停
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    14. 刷新
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    15. 等待元素出現
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    16. 关闭浏览器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-s" class="md-nav__link">
+    17. S表达式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    18. 查找所有符合的标签
   </a>
   
 </li>
@@ -1000,195 +922,222 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/XD825/xd825.github.io/edit/main/docs/FastAPI/002FastAPI-JWT验证.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/XD825/xd825.github.io/edit/main/docs/其他/002 helium笔记.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="jwtjson-web-tokens">JWT(JSON Web Tokens)</h1>
-<h2 id="_1">一、依赖库安装</h2>
-<h3 id="jwt">jwt</h3>
-<pre><code class="language-bash">pip install jwt==1.2.0
-</code></pre>
-<h3 id="python-jose">python-jose</h3>
+                <h1 id="heliumselenium-python-helium">helium(selenium-python-helium)笔记</h1>
+<h2 id="_1">一、前言</h2>
+<h3 id="1">1. 资料</h3>
 <ul>
-<li>用于生成和检验JWT令牌</li>
+<li>Github：https://github.com/mherrmann/selenium-python-helium</li>
+<li>Docs：https://selenium-python-helium.readthedocs.io/en/latest/</li>
 </ul>
-<pre><code class="language-bash">pip install python-jose==3.2.0
-</code></pre>
-<h3 id="passlib">passlib</h3>
+<h3 id="2">2. 优点</h3>
 <ul>
-<li>用于处理哈希密码的包</li>
-<li>支持许多安全哈希算法以及配合算法使用的实用程序</li>
-<li>推荐的算法是 Bcrypt</li>
+<li>简化了Selenium操作，对Selenium进行封装，提供了简单的API</li>
+<li>可以和Selenium进行混用</li>
+<li>去除了驱动的下载安装，自动配置驱动</li>
+<li>支持Chrome和Firefox</li>
 </ul>
-<pre><code class="language-bash">pip install passlib[Bcrypt]==1.7.4
+<h2 id="helium">二、安装helium</h2>
+<pre><code class="language-bash">pip install helium
 </code></pre>
-<h2 id="_2">二、哈希并校验密码</h2>
-<h3 id="1">1、创建对象，进行哈希和校验密码</h3>
-<pre><code class="language-python">from passlib.context import CryptContext
-# 使用的算法是Bcrypt
-pwd_context = CryptContext(schemes=[&quot;bcrypt&quot;], deprecated=&quot;auto&quot;)
+<h2 id="_2">三、浏览器常用操作</h2>
+<h3 id="1_1">1. 导包</h3>
+<pre><code class="language-python">import helium
 </code></pre>
-<h3 id="2hashpassword">2、哈希密码：hash(password)</h3>
-<pre><code class="language-python">def get_password_hash(password):
-    &quot;&quot;&quot;
-    哈希来自用户的密码
-    :param password: 原密码
-    :return: 哈希后的密码
-    &quot;&quot;&quot;
-    return pwd_context.hash(password)
-# 哈希后的密码
-# $2b$12$sErK932BEaLyIisz30PubepN7w91RLwkISWbAFYgUgoIqh8goJLEW
-</code></pre>
-<h3 id="3verifyplain_password-hashed_password">3、校验密码：verify(plain_password, hashed_password)</h3>
-<pre><code class="language-python">def verify_password(plain_password, hashed_password):
-    &quot;&quot;&quot;
-    校验接收的密码是否与存储的哈希值匹配
-    :param plain_password: 原密码
-    :param hashed_password: 哈希后的密码
-    :return: 返回值为bool类型，校验成功返回True,反之False
-    &quot;&quot;&quot;
-    return pwd_context.verify(plain_password, hashed_password)
-</code></pre>
-<h2 id="jwt_1">三、JWT令牌验证加密</h2>
-<h3 id="1jwt">1、生成一个随机的密钥，用于对JWT令牌进行签名</h3>
-<pre><code class="language-bash">openssl rand -hex 32
-# eac77e4e9a9a767b792779132e84ea37b1f4c31bec56714607f617a3fbdfbd53
-</code></pre>
-<h3 id="2">2、创建密钥变量</h3>
-<pre><code class="language-python">SECRET_KEY = &quot;eac77e4e9a9a767b792779132e84ea37b1f4c31bec56714607f617a3fbdfbd53&quot;
-</code></pre>
-<h3 id="3jwt">3、创建用于设定JWT令牌签名算法的变量</h3>
-<pre><code class="language-python">ALGORITHM = &quot;HS256&quot;
-</code></pre>
-<h3 id="4">4、创建设置令牌过期时间变量（单位：分钟）</h3>
-<pre><code class="language-python">ACCESS_TOKEN_EXPIRE_MINUTES = 30
-</code></pre>
-<h3 id="5">5、模拟数据库用户信息</h3>
-<pre><code class="language-python">users_db = {
-    &quot;mockuser&quot;:{
-        &quot;id&quot;: 1,
-        &quot;username&quot;: &quot;mockuser&quot;,
-        &quot;email&quot;: &quot;mock@user.com&quot;,
-        &quot;password&quot;: &quot;$2b$12$sErK932BEaLyIisz30PubepN7w91RLwkISWbAFYgUgoIqh8goJLEW&quot;,
-    }
-}
-</code></pre>
-<h3 id="6">6、创建所需模型类</h3>
-<pre><code class="language-python">from typing import Optional
-from pydantic import BaseModel, EmailStr
-</code></pre>
-<h4 id="1_1">1) 用户模型基类</h4>
-<pre><code class="language-python">class UserBase(BaseModel):
-    id: Optional[int] = False
-    username: str = None
-    # pip install pydantic[email]
-    email: Optional[EmailStr] = None
-</code></pre>
-<h4 id="2token">2）登录成功返回token模型</h4>
-<pre><code class="language-python">class TokenModel(UserBase):
-    token: str = None
-</code></pre>
-<h4 id="3">3）用户登录模型</h4>
-<pre><code class="language-python">class LoginModel(BaseModel):
-    username: str = None
-    password: str = None
-</code></pre>
-<h4 id="4_1">4）创建用户模型</h4>
-<pre><code class="language-python">class CreateModel(UserBase):
-    password: str
-</code></pre>
-<h3 id="7">7、创建生成访问令牌的函数</h3>
-<pre><code class="language-python">def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
-    &quot;&quot;&quot;
+<h3 id="2_1">2. 启动浏览器</h3>
+<blockquote>
+<p><code>helium.start_chrome(url=None, headless=None, options=None)</code></p>
+<p><code>helium.start_firefox(url=None, headless=None, options=None)</code>
+- 参数
+    - url: 默认为空，打开浏览器并打开网址
+    - headless: 默认为False，是否使用无头模式打开浏览器
+    - options: 默认为空，启动浏览器的高级配置</p>
+</blockquote>
+<pre><code class="language-python"># 1、只打开浏览器
+helium.start_chrome()
 
-    :param data: 需要进行JWT令牌加密的数据（解密的时候会用到） 
-    :param expires_delta: 令牌有效期
-    :return: token
-    &quot;&quot;&quot;
-    to_encode = data.copy()
-    if expires_delta:
-        expire = datetime.utcnow() + expires_delta
-    else:
-        expire = datetime.utcnow() + timedelta(minutes=15)
-    # 添加失效时间
-    to_encode.update({&quot;exp&quot;: expire})
-    # SECRET_KEY：密钥
-    # ALGORITHM：JWT令牌签名算法
-    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
-    return encoded_jwt
+# 2、打开浏览器并打开网址
+helium.start_chrome(&quot;https://www.baidu.com/&quot;)
+
+# 3、无头模式操作(部署到服务器上时，需要进行设置)
+helium.start_chrome(&quot;https://www.baidu.com/&quot;,headless=True)
+
+# 4、高级配置
+from selenium import webdriver
+
+options = webdriver.ChromeOptions()
+# 配置触屏方式
+options.add_experimental_option('mobileEmulation', {'deviceName': 'iPhone X'})
+# 部署到浏览器的时候需要添加这个配置，否则会报错
+options.add_argument('--disable-gpu')
+# 无头模式运行，跟 headless=True 一样
+options.add_argument('--headless')
+# 以最大化打开浏览器窗口
+options.add_argument('--start-maximized')
+
+helium.start_chrome(&quot;https://www.baidu.com/&quot;,options=options)
 </code></pre>
-<h3 id="8">8、校验用户功能函数</h3>
-<pre><code class="language-python">def check_user(username, password):
-    &quot;&quot;&quot;
-    校验用户（真实的应该是跟DB进行校验，这里只是做演示）
-    :param username: 
-    :param password: 
-    :return: 
-    &quot;&quot;&quot;
-    user = users_db.get(username)
-    if not user:
-        return False
-    if not verify_password(password, user.get(&quot;password&quot;)):
-        return False
-    return user
+<h3 id="3">3. 打开网址</h3>
+<blockquote>
+<p><code>helium.go_to(url)</code>
+- 参数
+    - url: 要打开的网址</p>
+</blockquote>
+<pre><code class="language-python">helium.go_to(&quot;https://www.baidu.com/&quot;)
 </code></pre>
-<h3 id="9api">9、创建登录接口api</h3>
-<pre><code class="language-python"># 使用表单格式参数需要安装模块：python-multipart
-@app.post(&quot;/token&quot;, response_model=TokenModel)
-async def login_for_access_token(username: str = Form(...), password: str = Form(...)):
-    user = check_user(username, password)
-    if not user:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail=&quot;用户名或密码错误&quot;
-        )
-    # 过期时间
-    access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
-    # 把id进行username加密，要使用str类型
-    access_token = create_access_token(
-        data={&quot;sub&quot;: user.get(&quot;username&quot;)}, expires_delta=access_token_expires
-    )
-    user.update({&quot;token&quot;: access_token})
-    return user
+<h3 id="4-driver">4. driver操作</h3>
+<blockquote>
+<p><code>helium.set_driver(driver)</code> 设置driver对象</p>
+<p><code>helium.get_driver()</code> 获取driver对象</p>
+</blockquote>
+<pre><code class="language-python">helium.start_chrome()
+driver= helium.get_driver()
+print(driver) 
+# &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;7d684039be5714229ef2921f14dec310&quot;)&gt;
 </code></pre>
-<h2 id="jwt_2">四、JWT令牌验证解密</h2>
-<h3 id="1token">1、验证token</h3>
-<pre><code class="language-python">def check_jwt_token(token: Optional[str] = Header(None)):
-    &quot;&quot;&quot;
-    验证token
-    :param token:
-    :return: 返回用户信息
-    &quot;&quot;&quot;
-    try:
-        payload = jwt.decode(token, SECRET_KEY, algorithms=ALGORITHM)
-        username: str = payload.get(&quot;sub&quot;)
-        # 通过解析得到的username,获取用户信息,并返回
-        return users_db.get(username)
-    except (jwt.JWTError, jwt.ExpiredSignatureError, ValidationError):
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail={
-                'code': 5000,
-                'message': &quot;Token Error&quot;,
-                'data': &quot;Token Error&quot;,
-            }
-        )
+<h3 id="5">5. 输入</h3>
+<blockquote>
+<p><code>helium.write(text, into=None)</code>
+- 参数
+    - text: 写入的内容
+    - into: 默认为空，可以输入的类型为：<code>HTMLElement</code>/<code>selenium.webdriver.remote.webelement.WebElement</code>/<code>Alert</code></p>
+</blockquote>
+<pre><code class="language-python"># 使用into默认值，
+helium.write(&quot;Python&quot;)
+
+# 使用WebElement类型into参数
+driver = helium.get_driver()
+busin_name = driver.find_element_by_xpath(&quot;元素定位&quot;)
+helium.write(&quot;Python&quot;, into=busin_name)
+
+# 使用Alert类型into参数
+helium.write(&quot;Michael&quot;, into=Alert(&quot;Please enter your name&quot;))
 </code></pre>
-<h3 id="2api">2、访问当前用户信息接口api</h3>
-<pre><code class="language-python"># 定义返回数据格式为UserBase模型格式数据
-# 把校验token函数当做依赖项进行赋值给user
-# 验证成功，并返回user
-@app.get(&quot;/user&quot;, response_model=UserBase)
-async def get_user(*, user: UserBase = Depends(check_jwt_token)):
-    return user
+<h3 id="6">6. 使用键盘按键</h3>
+<blockquote>
+<p><code>helium.press(key)</code>
+- 参数
+    - key: 要按下的按键或按键组合</p>
+</blockquote>
+<pre><code class="language-python">helium.start_chrome(&quot;https://www.baidu.com/&quot;)
+helium.press(&quot;Python&quot;) # 按下 Python 按键
+helium.press('a') # 按下 a 按键
+helium.press('A') # 按下 A 按键
+helium.press(helium.ENTER) # 按下 回车 按键
+helium.press(helium.CONTROL + 'a') # 按下 Ctrl+a 全选 按键
 </code></pre>
-<h3 id="3tokenapi">3、需要token验证但不需要用户信息数据接口api</h3>
-<pre><code class="language-python"># 当不需要依赖项的返回值时，可以将依赖项添加到路径中，只做验证使用
-@app.get(&quot;/pro&quot;, dependencies=[Depends(check_jwt_token)])
-async def get_projects():
-    return {&quot;projects&quot;: &quot;pro&quot;}
+<h3 id="7">7. 点击</h3>
+<blockquote>
+<p><code>helium.click(element)</code>
+- 参数
+    - element: 类型可为：<code>str</code>/<code>HTMLElement</code>/<code>selenium.webdriver.remote.webelement.WebElement</code>/<code>Point</code></p>
+</blockquote>
+<pre><code class="language-python">
+helium.start_chrome(&quot;https://www.baidu.com/&quot;)
+helium.press(&quot;Python&quot;)
+helium.click(&quot;百度一下&quot;) # 点击按钮 方式一(str)
+# helium.click(helium.Button(&quot;百度一下&quot;)) # 点击按钮 方式二(HTMLElement)
+# helium.click(driver.find_element_by_xpath(&quot;xpath元素定位&quot;)) # 点击按钮 方式三(WebElement)
+# helium.click(helium.Point(200,300)) # 点击按钮 方式四(Point)
+helium.click(&quot;Welcome to Python.org&quot;) # 点击链接
+
+</code></pre>
+<h3 id="8">8. 双击</h3>
+<blockquote>
+<p><code>helium.doubleclick(element)</code>
+- 参数
+    - element: 类型可为：<code>str</code>/<code>HTMLElement</code>/<code>selenium.webdriver.remote.webelement.WebElement</code>/<code>Point</code></p>
+</blockquote>
+<pre><code class="language-python">helium.doubleclick(&quot;Double click here&quot;)
+helium.doubleclick(helium.Image(&quot;Directories&quot;))
+helium.doubleclick(helium.Point(200, 300))
+helium.doubleclick(helium.TextField(&quot;Username&quot;).top_left - (0, 20))
+</code></pre>
+<h3 id="9">9. 拖动</h3>
+<blockquote>
+<p><code>helium.drag(element, to)</code>
+- 参数
+    - element：要拖动的元素，类型可为：<code>str</code>/<code>HTMLElement</code>/<code>selenium.webdriver.remote.webelement.WebElement</code>/<code>Point</code>
+    - to: 要拖动到的元素，类型可为：<code>str</code>/<code>HTMLElement</code>/<code>selenium.webdriver.remote.webelement.WebElement</code>/<code>Point</code></p>
+</blockquote>
+<pre><code class="language-python">helium.drag(&quot;Drag me!&quot;, to=&quot;Drop here.&quot;)
+</code></pre>
+<h3 id="10-alert">10. Alert弹窗处理</h3>
+<blockquote>
+<p><code>helium.Alert(search_text=None)</code>
+- 参数
+    - text: Alert弹窗内容
+- 方法
+    - accept(): 确定
+    - dismiss(): 取消</p>
+</blockquote>
+<pre><code class="language-python">alert = helium.Alert()
+alert.accept() # 确定
+alert.dismiss() # 取消
+</code></pre>
+<h3 id="11">11. 窗口切换</h3>
+<blockquote>
+<p><code>helium.switch_to(window)</code></p>
+</blockquote>
+<h3 id="12">12. 滚动</h3>
+<blockquote>
+<p><code>helium.scroll_down(num_pixels=100)</code> 向下滚动</p>
+<p><code>helium.scroll_up(num_pixels=100)</code> 向上滚动</p>
+<p><code>helium.scroll_right(num_pixels=100)</code> 向右滚动</p>
+<p><code>helium.scroll_left(num_pixels=100)</code> 向左滚动</p>
+</blockquote>
+<h3 id="13">13. 悬停</h3>
+<blockquote>
+<p><code>helium.hover(element)</code></p>
+</blockquote>
+<h3 id="14">14. 刷新</h3>
+<blockquote>
+<p><code>helium.refresh()</code></p>
+</blockquote>
+<h3 id="15">15. 等待元素出現</h3>
+<blockquote>
+<p><code>helium.wait_until(condition_fn, timeout_secs=10, interval_secs=0.5)</code>
+- 参数
+    - condition_fn: 元素表达式，元素是否存在
+    - timeout_secs：超时时间
+    - interval_secs：轮训时间</p>
+</blockquote>
+<pre><code class="language-python">helium.start_chrome(&quot;https://www.baidu.com/&quot;)
+
+helium.write(&quot;Python&quot;)
+try:
+  helium.wait_until(helium.S('//input[@id=&quot;s22&quot;]').exists)
+  helium.click(helium.S('//input[@id=&quot;s22&quot;]'))
+except:
+  print('元素未找到')
+</code></pre>
+<h3 id="16">16. 关闭浏览器</h3>
+<blockquote>
+<p><code>helium.kill_browser()</code></p>
+</blockquote>
+<h3 id="17-s">17. S表达式</h3>
+<blockquote>
+<p><code>helium.S(selector, below=None, to_right_of=None, above=None, to_left_of=None)</code>
+- 参数
+    - selector: jQuery样式选择器（ID、NAME、CSS、XPATH）</p>
+</blockquote>
+<pre><code class="language-python">helium.start_chrome(&quot;https://www.baidu.com/&quot;)
+
+helium.write(&quot;Python&quot;)
+helium.click(helium.S('//input[@id=&quot;su&quot;]'))
+</code></pre>
+<h3 id="18">18. 查找所有符合的标签</h3>
+<blockquote>
+<p><code>helium.find_all(predicate)</code></p>
+</blockquote>
+<pre><code class="language-python">helium.start_chrome(&quot;https://www.baidu.com/&quot;)
+eles = helium.find_all(helium.S('//input[@id=&quot;su&quot;]'))
+print(eles)
+# [&lt;input type=&quot;submit&quot; id=&quot;su&quot; value=&quot;百度一下&quot; class=&quot;bg s_btn&quot;&gt;]
 </code></pre>
                 
               
@@ -1208,7 +1157,7 @@ async def get_projects():
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../001FastAPI%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../001%20CentOS%208%20%E5%AE%89%E8%A3%85%E6%97%A0%E5%A4%B4%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1217,25 +1166,11 @@ async def get_projects():
               <span class="md-footer__direction">
                 Previous
               </span>
-              FastAPI简单使用
+              CentOS 8 安装无头谷歌浏览器
             </div>
           </div>
         </a>
       
-      
-        <a href="../003%E5%88%86%E9%A1%B5%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              分页功能实现
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
