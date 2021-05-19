@@ -1,0 +1,1854 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="Desire">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.4">
+    
+    
+      
+        <title>Django-ORM - Desire</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#django-orm" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Desire" class="md-header__button md-logo" aria-label="Desire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Desire
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Django-ORM
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/XD825/xd825.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Desire" class="md-nav__button md-logo" aria-label="Desire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Desire
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/XD825/xd825.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        主頁
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        Django
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Django" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Django
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../001%20Django%E5%88%9D%E6%8E%A2/" class="md-nav__link">
+        Django - 初探
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Django-ORM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Django-ORM
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pymysqlsql" class="md-nav__link">
+    一、使用pymysql执行原生SQL语句来操作数据，痛点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orm" class="md-nav__link">
+    二、ORM框架
+  </a>
+  
+    <nav class="md-nav" aria-label="二、ORM框架">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-modelspy" class="md-nav__link">
+    2. 创建模型类（models.py）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-migrations" class="md-nav__link">
+    3. 生成迁移脚本（会自动放置到子应用的migrations目录中）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-sqlsql" class="md-nav__link">
+    4. 查看创建表sql语句（只是查看sql，不会真正的创建表）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 执行迁移脚本，生成表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    三、模型字段
+  </a>
+  
+    <nav class="md-nav" aria-label="三、模型字段">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1. 字段类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-meta" class="md-nav__link">
+    2. 修改当前表的元数据信息（可以在Meta内部类中修改当前表的元数据信息）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-demo" class="md-nav__link">
+    3. 整体demo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    四、新增字段（在已有数据表中新增字段）
+  </a>
+  
+    <nav class="md-nav" aria-label="四、新增字段（在已有数据表中新增字段）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    1. 新增字段
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.执行
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    五、关联关系
+  </a>
+  
+    <nav class="md-nav" aria-label="五、关联关系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1foreignkey" class="md-nav__link">
+    1）一对多关系（ForeignKey）
+  </a>
+  
+    <nav class="md-nav" aria-label="1）一对多关系（ForeignKey）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#foreignkey" class="md-nav__link">
+    可以使用ForeignKey在从表（一对多的‘多’的一方）中指定外键字段
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#demo" class="md-nav__link">
+    整体demo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2manytomanyfield" class="md-nav__link">
+    2）多对多关系（ManyToManyField）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3onetoonefield" class="md-nav__link">
+    3）一对一关系（OneToOneField）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    六、抽象基类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crud" class="md-nav__link">
+    七、增删改查（CRUD）
+  </a>
+  
+    <nav class="md-nav" aria-label="七、增删改查（CRUD）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1c" class="md-nav__link">
+    1）增加数据（C）
+  </a>
+  
+    <nav class="md-nav" aria-label="1）增加数据（C）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    1. 方式一：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2.方式二：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.添加子表数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2u" class="md-nav__link">
+    2）更新数据（U）
+  </a>
+  
+    <nav class="md-nav" aria-label="2）更新数据（U）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_4" class="md-nav__link">
+    1. 方式一：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    2.方式二：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3r" class="md-nav__link">
+    3）查询数据（R）
+  </a>
+  
+    <nav class="md-nav" aria-label="3）查询数据（R）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_5" class="md-nav__link">
+    1. 查询多条数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    2. 读取一条数据
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 读取一条数据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_6" class="md-nav__link">
+    ①方式一：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" class="md-nav__link">
+    ②方式二：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4d" class="md-nav__link">
+    4）删除数据（D）
+  </a>
+  
+    <nav class="md-nav" aria-label="4）删除数据（D）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_7" class="md-nav__link">
+    1. 方式一：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_5" class="md-nav__link">
+    2. 方式二：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#queryset" class="md-nav__link">
+    QuerySet查询集的特性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    逻辑关系
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    排序操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    聚合运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    执行原生SQL语句
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    八、序列化和反序列化
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../003%20Django-DRF/" class="md-nav__link">
+        Django REST framework
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../004%20Django%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/" class="md-nav__link">
+        Djang 命令汇总
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        FastAPI
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="FastAPI" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          FastAPI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FastAPI/001FastAPI%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+        FastAPI简单使用
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FastAPI/002FastAPI-JWT%E9%AA%8C%E8%AF%81/" class="md-nav__link">
+        JWT(JSON Web Tokens)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FastAPI/003%E5%88%86%E9%A1%B5%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/" class="md-nav__link">
+        分页功能实现
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FastAPI/005Docker%2BGunicorn%2BUvicorn%E9%83%A8%E7%BD%B2FastAPI/" class="md-nav__link">
+        Docker+Gunicorn+Uvicorn部署FastAPI
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        HTTPRunner
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="HTTPRunner" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          HTTPRunner
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HTTPRunner/HTTPRunner2.x/" class="md-nav__link">
+        HTTPRunner2.x
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        ORM
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="ORM" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          ORM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ORM/001SQLAlchemy/" class="md-nav__link">
+        SQLAlchemy ORM框架
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Docker
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Docker" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Docker
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/docker%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        docker笔记
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Shell
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Shell" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Shell
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shell/shell%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        shell笔记
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        其他
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="其他" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          其他
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%B6%E4%BB%96/001%20CentOS%208%20%E5%AE%89%E8%A3%85%E6%97%A0%E5%A4%B4%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8/" class="md-nav__link">
+        CentOS 8 安装无头谷歌浏览器
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%85%B6%E4%BB%96/002%20helium%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        helium(selenium-python-helium)笔记
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pymysqlsql" class="md-nav__link">
+    一、使用pymysql执行原生SQL语句来操作数据，痛点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orm" class="md-nav__link">
+    二、ORM框架
+  </a>
+  
+    <nav class="md-nav" aria-label="二、ORM框架">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-modelspy" class="md-nav__link">
+    2. 创建模型类（models.py）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-migrations" class="md-nav__link">
+    3. 生成迁移脚本（会自动放置到子应用的migrations目录中）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-sqlsql" class="md-nav__link">
+    4. 查看创建表sql语句（只是查看sql，不会真正的创建表）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 执行迁移脚本，生成表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    三、模型字段
+  </a>
+  
+    <nav class="md-nav" aria-label="三、模型字段">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1. 字段类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-meta" class="md-nav__link">
+    2. 修改当前表的元数据信息（可以在Meta内部类中修改当前表的元数据信息）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-demo" class="md-nav__link">
+    3. 整体demo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    四、新增字段（在已有数据表中新增字段）
+  </a>
+  
+    <nav class="md-nav" aria-label="四、新增字段（在已有数据表中新增字段）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    1. 新增字段
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.执行
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    五、关联关系
+  </a>
+  
+    <nav class="md-nav" aria-label="五、关联关系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1foreignkey" class="md-nav__link">
+    1）一对多关系（ForeignKey）
+  </a>
+  
+    <nav class="md-nav" aria-label="1）一对多关系（ForeignKey）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#foreignkey" class="md-nav__link">
+    可以使用ForeignKey在从表（一对多的‘多’的一方）中指定外键字段
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#demo" class="md-nav__link">
+    整体demo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2manytomanyfield" class="md-nav__link">
+    2）多对多关系（ManyToManyField）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3onetoonefield" class="md-nav__link">
+    3）一对一关系（OneToOneField）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    六、抽象基类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crud" class="md-nav__link">
+    七、增删改查（CRUD）
+  </a>
+  
+    <nav class="md-nav" aria-label="七、增删改查（CRUD）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1c" class="md-nav__link">
+    1）增加数据（C）
+  </a>
+  
+    <nav class="md-nav" aria-label="1）增加数据（C）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    1. 方式一：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2.方式二：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.添加子表数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2u" class="md-nav__link">
+    2）更新数据（U）
+  </a>
+  
+    <nav class="md-nav" aria-label="2）更新数据（U）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_4" class="md-nav__link">
+    1. 方式一：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    2.方式二：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3r" class="md-nav__link">
+    3）查询数据（R）
+  </a>
+  
+    <nav class="md-nav" aria-label="3）查询数据（R）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_5" class="md-nav__link">
+    1. 查询多条数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    2. 读取一条数据
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 读取一条数据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_6" class="md-nav__link">
+    ①方式一：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" class="md-nav__link">
+    ②方式二：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4d" class="md-nav__link">
+    4）删除数据（D）
+  </a>
+  
+    <nav class="md-nav" aria-label="4）删除数据（D）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_7" class="md-nav__link">
+    1. 方式一：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_5" class="md-nav__link">
+    2. 方式二：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#queryset" class="md-nav__link">
+    QuerySet查询集的特性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    逻辑关系
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    排序操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    聚合运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    执行原生SQL语句
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    八、序列化和反序列化
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/XD825/xd825.github.io/edit/main/docs/Django/002 Django-ORM.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="django-orm">Django-ORM</h1>
+<h2 id="pymysqlsql">一、使用pymysql执行原生SQL语句来操作数据，痛点</h2>
+<ul>
+<li>SQL语句比较复杂</li>
+<li>SQL语句安全性无法保证</li>
+<li>数据库创建、数据表生成、数据添加以及数据迁移等非常麻烦</li>
+<li>SQL语句性能不够好，同时SQL语句不好管理</li>
+</ul>
+<h2 id="orm">二、ORM框架</h2>
+<p><img alt="Snipaste_2021-05-19_15-29-07" src="../assets/Snipaste_2021-05-19_15-29-07.png" />
+- 把类和数据库表进行映射
+- 通过类和对象就能操作它所对应表格中的数据（CRUD）</p>
+<pre><code class="language-bash"># 使用MySQL数据库需要安装依赖
+pip install pymysql
+pip install mysqlclient
+</code></pre>
+<h3 id="1">1. 配置</h3>
+<pre><code class="language-python">DATABASES = {
+    'default': {
+        # 数据库引擎
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    'mysql': {
+        # 执行使用的数据库引擎（使用哪种类型的数据库）
+        'ENGINE': 'django.db.backends.mysql',
+        # 指定数据库名称
+        'NAME': 'django_db',
+        'USER': 'root',
+        'PASSWORD': '123456',
+        'HOST': 'localhost',
+        'PORT': '3306'
+    }
+}
+</code></pre>
+<h3 id="2-modelspy">2. 创建模型类（models.py）</h3>
+<ul>
+<li>定义模型类必须继承Model或者Model子类，一个模型类相当于一个table</li>
+<li>定义的类属性（Field对象）为表中的字段信息</li>
+<li>默认表名为子应用名_模型类名小写</li>
+<li>默认会自动创建一个id主键（自增非空）</li>
+</ul>
+<pre><code class="language-python">from django.db import models
+
+class People(models.Model):
+
+    name = models.CharField(max_length=20)
+    age = models.IntegerField()
+</code></pre>
+<h3 id="3-migrations">3. 生成迁移脚本（会自动放置到子应用的migrations目录中）</h3>
+<pre><code class="language-bash">python manage.py makemigrations projects
+python manage.py makemigrations 子应用名
+# 不指定的话就是所有的注册的模型
+python manage.py makemigrations
+</code></pre>
+<p><img alt="Snipaste_2021-05-19_15-33-15" src="../assets/Snipaste_2021-05-19_15-33-15.png" /></p>
+<h3 id="4-sqlsql">4. 查看创建表sql语句（只是查看sql，不会真正的创建表）</h3>
+<pre><code class="language-bash">python manage.py sqlmigrate projects 0001_initial
+python manage.py sqlmigrate 子应用名 迁移脚本
+</code></pre>
+<p><img alt="Snipaste_2021-05-19_15-34-34" src="../assets/Snipaste_2021-05-19_15-34-34.png" /></p>
+<h3 id="5">5. 执行迁移脚本，生成表</h3>
+<pre><code class="language-bash">python manage.py migrate projects
+python manage.py migrate 子应用名
+# 不指定就是所有的
+python manage.py migrate
+</code></pre>
+<p><img alt="Snipaste_2021-05-19_15-36-06" src="../assets/Snipaste_2021-05-19_15-36-06.png" /></p>
+<h2 id="_1">三、模型字段</h2>
+<h3 id="1_1">1. 字段类型</h3>
+<ul>
+<li>CharField指定varchar类型<ul>
+<li>必须得设置max_length参数，指定最大长度</li>
+</ul>
+</li>
+<li>BooleanField指定布尔类型</li>
+<li>TextField指定长文本类型</li>
+<li>DateTimeField指定日期类型<ul>
+<li>a.auto_now_add=True创建一条数据时，会自动将当前时间赋值给当前字段(只会在创建的时候修改一次)</li>
+<li>b.auto_now=True每次在更新数据时，会自动将当前时间赋值给当前字段（只要修改就会自动更新）属性</li>
+</ul>
+</li>
+<li>verbose_name与help_text指定中文的描述，在admin后台站点以及在接口文档平台中会使用到</li>
+<li>unique =True 设置唯一约束，默认unique=False</li>
+<li>default 设置当前字段的默认值</li>
+<li>null 指定当前字段是否允许保存null空值</li>
+<li>blank 指定前端在创建数据时是否允许不输入</li>
+<li>primary_key 指定当前字段是否为主键（一个数据库模型类中只允许定义一个设置了参数primary_key = True的字段）<ul>
+<li>一旦某个字段设置了primary_key = True，那么orm框架就不会自动创建id主键</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-meta">2. 修改当前表的元数据信息（可以在Meta内部类中修改当前表的元数据信息）</h3>
+<pre><code class="language-python">class Meta:
+        # 可以在Meta内部类中修改当前表的元数据信息
+        # db_table执行创建的数据表名称
+        db_table = 'tb_projects'
+        # 指定创建的数据表的中文描述信息
+        verbose_name = '项目表'
+        verbose_name_plural = '项目表'
+</code></pre>
+<h3 id="3-demo">3. 整体demo</h3>
+<pre><code class="language-python">class Projects(models.Model):
+
+    id = models.AutoField(
+        primary_key=True, verbose_name=&quot;id主键&quot;, help_text=&quot;id主键&quot;)
+    name = models.CharField(verbose_name=&quot;项目名称&quot;,
+                            help_text=&quot;项目名称&quot;, max_length=20, unique=True)
+    leader = models.CharField(verbose_name=&quot;项目负责人&quot;,
+                            help_text=&quot;项目负责人&quot;, max_length=10)
+    is_execute = models.BooleanField(
+        verbose_name=&quot;是否开展&quot;, help_text=&quot;是否开展&quot;, default=True)
+    desc = models.TextField(verbose_name=&quot;项目描述信息&quot;,
+                            help_text=&quot;项目描述信息&quot;, null=True, blank=True, default=&quot;&quot;)
+    create_time = models.DateTimeField(
+        auto_now_add=True, verbose_name=&quot;创建时间&quot;, help_text=&quot;创建时间&quot;)
+    update_time = models.DateTimeField(
+        auto_now=True, verbose_name=&quot;更新时间&quot;, help_text=&quot;更新时间&quot;)
+
+    class Meta:
+        db_table = 'tb_projects'
+        verbose_name = '项目表'
+        verbose_name_plural = '项目表'
+</code></pre>
+<h2 id="_2">四、新增字段（在已有数据表中新增字段）</h2>
+<h3 id="1_2">1. 新增字段</h3>
+<pre><code class="language-python">tester = models.CharField(max_length=10)
+</code></pre>
+<h3 id="2">2.执行</h3>
+<pre><code class="language-python">python manage.py makemigrations
+</code></pre>
+<p><img alt="Snipaste_2021-05-19_15-40-38" src="../assets/Snipaste_2021-05-19_15-40-38.png" />
+- 有两个选项：
+    - 现在提供一个一次性默认值（将在所有现有行上对此列设置空值）
+    - 退出，在新添加的字段上增加默认值</p>
+<p><img alt="Snipaste_2021-05-19_15-41-55" src="../assets/Snipaste_2021-05-19_15-41-55.png" /></p>
+<h2 id="_3">五、关联关系</h2>
+<h3 id="1foreignkey">1）一对多关系（ForeignKey）</h3>
+<h4 id="foreignkey">可以使用ForeignKey在从表（一对多的‘多’的一方）中指定外键字段</h4>
+<ul>
+<li>a.第一个字段需要指定关联的父表，往往使用 '子应用名.父表模型类名'</li>
+<li>b.必须执行on_delete级联删除策略</li>
+<li>c.级联删除策略有如下种类<ul>
+<li>1.CASCADE：当父表数据删除后，对应的从表数据会被自动删除</li>
+<li>2.SET_NULL：当父表数据删除后，对应的从表数据的外键字段会被自动设置为null</li>
+<li>3.PROTECT：当父表数据删除时，如果存在对应的从表数据，那么会抛出异常</li>
+<li>4.SET_DEFAULT：当父表数据删除后，对应的从表数据的外键字段会被自动设置为default参数指定的值</li>
+</ul>
+</li>
+</ul>
+<h4 id="demo">整体demo</h4>
+<pre><code class="language-python">class Interfaces(models.Model):
+
+    id = models.AutoField(
+        primary_key=True, verbose_name=&quot;id主键&quot;, help_text=&quot;id主键&quot;)
+    name = models.CharField(verbose_name=&quot;接口名称&quot;,
+                            help_text=&quot;接口名称&quot;, max_length=20, unique=True)
+    tester = models.CharField(verbose_name=&quot;测试人员&quot;,
+                              help_text=&quot;测试人员&quot;, max_length=10)
+
+    # 创建数据表时，会自动创建projets_id作为字段名，用于存放父表外键值
+    projects = models.ForeignKey(
+        'projects.Projects', on_delete=models.CASCADE)
+    create_time = models.DateTimeField(
+        auto_now_add=True, verbose_name=&quot;创建时间&quot;, help_text=&quot;创建时间&quot;)
+    update_time = models.DateTimeField(
+        auto_now=True, verbose_name=&quot;更新时间&quot;, help_text=&quot;更新时间&quot;)
+
+    class Meta:
+        db_table = 'tb_interfaces'
+        verbose_name = '接口表'
+        verbose_name_plural = '接口表'
+</code></pre>
+<h3 id="2manytomanyfield">2）多对多关系（ManyToManyField）</h3>
+<h3 id="3onetoonefield">3）一对一关系（OneToOneField）</h3>
+<h2 id="_4">六、抽象基类</h2>
+<ul>
+<li>因为某些模型类，仅仅是将多个模型类中公共的字段抽取出来，而不需要生成数据表</li>
+<li>因此我们可以使用Meta内部类通过abstract指定当前模型类为抽象模型类</li>
+<li>别的模型类继承BaseModel即可</li>
+</ul>
+<pre><code class="language-python">class BaseModel(models.Model):
+    id = models.AutoField(
+        primary_key=True, verbose_name=&quot;id主键&quot;, help_text=&quot;id主键&quot;)
+    create_time = models.DateTimeField(
+        auto_now_add=True, verbose_name=&quot;创建时间&quot;, help_text=&quot;创建时间&quot;)
+    update_time = models.DateTimeField(
+        auto_now=True, verbose_name=&quot;更新时间&quot;, help_text=&quot;更新时间&quot;)
+    class Meta:
+        abstract = True
+</code></pre>
+<h2 id="crud">七、增删改查（CRUD）</h2>
+<h3 id="1c">1）增加数据（C）</h3>
+<h4 id="1_3">1. 方式一：</h4>
+<ul>
+<li>直接使用模型类来创建模型对象</li>
+<li>必须调用save()方法才会执行SQL语句（提交）</li>
+</ul>
+<pre><code class="language-python">one_project = Projects(name=&quot;XXX金融项目11&quot;, leader=&quot;admin&quot;, desc=&quot;这是一个描述&quot;)
+one_project.save()
+</code></pre>
+<h4 id="2_1">2.方式二：</h4>
+<ul>
+<li>a.可以使用模型类.object为manager对象</li>
+<li>b.可以使用manager对象.create方法(关键字参数)</li>
+<li>c.无需调用save方法，会自动提交</li>
+</ul>
+<pre><code class="language-python">one_project = Projects.objects.create(name=&quot;抖音App10&quot;, leader=&quot;Tommy&quot;, desc=&quot;这是一个描述&quot;)
+</code></pre>
+<h4 id="3">3.添加子表数据</h4>
+<ul>
+<li>添加外键数据的时候，如果使用projects的时候projects=one_project</li>
+<li>如果使用projects_id的时候projects_id=one_project.id</li>
+</ul>
+<pre><code class="language-python"># Interfaces(name=&quot;登录接口&quot;, tester=&quot;Any&quot;, projects_id=one_project.id)
+# Interfaces(name=&quot;登录接口&quot;, tester=&quot;Any&quot;, projects=one_project)
+one_interfaces = Interfaces.objects.create(name=&quot;注册接口&quot;, tester=&quot;Any&quot;, projects_id=one_project.id)
+</code></pre>
+<h3 id="2u">2）更新数据（U）</h3>
+<h4 id="1_4">1. 方式一：</h4>
+<ul>
+<li>a.所有的模型类，会有一个默认的manager属性,是一个manager对象</li>
+<li>b.获取需要修改的模型类对象之后，重写相应的字段</li>
+<li>c.必须要调用save()方法，才会提交</li>
+</ul>
+<pre><code class="language-python">pro = Projects.objects.get(id=1)
+pro.leader = &quot;desire&quot;
+pro.save()
+</code></pre>
+<h4 id="2_2">2.方式二：</h4>
+<ul>
+<li>a.现将待修改的数据取出（查询集对象）</li>
+<li>b.然后调用update()方法</li>
+<li>c.无需调用save()方法，会自动提交</li>
+</ul>
+<pre><code class="language-python">qs = Projects.objects.filter(id=1).update(leader=&quot;唯一&quot;)
+</code></pre>
+<h3 id="3r">3）查询数据（R）</h3>
+<h4 id="1_5">1. 查询多条数据</h4>
+<ul>
+<li>a.使用模型类.object.all()</li>
+<li>b.返回QuerySet对象，类似于列表，但不是列表</li>
+<li>c.QuerySet对象，惰性查找，只有需要用到数据(len/取值/for)时，才会执行SQL语句</li>
+</ul>
+<pre><code class="language-python">qs = Projects.objects.all()
+</code></pre>
+<h4 id="2_3">2. 读取一条数据</h4>
+<h5 id="1_6">①方式一：</h5>
+<ul>
+<li>a.可以使用模型类.objects.get()</li>
+<li>b.如果查询的结果不存在时候会报错 Projects matching query does not exist.</li>
+<li>c.如果查询的结果大于1条的时候会报错 get() returned more than one Projects -- it returned 2!</li>
+<li>d.get方法，往往会使用主键或者唯一键作为查询条件</li>
+<li>e.返回模型类对象(数据)</li>
+</ul>
+<pre><code class="language-python">pro = Projects.objects.get(id=1)
+# pk为Django模型类内置的一个属性，是主键的别名
+pro = Projects.objects.get(pk=1)
+</code></pre>
+<h5 id="2_4">②方式二：</h5>
+<ul>
+<li>a.可以使用模型类.objects.filter()</li>
+<li>b.返回QuerySet对象</li>
+<li>c.如果查询的结果为空，那么也会返回空的QuerySet对象</li>
+<li>d.如果查询的结果超过一条，也会返回多条结果所在的QuerySet对象</li>
+<li>e.filter查询 ：段名__查询类型=具体值</li>
+<li>查询类型种类<ul>
+<li>gt &gt;</li>
+<li>gte &gt;=</li>
+<li>lt &lt;</li>
+<li>lte&lt;=</li>
+<li>in 对处于列表中的值进行过滤</li>
+<li>contains 包含</li>
+<li>icontains 包含，忽略大小写</li>
+<li>startswith 以XXX开头</li>
+<li>istartswith 以XXX开头，忽略大小写</li>
+<li>endswith 以XXX结尾</li>
+<li>iendswith 以XXX结尾，忽略大小写</li>
+<li>isnull 是否为空</li>
+</ul>
+</li>
+<li>关联查询：关联模型类名小写__关联模型类中的字段名__查询类型=具体值</li>
+</ul>
+<pre><code class="language-python">pro1 = Projects.objects.filter(id=1)
+pro2 = Projects.objects.filter(id__gt=4)
+pro3 = Projects.objects.filter(in=[1,4,8,25])
+pro4 = Projects.objects.filter(update_time__gt=&quot;2021-01-18&quot;)
+# 关联查询
+pro4 = Projects.objects.filter(interfaces__name__contains='登录')
+</code></pre>
+<h3 id="4d">4）删除数据（D）</h3>
+<h4 id="1_7">1. 方式一：</h4>
+<ul>
+<li>调用模型类对象中的delete() 方法</li>
+</ul>
+<pre><code class="language-python">pro = Projects.objects.get(pk = 1)
+pro.delete()
+</code></pre>
+<h4 id="2_5">2. 方式二：</h4>
+<ul>
+<li>使用查询集对象.delete()，可以将查询集中的所有数据删除</li>
+</ul>
+<pre><code class="language-python">qs = Projects.objects.filter(id=1).delete()
+</code></pre>
+<h3 id="queryset">QuerySet查询集的特性</h3>
+<ul>
+<li>惰性查询</li>
+<li>链式调用<ul>
+<li>查询集对象可以多次调用filter方法进行过滤</li>
+<li>多个filter中的过滤条件为"与"的关系</li>
+<li>在一个filter方法中，可以写多个条件，每个条件之间以"逗号"分割，每个条件为"与"的关系</li>
+</ul>
+</li>
+<li>哪些操作会让查询集执行SQL语句？查询集支持哪些操作<ul>
+<li>通过数字索引取值，但不支持负值索引</li>
+<li>支持切片操作</li>
+<li>支持 .first()，可以取出查询集中第一个元素，为模型类对象</li>
+<li>支持 .last()，可以取出查询集中最后一个元素，为模型类对象</li>
+<li>支持 len(查询集对象)，获取查询集的长度，也可以使用 .count() 方法</li>
+<li>支持 .exists()，来判断查询集中是否有元素，如果有元素，则返回True，否则返回False</li>
+<li>支持 for 循环迭代</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">pro = Projects.objects.filter(name__contains='商城').filter(leader='唯一')
+pro = Projects.objects.filter(name__contains='商城', leader='唯一')
+</code></pre>
+<h3 id="_5">逻辑关系</h3>
+<ul>
+<li>与的关系</li>
+<li>或的关系<ul>
+<li>可以使用Q对象来实现逻辑关系查询</li>
+<li>多个Q对象之间使用 | ，为或的关系</li>
+<li>多个Q对象之间使用 &amp;，为与的关系</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">from django.db.models import Q
+qs = Projects.objects.filter(Q(name__contains='商城') | Q(leader='唯一'))
+</code></pre>
+<h3 id="_6">排序操作</h3>
+<ul>
+<li>默认是以id主键升序(ASC)来排序的</li>
+<li>查询集对象.order_by('字段名1', '字段名2')</li>
+<li>默认指定的字段名为升序(ASC)</li>
+<li>可以在字段名的前面添加 - ，代表以降序（DESC）来排序</li>
+</ul>
+<pre><code class="language-python">Projects.objects.all().order_by('-name','leader')
+</code></pre>
+<h3 id="_7">聚合运算</h3>
+<ul>
+<li>values和annotate为固定写法</li>
+<li>聚合运算需要设置为从表名小写</li>
+<li>使用外键id作为关联条件，同时会把外键id作为分组条件</li>
+<li>默认查询id和聚合运的值</li>
+<li>聚合运算的别名会自动设置为从表名小写__聚合函数名小写</li>
+<li>可以给聚合运算设置关键字参数，会作为聚合运算的别名</li>
+</ul>
+<pre><code class="language-python">form django.db.models import Count, Min, Max, Avg
+
+Projects.objects.values('id').annotate(Count('interfaces'))
+# 自定义聚合运算的别名
+Projects.objects.values('id').annotate(interfaces = Count('interfaces'))
+</code></pre>
+<h3 id="sql">执行原生SQL语句</h3>
+<ul>
+<li>查询集.raw("原生SQL语句")</li>
+</ul>
+<h2 id="_8">八、序列化和反序列化</h2>
+<ul>
+<li>序列化操作<ul>
+<li>将模型类对象(Python中的类)转化为Python中的基本类型<ul>
+<li>类：模型类、常用类</li>
+<li>基本类型：字典、嵌套字典的列表</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>反序列化操作<ul>
+<li>将json字符串转化为Python中的基本类型 -&gt; python中类</li>
+</ul>
+</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../001%20Django%E5%88%9D%E6%8E%A2/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Django - 初探
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../003%20Django-DRF/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Django REST framework
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
+      
+    
+  </body>
+</html>
