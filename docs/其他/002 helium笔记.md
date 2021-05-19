@@ -26,6 +26,7 @@ import helium
 > `helium.start_chrome(url=None, headless=None, options=None)`
 
 > `helium.start_firefox(url=None, headless=None, options=None)`
+
 - 参数
     - url: 默认为空，打开浏览器并打开网址
     - headless: 默认为False，是否使用无头模式打开浏览器
@@ -58,7 +59,9 @@ helium.start_chrome("https://www.baidu.com/",options=options)
 ```
 
 ### 3. 打开网址
+
 > `helium.go_to(url)`
+
 - 参数
     - url: 要打开的网址
 ```python
@@ -66,6 +69,7 @@ helium.go_to("https://www.baidu.com/")
 ```
 
 ### 4. driver操作
+
 > `helium.set_driver(driver)` 设置driver对象
 
 > `helium.get_driver()` 获取driver对象
@@ -78,7 +82,9 @@ print(driver)
 ```
 
 ### 5. 输入
+
 > `helium.write(text, into=None)`
+
 - 参数
     - text: 写入的内容
     - into: 默认为空，可以输入的类型为：`HTMLElement`/`selenium.webdriver.remote.webelement.WebElement`/`Alert`
@@ -97,7 +103,9 @@ helium.write("Michael", into=Alert("Please enter your name"))
 ```
 
 ### 6. 使用键盘按键
+
 > `helium.press(key)`
+
 - 参数
     - key: 要按下的按键或按键组合
 
@@ -111,7 +119,9 @@ helium.press(helium.CONTROL + 'a') # 按下 Ctrl+a 全选 按键
 ```
 
 ### 7. 点击
+
 > `helium.click(element)`
+
 - 参数
     - element: 类型可为：`str`/`HTMLElement`/`selenium.webdriver.remote.webelement.WebElement`/`Point`
 ```python
@@ -126,7 +136,9 @@ helium.click("Welcome to Python.org") # 点击链接
 
 ```
 ### 8. 双击
+
 > `helium.doubleclick(element)`
+
 - 参数
     - element: 类型可为：`str`/`HTMLElement`/`selenium.webdriver.remote.webelement.WebElement`/`Point`
 
@@ -138,7 +150,9 @@ helium.doubleclick(helium.TextField("Username").top_left - (0, 20))
 ```
 
 ### 9. 拖动
+
 > `helium.drag(element, to)`
+
 - 参数
     - element：要拖动的元素，类型可为：`str`/`HTMLElement`/`selenium.webdriver.remote.webelement.WebElement`/`Point`
     - to: 要拖动到的元素，类型可为：`str`/`HTMLElement`/`selenium.webdriver.remote.webelement.WebElement`/`Point`
@@ -148,7 +162,9 @@ helium.drag("Drag me!", to="Drop here.")
 ```
 
 ### 10. Alert弹窗处理
+
 > `helium.Alert(search_text=None)`
+
 - 参数
     - text: Alert弹窗内容
 - 方法
@@ -162,9 +178,11 @@ alert.dismiss() # 取消
 ```
 
 ### 11. 窗口切换
+
 > `helium.switch_to(window)`
 
 ### 12. 滚动
+
 > `helium.scroll_down(num_pixels=100)` 向下滚动
 
 > `helium.scroll_up(num_pixels=100)` 向上滚动
@@ -174,13 +192,17 @@ alert.dismiss() # 取消
 > `helium.scroll_left(num_pixels=100)` 向左滚动
 
 ### 13. 悬停
+
 > `helium.hover(element)`
 
 ### 14. 刷新
+
 > `helium.refresh()`
 
 ### 15. 等待元素出現
+
 > `helium.wait_until(condition_fn, timeout_secs=10, interval_secs=0.5)`
+
 - 参数
     - condition_fn: 元素表达式，元素是否存在
     - timeout_secs：超时时间
@@ -190,17 +212,23 @@ helium.start_chrome("https://www.baidu.com/")
 
 helium.write("Python")
 try:
+  # 通过显示等待，查询元素是否存在 
   helium.wait_until(helium.S('//input[@id="s22"]').exists)
+  # 如果存在就进行点击
   helium.click(helium.S('//input[@id="s22"]'))
 except:
+  # 当查询元素不存在时，会抛出异常 
   print('元素未找到')
 ```
 
 ### 16. 关闭浏览器
+
 > `helium.kill_browser()`
 
 ### 17. S表达式
+
 > `helium.S(selector, below=None, to_right_of=None, above=None, to_left_of=None)`
+
 - 参数
     - selector: jQuery样式选择器（ID、NAME、CSS、XPATH）
 ```python
@@ -211,7 +239,9 @@ helium.click(helium.S('//input[@id="su"]'))
 ```
 
 ### 18. 查找所有符合的标签
+
 > `helium.find_all(predicate)`
+
 ```python
 helium.start_chrome("https://www.baidu.com/")
 eles = helium.find_all(helium.S('//input[@id="su"]'))
