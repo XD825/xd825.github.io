@@ -951,12 +951,16 @@
 <h3 id="2_1">2. 启动浏览器</h3>
 <blockquote>
 <p><code>helium.start_chrome(url=None, headless=None, options=None)</code></p>
-<p><code>helium.start_firefox(url=None, headless=None, options=None)</code>
-- 参数
-    - url: 默认为空，打开浏览器并打开网址
-    - headless: 默认为False，是否使用无头模式打开浏览器
-    - options: 默认为空，启动浏览器的高级配置</p>
+<p><code>helium.start_firefox(url=None, headless=None, options=None)</code></p>
 </blockquote>
+<ul>
+<li>参数<ul>
+<li>url: 默认为空，打开浏览器并打开网址</li>
+<li>headless: 默认为False，是否使用无头模式打开浏览器</li>
+<li>options: 默认为空，启动浏览器的高级配置</li>
+</ul>
+</li>
+</ul>
 <pre><code class="language-python"># 1、只打开浏览器
 helium.start_chrome()
 
@@ -983,10 +987,14 @@ helium.start_chrome(&quot;https://www.baidu.com/&quot;,options=options)
 </code></pre>
 <h3 id="3">3. 打开网址</h3>
 <blockquote>
-<p><code>helium.go_to(url)</code>
-- 参数
-    - url: 要打开的网址</p>
+<p><code>helium.go_to(url)</code></p>
 </blockquote>
+<ul>
+<li>参数<ul>
+<li>url: 要打开的网址</li>
+</ul>
+</li>
+</ul>
 <pre><code class="language-python">helium.go_to(&quot;https://www.baidu.com/&quot;)
 </code></pre>
 <h3 id="4-driver">4. driver操作</h3>
@@ -1001,11 +1009,15 @@ print(driver)
 </code></pre>
 <h3 id="5">5. 输入</h3>
 <blockquote>
-<p><code>helium.write(text, into=None)</code>
-- 参数
-    - text: 写入的内容
-    - into: 默认为空，可以输入的类型为：<code>HTMLElement</code>/<code>selenium.webdriver.remote.webelement.WebElement</code>/<code>Alert</code></p>
+<p><code>helium.write(text, into=None)</code></p>
 </blockquote>
+<ul>
+<li>参数<ul>
+<li>text: 写入的内容</li>
+<li>into: 默认为空，可以输入的类型为：<code>HTMLElement</code>/<code>selenium.webdriver.remote.webelement.WebElement</code>/<code>Alert</code></li>
+</ul>
+</li>
+</ul>
 <pre><code class="language-python"># 使用into默认值，
 helium.write(&quot;Python&quot;)
 
@@ -1019,10 +1031,14 @@ helium.write(&quot;Michael&quot;, into=Alert(&quot;Please enter your name&quot;)
 </code></pre>
 <h3 id="6">6. 使用键盘按键</h3>
 <blockquote>
-<p><code>helium.press(key)</code>
-- 参数
-    - key: 要按下的按键或按键组合</p>
+<p><code>helium.press(key)</code></p>
 </blockquote>
+<ul>
+<li>参数<ul>
+<li>key: 要按下的按键或按键组合</li>
+</ul>
+</li>
+</ul>
 <pre><code class="language-python">helium.start_chrome(&quot;https://www.baidu.com/&quot;)
 helium.press(&quot;Python&quot;) # 按下 Python 按键
 helium.press('a') # 按下 a 按键
@@ -1032,10 +1048,14 @@ helium.press(helium.CONTROL + 'a') # 按下 Ctrl+a 全选 按键
 </code></pre>
 <h3 id="7">7. 点击</h3>
 <blockquote>
-<p><code>helium.click(element)</code>
-- 参数
-    - element: 类型可为：<code>str</code>/<code>HTMLElement</code>/<code>selenium.webdriver.remote.webelement.WebElement</code>/<code>Point</code></p>
+<p><code>helium.click(element)</code></p>
 </blockquote>
+<ul>
+<li>参数<ul>
+<li>element: 类型可为：<code>str</code>/<code>HTMLElement</code>/<code>selenium.webdriver.remote.webelement.WebElement</code>/<code>Point</code></li>
+</ul>
+</li>
+</ul>
 <pre><code class="language-python">
 helium.start_chrome(&quot;https://www.baidu.com/&quot;)
 helium.press(&quot;Python&quot;)
@@ -1048,10 +1068,14 @@ helium.click(&quot;Welcome to Python.org&quot;) # 点击链接
 </code></pre>
 <h3 id="8">8. 双击</h3>
 <blockquote>
-<p><code>helium.doubleclick(element)</code>
-- 参数
-    - element: 类型可为：<code>str</code>/<code>HTMLElement</code>/<code>selenium.webdriver.remote.webelement.WebElement</code>/<code>Point</code></p>
+<p><code>helium.doubleclick(element)</code></p>
 </blockquote>
+<ul>
+<li>参数<ul>
+<li>element: 类型可为：<code>str</code>/<code>HTMLElement</code>/<code>selenium.webdriver.remote.webelement.WebElement</code>/<code>Point</code></li>
+</ul>
+</li>
+</ul>
 <pre><code class="language-python">helium.doubleclick(&quot;Double click here&quot;)
 helium.doubleclick(helium.Image(&quot;Directories&quot;))
 helium.doubleclick(helium.Point(200, 300))
@@ -1059,22 +1083,32 @@ helium.doubleclick(helium.TextField(&quot;Username&quot;).top_left - (0, 20))
 </code></pre>
 <h3 id="9">9. 拖动</h3>
 <blockquote>
-<p><code>helium.drag(element, to)</code>
-- 参数
-    - element：要拖动的元素，类型可为：<code>str</code>/<code>HTMLElement</code>/<code>selenium.webdriver.remote.webelement.WebElement</code>/<code>Point</code>
-    - to: 要拖动到的元素，类型可为：<code>str</code>/<code>HTMLElement</code>/<code>selenium.webdriver.remote.webelement.WebElement</code>/<code>Point</code></p>
+<p><code>helium.drag(element, to)</code></p>
 </blockquote>
+<ul>
+<li>参数<ul>
+<li>element：要拖动的元素，类型可为：<code>str</code>/<code>HTMLElement</code>/<code>selenium.webdriver.remote.webelement.WebElement</code>/<code>Point</code></li>
+<li>to: 要拖动到的元素，类型可为：<code>str</code>/<code>HTMLElement</code>/<code>selenium.webdriver.remote.webelement.WebElement</code>/<code>Point</code></li>
+</ul>
+</li>
+</ul>
 <pre><code class="language-python">helium.drag(&quot;Drag me!&quot;, to=&quot;Drop here.&quot;)
 </code></pre>
 <h3 id="10-alert">10. Alert弹窗处理</h3>
 <blockquote>
-<p><code>helium.Alert(search_text=None)</code>
-- 参数
-    - text: Alert弹窗内容
-- 方法
-    - accept(): 确定
-    - dismiss(): 取消</p>
+<p><code>helium.Alert(search_text=None)</code></p>
 </blockquote>
+<ul>
+<li>参数<ul>
+<li>text: Alert弹窗内容</li>
+</ul>
+</li>
+<li>方法<ul>
+<li>accept(): 确定</li>
+<li>dismiss(): 取消</li>
+</ul>
+</li>
+</ul>
 <pre><code class="language-python">alert = helium.Alert()
 alert.accept() # 确定
 alert.dismiss() # 取消
@@ -1100,19 +1134,26 @@ alert.dismiss() # 取消
 </blockquote>
 <h3 id="15">15. 等待元素出現</h3>
 <blockquote>
-<p><code>helium.wait_until(condition_fn, timeout_secs=10, interval_secs=0.5)</code>
-- 参数
-    - condition_fn: 元素表达式，元素是否存在
-    - timeout_secs：超时时间
-    - interval_secs：轮训时间</p>
+<p><code>helium.wait_until(condition_fn, timeout_secs=10, interval_secs=0.5)</code></p>
 </blockquote>
+<ul>
+<li>参数<ul>
+<li>condition_fn: 元素表达式，元素是否存在</li>
+<li>timeout_secs：超时时间</li>
+<li>interval_secs：轮训时间</li>
+</ul>
+</li>
+</ul>
 <pre><code class="language-python">helium.start_chrome(&quot;https://www.baidu.com/&quot;)
 
 helium.write(&quot;Python&quot;)
 try:
+  # 通过显示等待，查询元素是否存在 
   helium.wait_until(helium.S('//input[@id=&quot;s22&quot;]').exists)
+  # 如果存在就进行点击
   helium.click(helium.S('//input[@id=&quot;s22&quot;]'))
 except:
+  # 当查询元素不存在时，会抛出异常 
   print('元素未找到')
 </code></pre>
 <h3 id="16">16. 关闭浏览器</h3>
@@ -1121,10 +1162,14 @@ except:
 </blockquote>
 <h3 id="17-s">17. S表达式</h3>
 <blockquote>
-<p><code>helium.S(selector, below=None, to_right_of=None, above=None, to_left_of=None)</code>
-- 参数
-    - selector: jQuery样式选择器（ID、NAME、CSS、XPATH）</p>
+<p><code>helium.S(selector, below=None, to_right_of=None, above=None, to_left_of=None)</code></p>
 </blockquote>
+<ul>
+<li>参数<ul>
+<li>selector: jQuery样式选择器（ID、NAME、CSS、XPATH）</li>
+</ul>
+</li>
+</ul>
 <pre><code class="language-python">helium.start_chrome(&quot;https://www.baidu.com/&quot;)
 
 helium.write(&quot;Python&quot;)
