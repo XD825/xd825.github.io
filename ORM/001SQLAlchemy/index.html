@@ -1632,6 +1632,26 @@ WHERE users.id = %(pk_1)s
 <pre><code class="language-bash">&lt;User(name='desire', fullname='asdfasdf', password='123123')&gt;
 </code></pre>
 <h3 id="4_1">4、删除</h3>
+<ul>
+<li><code>delete</code> 删除操作</li>
+<li>删除操作后，要进行提交<code>commit</code></li>
+<li>返回：删除成功 1，删除失败 0</li>
+</ul>
+<pre><code class="language-python">result = session.query(User).filter_by(id=5).delete()
+print(result)
+session.commit()
+</code></pre>
+<blockquote>
+<p>sql</p>
+</blockquote>
+<pre><code class="language-sql">DELETE FROM users WHERE users.id = %(id_1)s
+-- [generated in 0.00052s] {'id_1': 5}
+</code></pre>
+<blockquote>
+<p>打印结果</p>
+</blockquote>
+<pre><code class="language-bash">1
+</code></pre>
 <h3 id="5sql">5、使用文本SQL</h3>
 <ul>
 <li>可以使用<code>text()</code>进行文本SQL执行</li>
