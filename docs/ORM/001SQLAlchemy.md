@@ -1,4 +1,4 @@
-# SQLAlchemy ORM框架
+# SQLAlchemy ORM 框架
 
 ## 一、安装
 ```bash
@@ -431,8 +431,23 @@ WHERE users.id = %(pk_1)s
 ```
 
 ### 4、删除
-
-
+- `delete` 删除操作
+- 删除操作后，要进行提交`commit`
+- 返回：删除成功 1，删除失败 0
+```python
+result = session.query(User).filter_by(id=5).delete()
+print(result)
+session.commit()
+```
+> sql
+```sql
+DELETE FROM users WHERE users.id = %(id_1)s
+-- [generated in 0.00052s] {'id_1': 5}
+```
+> 打印结果
+```bash
+1
+```
 
 ### 5、使用文本SQL
 
