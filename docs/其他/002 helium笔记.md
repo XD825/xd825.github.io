@@ -49,7 +49,9 @@ options = webdriver.ChromeOptions()
 # 配置触屏方式
 options.add_experimental_option('mobileEmulation', {'deviceName': 'iPhone X'})
 # 部署到浏览器的时候需要添加这个配置，否则会报错
+options.add_argument('--no-sandbox') # 彻底停用沙箱
 options.add_argument('--disable-gpu')
+options.add_argument('--disable-dev-shm-usage')
 # 无头模式运行，跟 headless=True 一样
 options.add_argument('--headless')
 # 以最大化打开浏览器窗口
