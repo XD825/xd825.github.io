@@ -132,6 +132,7 @@ UPDATE users SET password=%(password)s WHERE users.id = %(users_id)s
 
 - 通过链式调用进行更新操作
 - update参数为字典形式，字典的key要跟列名对应
+- 更新成功返回1，更新失败返回0
 
 ```python
 session.query(User).filter(User.id==8).update({"password":"654321"})
