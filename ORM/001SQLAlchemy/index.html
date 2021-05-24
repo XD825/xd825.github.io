@@ -547,6 +547,26 @@
     2、修改
   </a>
   
+    <nav class="md-nav" aria-label="2、修改">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1）方式一
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2）方式二
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -558,14 +578,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_1" class="md-nav__link">
+  <a href="#1_2" class="md-nav__link">
     1）查询所有数据
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2_1" class="md-nav__link">
+  <a href="#2_2" class="md-nav__link">
     2）查询第一条数据
   </a>
   
@@ -709,14 +729,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_2" class="md-nav__link">
+  <a href="#1_3" class="md-nav__link">
     1. 默认排序，升序
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2_2" class="md-nav__link">
+  <a href="#2_3" class="md-nav__link">
     2. 降序
   </a>
   
@@ -736,14 +756,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_3" class="md-nav__link">
+  <a href="#1_4" class="md-nav__link">
     1. 为实体类指定别名
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2_3" class="md-nav__link">
+  <a href="#2_4" class="md-nav__link">
     2. 为列指定别名
   </a>
   
@@ -1018,6 +1038,26 @@
     2、修改
   </a>
   
+    <nav class="md-nav" aria-label="2、修改">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1）方式一
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2）方式二
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1029,14 +1069,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_1" class="md-nav__link">
+  <a href="#1_2" class="md-nav__link">
     1）查询所有数据
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2_1" class="md-nav__link">
+  <a href="#2_2" class="md-nav__link">
     2）查询第一条数据
   </a>
   
@@ -1180,14 +1220,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_2" class="md-nav__link">
+  <a href="#1_3" class="md-nav__link">
     1. 默认排序，升序
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2_2" class="md-nav__link">
+  <a href="#2_3" class="md-nav__link">
     2. 降序
   </a>
   
@@ -1207,14 +1247,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_3" class="md-nav__link">
+  <a href="#1_4" class="md-nav__link">
     1. 为实体类指定别名
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2_3" class="md-nav__link">
+  <a href="#2_4" class="md-nav__link">
     2. 为列指定别名
   </a>
   
@@ -1310,9 +1350,7 @@ session.add(ed_user)
 # 提交
 session.commit()
 </code></pre>
-<blockquote>
-<p>sql</p>
-</blockquote>
+<p>====&gt; sql</p>
 <pre><code class="language-sql">INSERT INTO users (name, fullname, password) VALUES (%(name)s, %(fullname)s, %(password)s)
 [generated in 0.00054s] {'name': 'desire', 'fullname': 'asdfasdf', 'password': '123123'}
 </code></pre>
@@ -1324,9 +1362,7 @@ session.add_all([
         User(name='fred', fullname='Fred Flintstone', password='freddy')])
     session.commit()
 </code></pre>
-<blockquote>
-<p>sql</p>
-</blockquote>
+<p>==&gt; sql</p>
 <pre><code class="language-sql">INSERT INTO users (name, fullname, password) VALUES (%(name)s, %(fullname)s, %(password)s)
 [cached since 0.005862s ago] {'name': 'wendy', 'fullname': 'Wendy Williams', 'password': 'windy'}
 
@@ -1337,8 +1373,38 @@ INSERT INTO users (name, fullname, password) VALUES (%(name)s, %(fullname)s, %(p
 [cached since 0.01808s ago] {'name': 'fred', 'fullname': 'Fred Flintstone', 'password': 'freddy'}
 </code></pre>
 <h3 id="2">2、修改</h3>
+<h4 id="1_1">1）方式一</h4>
+<ul>
+<li>根据ID查询出来数据实体类</li>
+<li>然后直接修改数据实体类中的数据</li>
+<li>进行commit提交，</li>
+</ul>
+<pre><code class="language-python">user = session.get(User, 8)
+user.password = &quot;123456&quot;
+session.commit()
+</code></pre>
+<p>==&gt; sql</p>
+<pre><code class="language-sql">SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
+FROM users
+WHERE users.id = %(pk_1)s
+-- [generated in 0.00105s] {'pk_1': 8}
+UPDATE users SET password=%(password)s WHERE users.id = %(users_id)s
+-- [generated in 0.00042s] {'password': '123456', 'users_id': 8}
+</code></pre>
+<h4 id="2_1">2）方式二</h4>
+<ul>
+<li>通过链式调用进行更新操作</li>
+<li>update参数为字典形式，字典的key要跟列名对应</li>
+</ul>
+<pre><code class="language-python">session.query(User).filter(User.id==8).update({&quot;password&quot;:&quot;654321&quot;})
+session.commit()
+</code></pre>
+<p>==&gt; sql</p>
+<pre><code class="language-sql">UPDATE users SET password=%(password)s WHERE users.id = %(id_1)s
+-- [generated in 0.00195s] {'password': '654321', 'id_1': 8}
+</code></pre>
 <h3 id="3">3、查询</h3>
-<h4 id="1_1">1）查询所有数据</h4>
+<h4 id="1_2">1）查询所有数据</h4>
 <ul>
 <li>通过query进行查询，使用all()查询所有数据，返回数据为列表嵌套模型类</li>
 <li>可以通过循环遍历获取</li>
@@ -1348,21 +1414,17 @@ INSERT INTO users (name, fullname, password) VALUES (%(name)s, %(fullname)s, %(p
 for user in users:
     print(user, user.name)
 </code></pre>
-<blockquote>
-<p>sql</p>
-</blockquote>
+<p>==&gt; sql</p>
 <pre><code class="language-sql">SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
 FROM users
 </code></pre>
-<blockquote>
-<p>打印结果</p>
-</blockquote>
+<p>==&gt; 打印结果</p>
 <pre><code class="language-bash">&lt;User(name='desire', fullname='asdfasdf', password='123123')&gt; desire
 &lt;User(name='wendy', fullname='Wendy Williams', password='windy')&gt; wendy
 &lt;User(name='mary', fullname='Mary Contrary', password='mary')&gt; mary
 &lt;User(name='fred', fullname='Fred Flintstone', password='freddy')&gt; fred
 </code></pre>
-<h4 id="2_1">2）查询第一条数据</h4>
+<h4 id="2_2">2）查询第一条数据</h4>
 <ul>
 <li>使用first查询第一条数据</li>
 <li>返回的是模型类，可以通过【类名.属性名】获取指定的数据</li>
@@ -1370,17 +1432,13 @@ FROM users
 <pre><code class="language-python">user = session.query(User).first()
 print(user, user.name)
 </code></pre>
-<blockquote>
-<p>sql</p>
-</blockquote>
+<p>==&gt;  sql</p>
 <pre><code class="language-sql">SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
 FROM users
  LIMIT %(param_1)s
 -- [generated in 0.00076s] {'param_1': 1}
 </code></pre>
-<blockquote>
-<p>打印结果</p>
-</blockquote>
+<p>==&gt; 打印结果</p>
 <pre><code class="language-bash">&lt;User(name='desire', fullname='asdfasdf', password='123123')&gt; desire
 </code></pre>
 <h4 id="3_1">3）查询指定列数据</h4>
@@ -1393,15 +1451,11 @@ FROM users
 for user in users:
     print(user, user.name,user.fullname)
 </code></pre>
-<blockquote>
-<p>sql</p>
-</blockquote>
+<p>==&gt; sql</p>
 <pre><code class="language-sql">SELECT users.name AS users_name, users.fullname AS users_fullname
 FROM users
 </code></pre>
-<blockquote>
-<p>打印结果</p>
-</blockquote>
+<p>==&gt; 打印结果</p>
 <pre><code class="language-bash">('desire', 'asdfasdf') desire asdfasdf
 ('wendy', 'Wendy Williams') wendy Wendy Williams
 ('mary', 'Mary Contrary') mary Mary Contrary
@@ -1417,17 +1471,13 @@ FROM users
     for user in users:
         print(user)
 </code></pre>
-<blockquote>
-<p>sql</p>
-</blockquote>
+<p>==&gt; sql</p>
 <pre><code class="language-sql">SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
 FROM users
 WHERE users.fullname = %(fullname_1)s
 -- [generated in 0.00043s] {'fullname_1': 'Wendy Williams'}
 </code></pre>
-<blockquote>
-<p>打印结果</p>
-</blockquote>
+<p>==&gt; 打印结果</p>
 <pre><code class="language-bash">&lt;User(name='wendy', fullname='Wendy Williams', password='windy')&gt;
 </code></pre>
 <h5 id="2-filter_by">2. filter_by条件查询</h5>
@@ -1439,17 +1489,13 @@ WHERE users.fullname = %(fullname_1)s
 for user in users:
     print(user)
 </code></pre>
-<blockquote>
-<p>sql</p>
-</blockquote>
+<p>==&gt; sql</p>
 <pre><code class="language-sql">SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
 FROM users
 WHERE users.fullname = %(fullname_1)s
 -- [generated in 0.00053s] {'fullname_1': 'Wendy Williams'}
 </code></pre>
-<blockquote>
-<p>打印结果</p>
-</blockquote>
+<p>==&gt; 打印结果</p>
 <pre><code class="language-bash">&lt;User(name='wendy', fullname='Wendy Williams', password='windy')&gt;
 </code></pre>
 <h5 id="3_2">3.多条件查询</h5>
@@ -1463,17 +1509,13 @@ WHERE users.fullname = %(fullname_1)s
 for user in users:
     print(user)
 </code></pre>
-<blockquote>
-<p>sql</p>
-</blockquote>
+<p>==&gt; sql</p>
 <pre><code class="language-sql">SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
 FROM users
 WHERE users.fullname = %(fullname_1)s AND users.name = %(name_1)s
 -- [generated in 0.00053s] {'fullname_1': 'Wendy Williams', 'name_1': 'wendy'}
 </code></pre>
-<blockquote>
-<p>打印结果</p>
-</blockquote>
+<p>==&gt; 打印结果</p>
 <pre><code class="language-bash">&lt;User(name='wendy', fullname='Wendy Williams', password='windy')&gt;
 </code></pre>
 <h4 id="5">5）模糊查询</h4>
@@ -1486,9 +1528,7 @@ WHERE users.fullname = %(fullname_1)s AND users.name = %(name_1)s
 for user in users:
     print(user)
 </code></pre>
-<blockquote>
-<p>sql</p>
-</blockquote>
+<p>==&gt; sql</p>
 <pre><code class="language-sql">-- like&gt;&gt;
 SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
 FROM users
@@ -1501,9 +1541,7 @@ FROM users
 WHERE lower(users.fullname) LIKE lower(%(fullname_1)s)
 -- [generated in 0.00061s] {'fullname_1': '%F%'}
 </code></pre>
-<blockquote>
-<p>打印结果</p>
-</blockquote>
+<p>==&gt; 打印结果</p>
 <pre><code class="language-bash">&lt;User(name='desire', fullname='asdfasdf', password='123123')&gt;
 &lt;User(name='fred', fullname='Fred Flintstone', password='freddy')&gt;
 </code></pre>
@@ -1527,9 +1565,7 @@ FROM users
 WHERE users.id IN (%(id_1_1)s, %(id_1_2)s, %(id_1_3)s)
 -- [generated in 0.00055s] {'id_1_1': 1, 'id_1_2': 2, 'id_1_3': 3}
 </code></pre>
-<blockquote>
-<p>打印结果</p>
-</blockquote>
+<p>==&gt; 打印结果</p>
 <pre><code class="language-bash">&lt;User(name='desire', fullname='asdfasdf', password='123123')&gt;
 &lt;User(name='wendy', fullname='Wendy Williams', password='windy')&gt;
 &lt;User(name='mary', fullname='Mary Contrary', password='mary')&gt;
@@ -1543,17 +1579,13 @@ WHERE users.id IN (%(id_1_1)s, %(id_1_2)s, %(id_1_3)s)
 for user in users:
     print(user)
 </code></pre>
-<blockquote>
-<p>sql</p>
-</blockquote>
+<p>==&gt; sql</p>
 <pre><code class="language-sql">SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
 FROM users
 WHERE users.id NOT IN (%(id_1_1)s, %(id_1_2)s, %(id_1_3)s)
 -- [generated in 0.00086s] {'id_1_1': 1, 'id_1_2': 2, 'id_1_3': 3}
 </code></pre>
-<blockquote>
-<p>打印结果</p>
-</blockquote>
+<p>==&gt; 打印结果</p>
 <pre><code class="language-bash">&lt;User(name='fred', fullname='Fred Flintstone', password='freddy')&gt;
 </code></pre>
 <h4 id="7and">7）and查询</h4>
@@ -1568,17 +1600,13 @@ users = session.query(User).filter(and_(User.name == &quot;wendy&quot;,User.full
 for user in users:
     print(user)
 </code></pre>
-<blockquote>
-<p>sql</p>
-</blockquote>
+<p>==&gt; sql</p>
 <pre><code class="language-sql">SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
 FROM users
 WHERE users.name = %(name_1)s AND users.fullname = %(fullname_1)s
 -- [generated in 0.00065s] {'name_1': 'wendy', 'fullname_1': 'Wendy Williams'}
 </code></pre>
-<blockquote>
-<p>打印结果</p>
-</blockquote>
+<p>==&gt; 打印结果</p>
 <pre><code class="language-bash">&lt;User(name='wendy', fullname='Wendy Williams', password='windy')&gt;
 </code></pre>
 <h4 id="8or">8）or查询</h4>
@@ -1591,17 +1619,13 @@ users = session.query(User).filter(or_(User.name == &quot;wendy1&quot;,User.full
 for user in users:
     print(user)
 </code></pre>
-<blockquote>
-<p>sql</p>
-</blockquote>
+<p>==&gt; sql</p>
 <pre><code class="language-sql">SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
 FROM users
 WHERE users.name = %(name_1)s OR users.fullname = %(fullname_1)s
 -- [generated in 0.00045s] {'name_1': 'wendy1', 'fullname_1': 'Wendy Williams'}
 </code></pre>
-<blockquote>
-<p>查询结果</p>
-</blockquote>
+<p>==&gt; 打印结果</p>
 <pre><code class="language-bash">&lt;User(name='wendy', fullname='Wendy Williams', password='windy')&gt;
 </code></pre>
 <h4 id="9">9）主键查询</h4>
@@ -1618,17 +1642,13 @@ WHERE users.name = %(name_1)s OR users.fullname = %(fullname_1)s
 # user = session.query(User).get(1)
 print(user)
 </code></pre>
-<blockquote>
-<p>sql</p>
-</blockquote>
+<p>==&gt; sql</p>
 <pre><code class="language-sql">SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
 FROM users
 WHERE users.id = %(pk_1)s
 -- [generated in 0.00083s] {'pk_1': 1}
 </code></pre>
-<blockquote>
-<p>打印结果</p>
-</blockquote>
+<p>==&gt; 打印结果</p>
 <pre><code class="language-bash">&lt;User(name='desire', fullname='asdfasdf', password='123123')&gt;
 </code></pre>
 <h3 id="4_1">4、删除</h3>
@@ -1641,15 +1661,11 @@ WHERE users.id = %(pk_1)s
 print(result)
 session.commit()
 </code></pre>
-<blockquote>
-<p>sql</p>
-</blockquote>
+<p>==&gt; sql</p>
 <pre><code class="language-sql">DELETE FROM users WHERE users.id = %(id_1)s
 -- [generated in 0.00052s] {'id_1': 5}
 </code></pre>
-<blockquote>
-<p>打印结果</p>
-</blockquote>
+<p>==&gt; 打印结果</p>
 <pre><code class="language-bash">1
 </code></pre>
 <h3 id="5sql">5、使用文本SQL</h3>
@@ -1662,16 +1678,12 @@ users = session.query(User).filter(text(&quot;id &lt; 3&quot;)).all()
 for user in users:
     print(user)
 </code></pre>
-<blockquote>
-<p>sql</p>
-</blockquote>
+<p>==&gt; sql</p>
 <pre><code class="language-sql">SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
 FROM users
 WHERE id &lt; 3
 </code></pre>
-<blockquote>
-<p>打印结果</p>
-</blockquote>
+<p>==&gt; 打印结果</p>
 <pre><code class="language-bash">&lt;User(name='desire', fullname='asdfasdf', password='123123')&gt;
 &lt;User(name='wendy', fullname='Wendy Williams', password='windy')&gt;
 </code></pre>
@@ -1682,16 +1694,12 @@ WHERE id &lt; 3
 <pre><code class="language-python">num = session.query(User).count()
 print(num)
 </code></pre>
-<blockquote>
-<p>sql</p>
-</blockquote>
+<p>==&gt; sql</p>
 <pre><code class="language-sql">SELECT count(*) AS count_1
 FROM (SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
 FROM users) AS anon_1
 </code></pre>
-<blockquote>
-<p>打印结果</p>
-</blockquote>
+<p>==&gt; 打印结果</p>
 <pre><code class="language-bash">4
 </code></pre>
 <h3 id="7">7、去重</h3>
@@ -1701,15 +1709,11 @@ FROM users) AS anon_1
 <pre><code class="language-python">users = session.query(User).distinct().all()
 print(users)
 </code></pre>
-<blockquote>
-<p>sql</p>
-</blockquote>
+<p>==&gt; sql</p>
 <pre><code class="language-sql">SELECT DISTINCT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
 FROM users
 </code></pre>
-<blockquote>
-<p>打印结果</p>
-</blockquote>
+<p>==&gt; 打印结果</p>
 <pre><code class="language-bash">[
     &lt;User(name='desire', fullname='asdfasdf', password='123123')&gt;, 
     &lt;User(name='wendy', fullname='Wendy Williams', password='windy')&gt;, 
@@ -1721,46 +1725,38 @@ FROM users
 <ul>
 <li><code>order_by</code> 排序</li>
 </ul>
-<h4 id="1_2">1. 默认排序，升序</h4>
+<h4 id="1_3">1. 默认排序，升序</h4>
 <pre><code class="language-python">users = session.query(User).order_by(User.id).all()
 for user in users:
     print(user.id, user)
 </code></pre>
-<blockquote>
-<p>sql</p>
-</blockquote>
+<p>==&gt; sql</p>
 <pre><code class="language-sql">SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
 FROM users ORDER BY users.id
 </code></pre>
-<blockquote>
-<p>打印结果</p>
-</blockquote>
+<p>==&gt; 打印结果</p>
 <pre><code class="language-bash">1 &lt;User(name='desire', fullname='asdfasdf', password='123123')&gt;
 2 &lt;User(name='wendy', fullname='Wendy Williams', password='windy')&gt;
 3 &lt;User(name='mary', fullname='Mary Contrary', password='mary')&gt;
 4 &lt;User(name='fred', fullname='Fred Flintstone', password='freddy')&gt;
 </code></pre>
-<h4 id="2_2">2. 降序</h4>
+<h4 id="2_3">2. 降序</h4>
 <pre><code class="language-python">users = session.query(User).order_by(User.id.desc())
 for user in users:
     print(user.id, user)
 </code></pre>
-<blockquote>
-<p>sql</p>
-</blockquote>
+<p>==&gt; sql</p>
 <pre><code class="language-sql">SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
 FROM users ORDER BY users.id DESC
 </code></pre>
-<blockquote>
-<p>打印结果</p>
-</blockquote>
+<p>==&gt; 打印结果</p>
 <pre><code class="language-bash">4 &lt;User(name='fred', fullname='Fred Flintstone', password='freddy')&gt;
 3 &lt;User(name='mary', fullname='Mary Contrary', password='mary')&gt;
 2 &lt;User(name='wendy', fullname='Wendy Williams', password='windy')&gt;
 1 &lt;User(name='desire', fullname='asdfasdf', password='123123')&gt;
 </code></pre>
 <h3 id="9_1">9、别名</h3>
-<h4 id="1_3">1. 为实体类指定别名</h4>
+<h4 id="1_4">1. 为实体类指定别名</h4>
 <ul>
 <li>使用<code>aliased</code>对实体类指定别名<ul>
 <li>第一个参数为：实体类名</li>
@@ -1774,21 +1770,17 @@ users = session.query(user_alias, user_alias.name).all()
 for instance in users:
     print(instance.user_alias, instance.name)
 </code></pre>
-<blockquote>
-<p>sql</p>
-</blockquote>
+<p>==&gt; sql</p>
 <pre><code class="language-sql">SELECT user_alias.id AS user_alias_id, user_alias.name AS user_alias_name, user_alias.fullname AS user_alias_fullname, user_alias.password AS user_alias_password
 FROM users AS user_alias
 </code></pre>
-<blockquote>
-<p>打印结果</p>
-</blockquote>
+<p>==&gt; 打印结果</p>
 <pre><code class="language-bash">&lt;User(name='desire', fullname='asdfasdf', password='123123')&gt; desire
 &lt;User(name='wendy', fullname='Wendy Williams', password='windy')&gt; wendy
 &lt;User(name='mary', fullname='Mary Contrary', password='mary')&gt; mary
 &lt;User(name='fred', fullname='Fred Flintstone', password='freddy')&gt; fred
 </code></pre>
-<h4 id="2_3">2. 为列指定别名</h4>
+<h4 id="2_4">2. 为列指定别名</h4>
 <ul>
 <li><code>label</code> 为列指定别名</li>
 <li>获取值得时候，要使用别名进行获取，否则会报错</li>
@@ -1797,15 +1789,11 @@ FROM users AS user_alias
 for user in users:
     print(user.name_label)
 </code></pre>
-<blockquote>
-<p>sql</p>
-</blockquote>
+<p>==&gt; sql</p>
 <pre><code class="language-sql">SELECT users.name AS name_label
 FROM users
 </code></pre>
-<blockquote>
-<p>打印结果</p>
-</blockquote>
+<p>==&gt; 打印结果</p>
 <pre><code class="language-bash">desire
 wendy
 mary
