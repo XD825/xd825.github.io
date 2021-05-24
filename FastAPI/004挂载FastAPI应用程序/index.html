@@ -16,7 +16,7 @@
     
     
       
-        <title>FastAPI简单使用 - Desire</title>
+        <title>挂载FastAPI应用程序 - Desire</title>
       
     
     
@@ -91,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              FastAPI简单使用
+              挂载FastAPI应用程序
             
           </span>
         </div>
@@ -311,72 +311,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          FastAPI简单使用
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../001FastAPI%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="md-nav__link">
         FastAPI简单使用
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1、安装
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2demo" class="md-nav__link">
-    2、简单的demo
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3、运行
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4、 访问
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -408,11 +347,79 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../004%E6%8C%82%E8%BD%BDFastAPI%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          挂载FastAPI应用程序
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         挂载FastAPI应用程序
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、目的
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    二、创建主应用程序
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    三、创建子应用程序
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    四、把子应用挂载到主应用上
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    五、独立文档
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -683,29 +690,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1、安装
+  <a href="#_1" class="md-nav__link">
+    一、目的
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2demo" class="md-nav__link">
-    2、简单的demo
+  <a href="#_2" class="md-nav__link">
+    二、创建主应用程序
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3、运行
+  <a href="#_3" class="md-nav__link">
+    三、创建子应用程序
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4、 访问
+  <a href="#_4" class="md-nav__link">
+    四、把子应用挂载到主应用上
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    五、独立文档
   </a>
   
 </li>
@@ -722,44 +736,43 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/XD825/xd825.github.io/edit/main/docs/FastAPI/001FastAPI简单使用.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/XD825/xd825.github.io/edit/main/docs/FastAPI/004挂载FastAPI应用程序.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="fastapi">FastAPI简单使用</h1>
-<h2 id="1">1、安装</h2>
-<pre><code class="language-bash">pip install fastapi
-pip install uvicorn
-</code></pre>
-<h2 id="2demo">2、简单的demo</h2>
-<blockquote>
-<p>main.py</p>
-</blockquote>
+                <h1 id="fastapi">挂载FastAPI应用程序</h1>
+<h2 id="_1">一、目的</h2>
+<p>如果需要两个独立的FastAPI应用程序，以及他们各自拥有独立的文档，则可以拥有一个主应用程序并<code>装载</code>多个子应用程序。</p>
+<h2 id="_2">二、创建主应用程序</h2>
 <pre><code class="language-python">from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get(&quot;/&quot;)
-async def root():
-    return {&quot;message&quot;: &quot;Hello World&quot;}
+@app.get(&quot;/app&quot;)
+def read_main():
+    return {&quot;msg&quot;:&quot;This is main app&quot;}
 </code></pre>
-<h2 id="3">3、运行</h2>
-<pre><code class="language-bash">uvicorn main:app --port 8888 --reload
+<h2 id="_3">三、创建子应用程序</h2>
+<pre><code class="language-python">subapp = FastAPI()
+
+@subapp.get(&quot;/sub&quot;)
+def read_sub():
+    return {&quot;msg&quot;:&quot;This is sub app&quot;}
 </code></pre>
-<blockquote>
-<p>命令含义如下:</p>
-</blockquote>
+<h2 id="_4">四、把子应用挂载到主应用上</h2>
 <ul>
-<li>main：main.py 文件（一个 Python「模块」）。</li>
-<li>app：在 main.py 文件中通过 app = FastAPI() 创建的对象。</li>
-<li>--port：执行端口号</li>
-<li>--reload：让服务器在更新代码后重新启动。仅在开发时使用该选项。</li>
+<li>主应用程序的对象<code>app</code>, 使用<code>mount</code>方法进行装载子应用</li>
+<li>第一个参数为api路径</li>
+<li>第二个参数为子应用程序对象<code>subapp</code> </li>
 </ul>
-<h2 id="4">4、 访问</h2>
-<p>http://127.0.0.1:8888 # 访问接口</p>
-<p>http://127.0.0.1:8888/docs # 交互式API文档（Swagger UI）</p>
-<p>http://127.0.0.1:8888/redoc # 可选的API文档</p>
+<pre><code class="language-python">app.mount(&quot;/subapi&quot;, subapp)
+</code></pre>
+<h2 id="_5">五、独立文档</h2>
+<ul>
+<li>主应用文档地址 <code>http://127.0.0.1:8000/docs</code></li>
+<li>子应用文档地址 <code>http://127.0.0.1:8000/subapi/docs</code></li>
+</ul>
                 
               
               
@@ -778,7 +791,7 @@ async def root():
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../../Django/004%20Django%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../003%E5%88%86%E9%A1%B5%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -787,19 +800,19 @@ async def root():
               <span class="md-footer__direction">
                 Previous
               </span>
-              Djang 命令汇总
+              分页功能实现
             </div>
           </div>
         </a>
       
       
-        <a href="../002FastAPI-JWT%E9%AA%8C%E8%AF%81/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../005Docker%2BGunicorn%2BUvicorn%E9%83%A8%E7%BD%B2FastAPI/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              JWT(JSON Web Tokens)
+              Docker+Gunicorn+Uvicorn部署FastAPI
             </div>
           </div>
           <div class="md-footer__button md-icon">
