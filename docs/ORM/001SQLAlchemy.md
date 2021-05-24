@@ -68,6 +68,7 @@ Base.metadata.create_all(engine, checkfirst=True)
 
 ### 1、添加
 #### 1）add: 单条添加
+
 ```python
 # 实例化模型类
 ed_user = User(name="desire", fullname="asdfasdf", password="123123")
@@ -76,7 +77,8 @@ session.add(ed_user)
 # 提交
 session.commit()
 ```
-> sql
+====> sql
+
 ```sql
 INSERT INTO users (name, fullname, password) VALUES (%(name)s, %(fullname)s, %(password)s)
 [generated in 0.00054s] {'name': 'desire', 'fullname': 'asdfasdf', 'password': '123123'}
@@ -90,7 +92,7 @@ session.add_all([
         User(name='fred', fullname='Fred Flintstone', password='freddy')])
     session.commit()
 ```
-> sql
+==> sql
 ```sql
 INSERT INTO users (name, fullname, password) VALUES (%(name)s, %(fullname)s, %(password)s)
 [cached since 0.005862s ago] {'name': 'wendy', 'fullname': 'Wendy Williams', 'password': 'windy'}
@@ -103,7 +105,52 @@ INSERT INTO users (name, fullname, password) VALUES (%(name)s, %(fullname)s, %(p
 ```
 ### 2、修改
 
+#### 1）方式一
+
+- 根据ID查询出来数据实体类
+- 然后直接修改数据实体类中的数据
+- 进行commit提交，
+
+```python
+user = session.get(User, 8)
+user.password = "123456"
+session.commit()
+```
+
+==> sql
+
+```sql
+SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
+FROM users
+WHERE users.id = %(pk_1)s
+-- [generated in 0.00105s] {'pk_1': 8}
+UPDATE users SET password=%(password)s WHERE users.id = %(users_id)s
+-- [generated in 0.00042s] {'password': '123456', 'users_id': 8}
+```
+
+#### 2）方式二
+
+- 通过链式调用进行更新操作
+- update参数为字典形式，字典的key要跟列名对应
+
+```python
+session.query(User).filter(User.id==8).update({"password":"654321"})
+session.commit()
+```
+
+==> sql
+
+```sql
+UPDATE users SET password=%(password)s WHERE users.id = %(id_1)s
+-- [generated in 0.00195s] {'password': '654321', 'id_1': 8}
+```
+
+
+
+
+
 ### 3、查询
+
 #### 1）查询所有数据
 
 - 通过query进行查询，使用all()查询所有数据，返回数据为列表嵌套模型类
@@ -115,12 +162,12 @@ users = session.query(User).all()
 for user in users:
     print(user, user.name)
 ```
-> sql
+==> sql
 ```sql
 SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
 FROM users
 ```
-> 打印结果
+==> 打印结果
 ```bash
 <User(name='desire', fullname='asdfasdf', password='123123')> desire
 <User(name='wendy', fullname='Wendy Williams', password='windy')> wendy
@@ -138,7 +185,7 @@ user = session.query(User).first()
 print(user, user.name)
 ```
 
->  sql
+==>  sql
 
 ```sql
 SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
@@ -147,7 +194,7 @@ FROM users
 -- [generated in 0.00076s] {'param_1': 1}
 ```
 
-> 打印结果
+==> 打印结果
 
 ```bash
 <User(name='desire', fullname='asdfasdf', password='123123')> desire
@@ -166,12 +213,12 @@ users = session.query(User.name, User.fullname).all()
 for user in users:
     print(user, user.name,user.fullname)
 ```
-> sql
+==> sql
 ```sql
 SELECT users.name AS users_name, users.fullname AS users_fullname
 FROM users
 ```
-> 打印结果
+==> 打印结果
 ```bash
 ('desire', 'asdfasdf') desire asdfasdf
 ('wendy', 'Wendy Williams') wendy Wendy Williams
@@ -190,14 +237,14 @@ users = session.query(User).filter(User.fullname == "Wendy Williams").all()
     for user in users:
         print(user)
 ```
-> sql
+==> sql
 ```sql
 SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
 FROM users
 WHERE users.fullname = %(fullname_1)s
 -- [generated in 0.00043s] {'fullname_1': 'Wendy Williams'}
 ```
-> 打印结果
+==> 打印结果
 ```bash
 <User(name='wendy', fullname='Wendy Williams', password='windy')>
 ```
@@ -210,14 +257,14 @@ users = session.query(User).filter_by(fullname="Wendy Williams").all()
 for user in users:
     print(user)
 ```
-> sql
+==> sql
 ```sql
 SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
 FROM users
 WHERE users.fullname = %(fullname_1)s
 -- [generated in 0.00053s] {'fullname_1': 'Wendy Williams'}
 ```
-> 打印结果
+==> 打印结果
 ```bash
 <User(name='wendy', fullname='Wendy Williams', password='windy')>
 ```
@@ -235,7 +282,7 @@ for user in users:
     print(user)
 ```
 
-> sql
+==> sql
 
 ```sql
 SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
@@ -244,7 +291,7 @@ WHERE users.fullname = %(fullname_1)s AND users.name = %(name_1)s
 -- [generated in 0.00053s] {'fullname_1': 'Wendy Williams', 'name_1': 'wendy'}
 ```
 
-> 打印结果
+==> 打印结果
 
 ```bash
 <User(name='wendy', fullname='Wendy Williams', password='windy')>
@@ -264,7 +311,7 @@ for user in users:
     print(user)
 ```
 
-> sql
+==> sql
 
 ```sql
 -- like>>
@@ -280,7 +327,7 @@ WHERE lower(users.fullname) LIKE lower(%(fullname_1)s)
 -- [generated in 0.00061s] {'fullname_1': '%F%'}
 ```
 
-> 打印结果
+==> 打印结果
 
 ```bash
 <User(name='desire', fullname='asdfasdf', password='123123')>
@@ -313,7 +360,7 @@ WHERE users.id IN (%(id_1_1)s, %(id_1_2)s, %(id_1_3)s)
 -- [generated in 0.00055s] {'id_1_1': 1, 'id_1_2': 2, 'id_1_3': 3}
 ```
 
-> 打印结果
+==> 打印结果
 
 ```bash
 <User(name='desire', fullname='asdfasdf', password='123123')>
@@ -332,7 +379,7 @@ for user in users:
     print(user)
 ```
 
-> sql
+==> sql
 
 ```sql
 SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
@@ -341,7 +388,7 @@ WHERE users.id NOT IN (%(id_1_1)s, %(id_1_2)s, %(id_1_3)s)
 -- [generated in 0.00086s] {'id_1_1': 1, 'id_1_2': 2, 'id_1_3': 3}
 ```
 
-> 打印结果
+==> 打印结果
 
 ```bash
 <User(name='fred', fullname='Fred Flintstone', password='freddy')>
@@ -363,7 +410,7 @@ for user in users:
     print(user)
 ```
 
-> sql
+==> sql
 
 ```sql
 SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
@@ -372,7 +419,7 @@ WHERE users.name = %(name_1)s AND users.fullname = %(fullname_1)s
 -- [generated in 0.00065s] {'name_1': 'wendy', 'fullname_1': 'Wendy Williams'}
 ```
 
-> 打印结果
+==> 打印结果
 
 ```bash
 <User(name='wendy', fullname='Wendy Williams', password='windy')>
@@ -392,7 +439,7 @@ for user in users:
     print(user)
 ```
 
-> sql
+==> sql
 
 ```sql
 SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
@@ -401,7 +448,7 @@ WHERE users.name = %(name_1)s OR users.fullname = %(fullname_1)s
 -- [generated in 0.00045s] {'name_1': 'wendy1', 'fullname_1': 'Wendy Williams'}
 ```
 
-> 查询结果
+==> 打印结果
 
 ```bash
 <User(name='wendy', fullname='Wendy Williams', password='windy')>
@@ -418,14 +465,14 @@ user = session.get(User, 1)
 # user = session.query(User).get(1)
 print(user)
 ```
-> sql
+==> sql
 ```sql
 SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
 FROM users
 WHERE users.id = %(pk_1)s
 -- [generated in 0.00083s] {'pk_1': 1}
 ```
-> 打印结果
+==> 打印结果
 ```bash
 <User(name='desire', fullname='asdfasdf', password='123123')>
 ```
@@ -439,12 +486,12 @@ result = session.query(User).filter_by(id=5).delete()
 print(result)
 session.commit()
 ```
-> sql
+==> sql
 ```sql
 DELETE FROM users WHERE users.id = %(id_1)s
 -- [generated in 0.00052s] {'id_1': 5}
 ```
-> 打印结果
+==> 打印结果
 ```bash
 1
 ```
@@ -461,7 +508,7 @@ for user in users:
     print(user)
 ```
 
-> sql
+==> sql
 
 ```sql
 SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
@@ -469,7 +516,7 @@ FROM users
 WHERE id < 3
 ```
 
-> 打印结果
+==> 打印结果
 
 ```bash
 <User(name='desire', fullname='asdfasdf', password='123123')>
@@ -482,13 +529,13 @@ WHERE id < 3
 num = session.query(User).count()
 print(num)
 ```
-> sql
+==> sql
 ```sql
 SELECT count(*) AS count_1
 FROM (SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
 FROM users) AS anon_1
 ```
-> 打印结果
+==> 打印结果
 ```bash
 4
 ```
@@ -499,12 +546,12 @@ FROM users) AS anon_1
 users = session.query(User).distinct().all()
 print(users)
 ```
-> sql
+==> sql
 ```sql
 SELECT DISTINCT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
 FROM users
 ```
-> 打印结果
+==> 打印结果
 ```bash
 [
     <User(name='desire', fullname='asdfasdf', password='123123')>, 
@@ -522,12 +569,12 @@ users = session.query(User).order_by(User.id).all()
 for user in users:
     print(user.id, user)
 ```
-> sql
+==> sql
 ```sql
 SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
 FROM users ORDER BY users.id
 ```
-> 打印结果
+==> 打印结果
 ```bash
 1 <User(name='desire', fullname='asdfasdf', password='123123')>
 2 <User(name='wendy', fullname='Wendy Williams', password='windy')>
@@ -541,12 +588,12 @@ users = session.query(User).order_by(User.id.desc())
 for user in users:
     print(user.id, user)
 ```
-> sql
+==> sql
 ```sql
 SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
 FROM users ORDER BY users.id DESC
 ```
-> 打印结果
+==> 打印结果
 ```bash
 4 <User(name='fred', fullname='Fred Flintstone', password='freddy')>
 3 <User(name='mary', fullname='Mary Contrary', password='mary')>
@@ -567,12 +614,12 @@ users = session.query(user_alias, user_alias.name).all()
 for instance in users:
     print(instance.user_alias, instance.name)
 ```
-> sql
+==> sql
 ```sql
 SELECT user_alias.id AS user_alias_id, user_alias.name AS user_alias_name, user_alias.fullname AS user_alias_fullname, user_alias.password AS user_alias_password
 FROM users AS user_alias
 ```
-> 打印结果
+==> 打印结果
 ```bash
 <User(name='desire', fullname='asdfasdf', password='123123')> desire
 <User(name='wendy', fullname='Wendy Williams', password='windy')> wendy
@@ -588,15 +635,16 @@ users = session.query(User.name.label('name_label')).all()
 for user in users:
     print(user.name_label)
 ```
-> sql
+==> sql
 ```sql
 SELECT users.name AS name_label
 FROM users
 ```
-> 打印结果
+==> 打印结果
 ```bash
 desire
 wendy
 mary
 fred
 ```
+
