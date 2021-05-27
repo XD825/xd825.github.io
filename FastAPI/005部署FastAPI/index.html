@@ -16,7 +16,7 @@
     
     
       
-        <title>Docker+Gunicorn+Uvicorn部署FastAPI - Desire</title>
+        <title>部署FastAPI - Desire</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dockergunicornuvicornfastapi" class="md-skip">
+        <a href="#fastapi" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Docker+Gunicorn+Uvicorn部署FastAPI
+              部署FastAPI
             
           </span>
         </div>
@@ -371,12 +371,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Docker+Gunicorn+Uvicorn部署FastAPI
+          部署FastAPI
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Docker+Gunicorn+Uvicorn部署FastAPI
+        部署FastAPI
       </a>
       
         
@@ -408,16 +408,63 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#guicornuvicornworker" class="md-nav__link">
-    使用Guicorn和Uvicorn的worker类生产环境部署
+  <a href="#gunicornuvicornworker" class="md-nav__link">
+    使用Gunicorn和Uvicorn的worker类生产环境部署
+  </a>
+  
+    <nav class="md-nav" aria-label="使用Gunicorn和Uvicorn的worker类生产环境部署">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1liunx" class="md-nav__link">
+    1.、Liunx命令行后台启动
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#gunicorn_1" class="md-nav__link">
-    Gunicorn配置文件
+        
+          <li class="md-nav__item">
+  <a href="#2-docker" class="md-nav__link">
+    2、 docker部署
   </a>
+  
+    <nav class="md-nav" aria-label="2、 docker部署">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-gunicorngunicornconfpy" class="md-nav__link">
+    1. Gunicorn配置文件(gunicorn.conf.py)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-dockerfile" class="md-nav__link">
+    2. Dockerfile文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 构建镜像
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4.运行容器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -721,16 +768,63 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#guicornuvicornworker" class="md-nav__link">
-    使用Guicorn和Uvicorn的worker类生产环境部署
+  <a href="#gunicornuvicornworker" class="md-nav__link">
+    使用Gunicorn和Uvicorn的worker类生产环境部署
+  </a>
+  
+    <nav class="md-nav" aria-label="使用Gunicorn和Uvicorn的worker类生产环境部署">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1liunx" class="md-nav__link">
+    1.、Liunx命令行后台启动
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#gunicorn_1" class="md-nav__link">
-    Gunicorn配置文件
+        
+          <li class="md-nav__item">
+  <a href="#2-docker" class="md-nav__link">
+    2、 docker部署
   </a>
+  
+    <nav class="md-nav" aria-label="2、 docker部署">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-gunicorngunicornconfpy" class="md-nav__link">
+    1. Gunicorn配置文件(gunicorn.conf.py)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-dockerfile" class="md-nav__link">
+    2. Dockerfile文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 构建镜像
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4.运行容器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -746,43 +840,93 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/XD825/xd825.github.io/edit/main/docs/FastAPI/005Docker+Gunicorn+Uvicorn部署FastAPI.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/XD825/xd825.github.io/edit/main/docs/FastAPI/005部署FastAPI.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="dockergunicornuvicornfastapi">Docker+Gunicorn+Uvicorn部署FastAPI</h1>
+                <h1 id="fastapi">部署FastAPI</h1>
 <h2 id="uvicorn">Uvicorn</h2>
 <ul>
-<li>Uvicorn 是基于 uvloop 和 httptools 构建的非常快速的 ASGI 服务器。</li>
-<li>Uvicorn 提供一个轻量级的方法来运行多个工作进程，比如 --workers 4 ，但是并没有提供进行的监控。 </li>
+<li><code>Uvicorn</code> 是基于 <code>uvloop</code> 和 <code>httptools</code> 构建的非常快速的 <code>ASGI</code> 服务器。</li>
+<li><code>Uvicorn</code> 提供一个轻量级的方法来运行多个工作进程，比如 <code>--workers 4</code> ，但是并没有提供进行的监控。 </li>
 </ul>
 <h2 id="gunicorn">Gunicorn</h2>
 <ul>
-<li>Gunicorn 是成熟的，功能齐全的服务器，Uvicorn 内部包含有 Guicorn 的 workers 类，允许你运行 ASGI 应用程序，这些 workers 继承了所有 Uvicorn 高性能的特点，并且给你使用 Guicorn 来进行进程管理。</li>
-<li>用来管理Uvicorn</li>
+<li><code>Gunicorn</code> 是成熟的，功能齐全的服务器，<code>Uvicorn</code> 内部包含有 <code>Gunicorn</code> 的 <code>workers</code> 类，允许你运行 <code>ASGI</code> 应用程序，这些 <code>workers</code> 继承了所有 <code>Uvicorn</code> 高性能的特点，并且给你使用 <code>Gunicorn</code> 来进行进程管理。</li>
+<li>用来管理<code>Uvicorn</code></li>
 </ul>
-<h2 id="guicornuvicornworker">使用Guicorn和Uvicorn的worker类生产环境部署</h2>
-<pre><code class="language-bash">gunicorn example:app -w 4 -k uvicorn.workers.UvicornWorker
+<h2 id="gunicornuvicornworker">使用Gunicorn和Uvicorn的worker类生产环境部署</h2>
+<h3 id="1liunx">1.、Liunx命令行后台启动</h3>
+<pre><code class="language-bash">nohup gunicorn -c main:app --host 0.0.0.0 --port 8080 -w 4 -k uvicorn.workers.UvicornWorker
 </code></pre>
-<h2 id="gunicorn_1">Gunicorn配置文件</h2>
-<pre><code class="language-python">debug = True
-daemon = True
+<h3 id="2-docker">2、 docker部署</h3>
+<h4 id="1-gunicorngunicornconfpy">1. Gunicorn配置文件(gunicorn.conf.py)</h4>
+<pre><code class="language-python">import multiprocessing
 
-bind = '0.0.0.0:8444' # 绑定ip和端口号
-timeout = 30 # 超时时间
+# 是否开启debug
+debug = True
+
+# 设置守护进程
+# daemon = True
+
+# 绑定ip和端口号
+bind = '0.0.0.0:8000' 
+
+# 超时时间
+timeout = 30 
+
+# 工作模式
 worker_class = 'uvicorn.workers.UvicornWorker'
 
-workers = 4 # 进程数
+# 进程数
+workers = multiprocessing.cpu_count() * 2 + 1 
 
 # 设置证书
 # keyfile = ''
 # certfile = ''
 
-loglevel = 'debug' # 日志级别，这个日志级别指的是错误日志级别，而访问日志的级别无法设置
+# 日志级别，这个日志级别指的是错误日志级别，而访问日志的级别无法设置
+loglevel = 'debug' 
 
-accesslog = &quot;/tmp/gunicorn_fasttest_access.log&quot;      # 访问日志文件
-errorlog = &quot;/tmp/gunicorn_fasttest_error.log&quot;        # 错误日志文件
+# 日志配置
+# 访问日志文件
+accesslog = &quot;/tmp/gunicorn_fasttest_access.log&quot;      
+# 错误日志文件
+errorlog = &quot;/tmp/gunicorn_fasttest_error.log&quot;        
+# OR 
+# 配置文件方式配置日志
+# logconfig = &quot;./logger.ini&quot;
+</code></pre>
+<h4 id="2-dockerfile">2. Dockerfile文件</h4>
+<ul>
+<li>需要先进行安装所需系统依赖()</li>
+<li>然后安装python依赖包</li>
+<li>指定容器中可以暴露的端口（EXPOSE）</li>
+<li>运行容器时，需要执行的命令（ENTRYPOINT）</li>
+</ul>
+<pre><code class="language-dockerfile">FROM python:3.8.5
+
+LABEL author=&quot;Desire&quot;
+LABEL desc=&quot;web fastapi&quot;
+
+COPY . /app
+
+WORKDIR /app
+
+RUN apt-get update &amp;&amp; apt-get install -y build-essential gcc libc-dev make python3-lxml \
+&amp;&amp; pip install -r requirements.txt -i http://mirrors.aliyun.com/pypi/simple
+
+
+EXPOSE 8000
+
+ENTRYPOINT [&quot;gunicorn&quot;, &quot;-c&quot;, &quot;gunicorn.conf.py&quot;, &quot;main:app&quot;]
+</code></pre>
+<h4 id="3">3. 构建镜像</h4>
+<pre><code class="language-bash">docker build -t fastapi_gunicorn:v1 -f Dockerfile .
+</code></pre>
+<h4 id="4">4.运行容器</h4>
+<pre><code class="language-bash">docker run -di -p 8000:8000 --name fastapi_gunicorn fastapi_gunicorn:v1
 </code></pre>
                 
               
