@@ -55,25 +55,45 @@ scheduler.start()
 ## 四、调度器（schedulers）
 
 - `BlockingScheduler`：阻塞型调度器，最基本的调度器，调用`start`函数会阻塞当前线程，不能立即返回
+  
   - 适用于调度程序时进程中唯一运行的进程
+  
   - `from apscheduler.schedulers.blocking import BlockingScheduler`
+
 - `BackgroundScheduler`：后台运行调度器，调用`start`后主线程不会阻塞
+  
   - 适用于调度程序在应用程序的后台运行
+  
   - `from apscheduler.schedulers.background import BackgroundScheduler`
+
 - `AsyncIOScheduler`：
+  
   - 适用于使用了`asyncio`模块的应用程序
+  
   - `from apscheduler.schedulers.asyncio import AsyncIOScheduler`
+
 - `GeventScheduler`：
+  
   - 适用于使用`gevent`模块的应用程序
+  
   - `from apscheduler.schedulers.gevent import GeventScheduler`
+
 - `TwistedScheduler`：
+  
   - 适用于构建`Twisted`的应用程序
+  
   - `from apscheduler.schedulers.twisted import TwistedScheduler`
+
 - `QtScheduler`：
+  
   - 适用于构建`Qt`的应用程序
+  
   - `from apscheduler.schedulers.qt import QtScheduler`
+
 - `TornadoScheduler`：
+  
   - 适用于构建`Tornado`的应用程序
+  
   - `from apscheduler.schedulers.tornado import TornadoScheduler`
 
 ## 五、触发器（triggers）
