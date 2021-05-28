@@ -16,7 +16,7 @@
     
     
       
-        <title>部署FastAPI - Desire</title>
+        <title>FastAPI集成APScheduler - Desire</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fastapi" class="md-skip">
+        <a href="#fastapiapscheduler" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              部署FastAPI
+              FastAPI集成APScheduler
             
           </span>
         </div>
@@ -359,119 +359,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          部署FastAPI
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../005%E9%83%A8%E7%BD%B2FastAPI/" class="md-nav__link">
         部署FastAPI
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#uvicorn" class="md-nav__link">
-    Uvicorn
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gunicorn" class="md-nav__link">
-    Gunicorn
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gunicornuvicornworker" class="md-nav__link">
-    使用Gunicorn和Uvicorn的worker类生产环境部署
-  </a>
-  
-    <nav class="md-nav" aria-label="使用Gunicorn和Uvicorn的worker类生产环境部署">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1liunx" class="md-nav__link">
-    1.、Liunx命令行后台启动
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-docker" class="md-nav__link">
-    2、 docker部署
-  </a>
-  
-    <nav class="md-nav" aria-label="2、 docker部署">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-gunicorngunicornconfpy" class="md-nav__link">
-    1. Gunicorn配置文件(gunicorn.conf.py)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-dockerfile" class="md-nav__link">
-    2. Dockerfile文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3. 构建镜像
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4.运行容器
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -503,11 +395,51 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../008FastAPI%E9%9B%86%E6%88%90APScheduler/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          FastAPI集成APScheduler
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         FastAPI集成APScheduler
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前言
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -778,77 +710,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#uvicorn" class="md-nav__link">
-    Uvicorn
+  <a href="#_1" class="md-nav__link">
+    前言
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gunicorn" class="md-nav__link">
-    Gunicorn
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gunicornuvicornworker" class="md-nav__link">
-    使用Gunicorn和Uvicorn的worker类生产环境部署
-  </a>
-  
-    <nav class="md-nav" aria-label="使用Gunicorn和Uvicorn的worker类生产环境部署">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1liunx" class="md-nav__link">
-    1.、Liunx命令行后台启动
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-docker" class="md-nav__link">
-    2、 docker部署
-  </a>
-  
-    <nav class="md-nav" aria-label="2、 docker部署">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-gunicorngunicornconfpy" class="md-nav__link">
-    1. Gunicorn配置文件(gunicorn.conf.py)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-dockerfile" class="md-nav__link">
-    2. Dockerfile文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3. 构建镜像
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4.运行容器
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -864,94 +728,14 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/XD825/xd825.github.io/edit/main/docs/FastAPI/005部署FastAPI.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/XD825/xd825.github.io/edit/main/docs/FastAPI/008FastAPI集成APScheduler.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="fastapi">部署FastAPI</h1>
-<h2 id="uvicorn">Uvicorn</h2>
-<ul>
-<li><code>Uvicorn</code> 是基于 <code>uvloop</code> 和 <code>httptools</code> 构建的非常快速的 <code>ASGI</code> 服务器。</li>
-<li><code>Uvicorn</code> 提供一个轻量级的方法来运行多个工作进程，比如 <code>--workers 4</code> ，但是并没有提供进行的监控。 </li>
-</ul>
-<h2 id="gunicorn">Gunicorn</h2>
-<ul>
-<li><code>Gunicorn</code> 是成熟的，功能齐全的服务器，<code>Uvicorn</code> 内部包含有 <code>Gunicorn</code> 的 <code>workers</code> 类，允许你运行 <code>ASGI</code> 应用程序，这些 <code>workers</code> 继承了所有 <code>Uvicorn</code> 高性能的特点，并且给你使用 <code>Gunicorn</code> 来进行进程管理。</li>
-<li>用来管理<code>Uvicorn</code></li>
-</ul>
-<h2 id="gunicornuvicornworker">使用Gunicorn和Uvicorn的worker类生产环境部署</h2>
-<h3 id="1liunx">1.、Liunx命令行后台启动</h3>
-<pre><code class="language-bash">nohup gunicorn -c main:app --host 0.0.0.0 --port 8080 -w 4 -k uvicorn.workers.UvicornWorker
-</code></pre>
-<h3 id="2-docker">2、 docker部署</h3>
-<h4 id="1-gunicorngunicornconfpy">1. Gunicorn配置文件(gunicorn.conf.py)</h4>
-<pre><code class="language-python">import multiprocessing
-
-# 是否开启debug
-debug = True
-
-# 设置守护进程
-# daemon = True
-
-# 绑定ip和端口号
-bind = '0.0.0.0:8000' 
-
-# 超时时间
-timeout = 30 
-
-# 工作模式
-worker_class = 'uvicorn.workers.UvicornWorker'
-
-# 进程数
-workers = multiprocessing.cpu_count() * 2 + 1 
-
-# 设置证书
-# keyfile = ''
-# certfile = ''
-
-# 日志级别，这个日志级别指的是错误日志级别，而访问日志的级别无法设置
-loglevel = 'debug' 
-
-# 日志配置
-# 访问日志文件
-accesslog = &quot;/tmp/gunicorn_fasttest_access.log&quot;      
-# 错误日志文件
-errorlog = &quot;/tmp/gunicorn_fasttest_error.log&quot;        
-# OR 
-# 配置文件方式配置日志
-# logconfig = &quot;./logger.ini&quot;
-</code></pre>
-<h4 id="2-dockerfile">2. Dockerfile文件</h4>
-<ul>
-<li>需要先进行安装所需系统依赖()</li>
-<li>然后安装python依赖包</li>
-<li>指定容器中可以暴露的端口（EXPOSE）</li>
-<li>运行容器时，需要执行的命令（ENTRYPOINT）</li>
-</ul>
-<pre><code class="language-dockerfile">FROM python:3.8.5
-
-LABEL author=&quot;Desire&quot;
-LABEL desc=&quot;web fastapi&quot;
-
-COPY . /app
-
-WORKDIR /app
-
-RUN apt-get update &amp;&amp; apt-get install -y build-essential gcc libc-dev make python3-lxml \
-&amp;&amp; pip install -r requirements.txt -i http://mirrors.aliyun.com/pypi/simple
-
-
-EXPOSE 8000
-
-ENTRYPOINT [&quot;gunicorn&quot;, &quot;-c&quot;, &quot;gunicorn.conf.py&quot;, &quot;main:app&quot;]
-</code></pre>
-<h4 id="3">3. 构建镜像</h4>
-<pre><code class="language-bash">docker build -t fastapi_gunicorn:v1 -f Dockerfile .
-</code></pre>
-<h4 id="4">4.运行容器</h4>
-<pre><code class="language-bash">docker run -di -p 8000:8000 --name fastapi_gunicorn fastapi_gunicorn:v1
-</code></pre>
+                <h1 id="fastapiapscheduler">FastAPI集成APScheduler</h1>
+<h2 id="_1">前言</h2>
+<p><code>APScheduler</code>定时任务<a href="https://xd825.github.io/%E5%85%B6%E4%BB%96/003%20APScheduler%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">传送门</a></p>
                 
               
               
@@ -970,7 +754,7 @@ ENTRYPOINT [&quot;gunicorn&quot;, &quot;-c&quot;, &quot;gunicorn.conf.py&quot;, 
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../004%E6%8C%82%E8%BD%BDFastAPI%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../007FastAPI%E9%9B%86%E6%88%90Redis/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -979,19 +763,19 @@ ENTRYPOINT [&quot;gunicorn&quot;, &quot;-c&quot;, &quot;gunicorn.conf.py&quot;, 
               <span class="md-footer__direction">
                 Previous
               </span>
-              挂载FastAPI应用程序
+              FastAPI集成Redis
             </div>
           </div>
         </a>
       
       
-        <a href="../006FastAPI%E5%90%AF%E5%8A%A8%E5%89%8D%E5%90%8E%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../../HTTPRunner/HTTPRunner2.x/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              FastAPI启动前后处理程序
+              HTTPRunner2.x
             </div>
           </div>
           <div class="md-footer__button md-icon">

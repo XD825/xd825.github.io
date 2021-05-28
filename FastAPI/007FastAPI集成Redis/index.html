@@ -494,15 +494,15 @@
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 在子路由中使用
+  </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#todo" class="md-nav__link">
-    TODO：子路由如何使用
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -510,6 +510,18 @@
   
 </nav>
       
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../008FastAPI%E9%9B%86%E6%88%90APScheduler/" class="md-nav__link">
+        FastAPI集成APScheduler
+      </a>
     </li>
   
 
@@ -856,15 +868,15 @@
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 在子路由中使用
+  </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#todo" class="md-nav__link">
-    TODO：子路由如何使用
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -951,7 +963,25 @@ async def test(q: str):
     value = await app.state.redis.get(key=key)
     return {key: value}
 </code></pre>
-<h2 id="todo">TODO：子路由如何使用</h2>
+<h3 id="5">5. 在子路由中使用</h3>
+<ul>
+<li>添加参数<code>request: Request</code></li>
+<li>通过<code>request.app.state.redis</code>获取<code>Redis</code>实例</li>
+<li>通过获取到的实例，进行操作<code>Redis</code></li>
+</ul>
+<pre><code class="language-python">router = APIRouter()
+
+
+@router.get(&quot;/api/test&quot;)
+async def test(request: Request, value: str):
+    api_time = f&quot;api-{time.time()}&quot;
+    await request.app.state.redis.setex(key=api_time, seconds=5.5, value=value)
+    value = await request.app.state.redis.get(key=api_time)
+    return {api_time: value}
+
+
+app.include_router(router)
+</code></pre>
                 
               
               
@@ -985,13 +1015,13 @@ async def test(q: str):
         </a>
       
       
-        <a href="../../HTTPRunner/HTTPRunner2.x/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../008FastAPI%E9%9B%86%E6%88%90APScheduler/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              HTTPRunner2.x
+              FastAPI集成APScheduler
             </div>
           </div>
           <div class="md-footer__button md-icon">
