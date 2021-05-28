@@ -75,4 +75,21 @@ async def test(q: str):
     return {key: value}
 ```
 
-## TODO：子路由如何使用
+### 5. 在子路由中使用
+- 添加参数`request: Request`
+- 通过`request.app.state.redis`获取`Redis`实例
+- 通过获取到的实例，进行操作`Redis`
+```python
+router = APIRouter()
+
+
+@router.get("/api/test")
+async def test(request: Request, value: str):
+    api_time = f"api-{time.time()}"
+    await request.app.state.redis.setex(key=api_time, seconds=5.5, value=value)
+    value = await request.app.state.redis.get(key=api_time)
+    return {api_time: value}
+
+
+app.include_router(router)
+```
