@@ -540,48 +540,6 @@
 
   
   
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
-      
-      <label class="md-nav__link" for="__nav_7">
-        Shell
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Shell" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
-          <span class="md-nav__icon md-icon"></span>
-          Shell
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Shell/shell%E7%AC%94%E8%AE%B0/" class="md-nav__link">
-        shell笔记
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
     
   
   
@@ -589,14 +547,14 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
       
-      <label class="md-nav__link" for="__nav_8">
+      <label class="md-nav__link" for="__nav_7">
         Other
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Other" data-md-level="1">
-        <label class="md-nav__title" for="__nav_8">
+        <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
           Other
         </label>
@@ -842,6 +800,48 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        Shell
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Shell" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Shell
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Shell/shell%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        shell笔记
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1044,7 +1044,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/XD825/xd825.github.io/edit/main/docs/other/003 APScheduler定时任务.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/XD825/xd825.github.io/edit/main/docs/Other/003 APScheduler定时任务.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -1102,23 +1102,47 @@ scheduler.start()
 <ul>
 <li><code>BlockingScheduler</code>：阻塞型调度器，最基本的调度器，调用<code>start</code>函数会阻塞当前线程，不能立即返回</li>
 <li>适用于调度程序时进程中唯一运行的进程</li>
-<li><code>from apscheduler.schedulers.blocking import BlockingScheduler</code></li>
-<li><code>BackgroundScheduler</code>：后台运行调度器，调用<code>start</code>后主线程不会阻塞</li>
+<li>
+<p><code>from apscheduler.schedulers.blocking import BlockingScheduler</code></p>
+</li>
+<li>
+<p><code>BackgroundScheduler</code>：后台运行调度器，调用<code>start</code>后主线程不会阻塞</p>
+</li>
 <li>适用于调度程序在应用程序的后台运行</li>
-<li><code>from apscheduler.schedulers.background import BackgroundScheduler</code></li>
-<li><code>AsyncIOScheduler</code>：</li>
+<li>
+<p><code>from apscheduler.schedulers.background import BackgroundScheduler</code></p>
+</li>
+<li>
+<p><code>AsyncIOScheduler</code>：</p>
+</li>
 <li>适用于使用了<code>asyncio</code>模块的应用程序</li>
-<li><code>from apscheduler.schedulers.asyncio import AsyncIOScheduler</code></li>
-<li><code>GeventScheduler</code>：</li>
+<li>
+<p><code>from apscheduler.schedulers.asyncio import AsyncIOScheduler</code></p>
+</li>
+<li>
+<p><code>GeventScheduler</code>：</p>
+</li>
 <li>适用于使用<code>gevent</code>模块的应用程序</li>
-<li><code>from apscheduler.schedulers.gevent import GeventScheduler</code></li>
-<li><code>TwistedScheduler</code>：</li>
+<li>
+<p><code>from apscheduler.schedulers.gevent import GeventScheduler</code></p>
+</li>
+<li>
+<p><code>TwistedScheduler</code>：</p>
+</li>
 <li>适用于构建<code>Twisted</code>的应用程序</li>
-<li><code>from apscheduler.schedulers.twisted import TwistedScheduler</code></li>
-<li><code>QtScheduler</code>：</li>
+<li>
+<p><code>from apscheduler.schedulers.twisted import TwistedScheduler</code></p>
+</li>
+<li>
+<p><code>QtScheduler</code>：</p>
+</li>
 <li>适用于构建<code>Qt</code>的应用程序</li>
-<li><code>from apscheduler.schedulers.qt import QtScheduler</code></li>
-<li><code>TornadoScheduler</code>：</li>
+<li>
+<p><code>from apscheduler.schedulers.qt import QtScheduler</code></p>
+</li>
+<li>
+<p><code>TornadoScheduler</code>：</p>
+</li>
 <li>适用于构建<code>Tornado</code>的应用程序</li>
 <li><code>from apscheduler.schedulers.tornado import TornadoScheduler</code></li>
 </ul>
@@ -1422,6 +1446,20 @@ scheduler.add_listener(my_listener, mask=EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
           </div>
         </a>
       
+      
+        <a href="../../Shell/shell%E7%AC%94%E8%AE%B0/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              shell笔记
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
       
     </nav>
   
