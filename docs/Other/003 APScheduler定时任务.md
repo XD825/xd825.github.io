@@ -54,47 +54,35 @@ scheduler.start()
 
 ## 四、调度器（schedulers）
 
-- `BlockingScheduler`：阻塞型调度器，最基本的调度器，调用`start`函数会阻塞当前线程，不能立即返回
-  
-  - 适用于调度程序时进程中唯一运行的进程
-  
-  - `from apscheduler.schedulers.blocking import BlockingScheduler`
+### `BlockingScheduler`
+- 阻塞型调度器，最基本的调度器，调用`start`函数会阻塞当前线程，不能立即返回
+- 适用于调度程序时进程中唯一运行的进程
+- `from apscheduler.schedulers.blocking import BlockingScheduler`
 
-- `BackgroundScheduler`：后台运行调度器，调用`start`后主线程不会阻塞
-  
-  - 适用于调度程序在应用程序的后台运行
-  
-  - `from apscheduler.schedulers.background import BackgroundScheduler`
+### `BackgroundScheduler`
+- 后台运行调度器，调用`start`后主线程不会阻塞
+- 适用于调度程序在应用程序的后台运行
+- `from apscheduler.schedulers.background import BackgroundScheduler`
 
-- `AsyncIOScheduler`：
-  
-  - 适用于使用了`asyncio`模块的应用程序
-  
-  - `from apscheduler.schedulers.asyncio import AsyncIOScheduler`
+### `AsyncIOScheduler`
+- 适用于使用了`asyncio`模块的应用程序
+- `from apscheduler.schedulers.asyncio import AsyncIOScheduler`
 
-- `GeventScheduler`：
-  
-  - 适用于使用`gevent`模块的应用程序
-  
-  - `from apscheduler.schedulers.gevent import GeventScheduler`
+### `GeventScheduler`
+- 适用于使用`gevent`模块的应用程序
+- `from apscheduler.schedulers.gevent import GeventScheduler`
 
-- `TwistedScheduler`：
-  
-  - 适用于构建`Twisted`的应用程序
-  
-  - `from apscheduler.schedulers.twisted import TwistedScheduler`
+### `TwistedScheduler`
+- 适用于构建`Twisted`的应用程序
+- `from apscheduler.schedulers.twisted import TwistedScheduler`
 
-- `QtScheduler`：
-  
-  - 适用于构建`Qt`的应用程序
-  
-  - `from apscheduler.schedulers.qt import QtScheduler`
+### `QtScheduler`：
+- 适用于构建`Qt`的应用程序
+- `from apscheduler.schedulers.qt import QtScheduler`
 
-- `TornadoScheduler`：
-  
-  - 适用于构建`Tornado`的应用程序
-  
-  - `from apscheduler.schedulers.tornado import TornadoScheduler`
+### `TornadoScheduler`
+- 适用于构建`Tornado`的应用程序
+- `from apscheduler.schedulers.tornado import TornadoScheduler`
 
 ## 五、触发器（triggers）
 
@@ -130,16 +118,16 @@ scheduler.start()
 
 ### 2、interval触发器
 
-- 在固定的时间间隔触发事件
-- `interval`触发器可以设置的触发参数：
-  - `weeks`：周，int
-  - `days`：一个月中的天，int
-  - `hours`：小时，int
-  - `minutes`：分钟，int
-  - `seconds`：秒，int
-  - `start_date`：间隔触发的起始时间
-  - `end_date`：间隔触发的结束时间
-  - `jitter`：触发的时间误差
+#### 在固定的时间间隔触发事件
+#### `interval`触发器可以设置的触发参数：
+- `weeks`：周，int
+- `days`：一个月中的天，int
+- `hours`：小时，int
+- `minutes`：分钟，int
+- `seconds`：秒，int
+- `start_date`：间隔触发的起始时间
+- `end_date`：间隔触发的结束时间
+- `jitter`：触发的时间误差
 
 ```python
 # 三秒执行一次
@@ -150,31 +138,31 @@ scheduler.add_job(func, 'interval', seconds=3, args=["desire"])
 
 ### 3、cron触发器
 
-- 在某个确切的时间周期性的触发时间
-- 参数：
-  - `year`：4位数的年份
-  - `month`：1-12月份
-  - `day`：1-31日
-  - `week`：1-53周
-  - `day_of_week`：一个礼拜中的第几天
+#### 在某个确切的时间周期性的触发时间
+#### 参数：
+- `year`：4位数的年份
+- `month`：1-12月份
+- `day`：1-31日
+- `week`：1-53周
+- `day_of_week`：一个礼拜中的第几天
     - 0-6
     - mon、tue、wed、thu、fri、sat、sun
-  - `hour`：0-23小时
-  - `minute`：0-59分钟
-  - `second`：0-59秒
-  - `start_date`：datetime类型或字符串类型，起始时间
-  - `end_date`：datetime类型或字符串类型，结束时间
-  - `timezone`：时区
-  - `jitter`：任务触发的误差时间
-- 也可以使用表达式类型
-  - `*`		任何		在每个值都触发
-  - `*/a`		任何		每隔`a`触发一次
-  - `a-b`		任何		在`a-b`区间内任何一个时间触发(a<b)
-  - `a-b/c`		任何		在`a-b`区间内每隔`c`触发一次
-  - `xth y`		day		第`x`个星期`y`触发
-  - `last y`		day		最后一个星期`x`触发
-  - `last`		day		一个月中的最后一天触发
-  - `x,y,z`		任何		可以把上面的表达式进行组合
+- `hour`：0-23小时
+- `minute`：0-59分钟
+- `second`：0-59秒
+- `start_date`：datetime类型或字符串类型，起始时间
+- `end_date`：datetime类型或字符串类型，结束时间
+- `timezone`：时区
+- `jitter`：任务触发的误差时间
+#### 也可以使用表达式类型
+- `*`		任何		在每个值都触发
+- `*/a`		任何		每隔`a`触发一次
+- `a-b`		任何		在`a-b`区间内任何一个时间触发(a<b)
+- `a-b/c`		任何		在`a-b`区间内每隔`c`触发一次
+- `xth y`		day		第`x`个星期`y`触发
+- `last y`		day		最后一个星期`x`触发
+- `last`		day		一个月中的最后一天触发
+- `x,y,z`		任何		可以把上面的表达式进行组合
 
 ```python
 # 在每个50秒的时候触发
@@ -186,55 +174,65 @@ scheduler.add_job(func, 'cron', day="4th sun", args=["desire"])
 
 ## 六、任务存储器（job stores）
 
-- `MemoryJobStore`：
-  - 没有序列化，任务存储在内存中，增删改查都在内存中完成
-  - `from apscheduler.jobstores.memory import MemoryJobStore`
-- `SQLAlchemyJobStore`：
-  - 使用`SQLAlchemy`这个ORM框架作为存储方式
-  - `from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore`
-- `MongoDBJobStore`：
-  - 使用`mongodb`作为存储器
-  - `from apscheduler.jobstores.mongodb import MongoDBJobStore`
-- `RedisJobStore`：
-  - 使用`redis`作为存储器
-  - `from apscheduler.jobstores.redis import RedisJobStore`
+### `MemoryJobStore`
+- 没有序列化，任务存储在内存中，增删改查都在内存中完成
+- `from apscheduler.jobstores.memory import MemoryJobStore`
+
+### `SQLAlchemyJobStore`
+- 使用`SQLAlchemy`这个ORM框架作为存储方式
+- `from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore`
+
+### `MongoDBJobStore`
+- 使用`mongodb`作为存储器
+- `from apscheduler.jobstores.mongodb import MongoDBJobStore`
+
+### `RedisJobStore`
+- 使用`redis`作为存储器
+- `from apscheduler.jobstores.redis import RedisJobStore`
 
 ## 七、执行器（executors）
 
-- `ThreadPoolExecutor`：默认执行器
-  - 线程池执行器
-  - `from apscheduler.executors.pool import ThreadPoolExecutor`
-- `ProcessPoolExecutor`：
-  - 进程池执行器
-  - 适用于涉及到一些CPU密集计算的操作
-  - `from apscheduler.executors.pool import ProcessPoolExecutor`
-- `GeventExecutor`：
-  - `Gevent`程序执行器
-  - `from apscheduler.executors.gevent import GeventExecutor`
-- `TornadoExecutor`：
-  - `Tornado`程序执行器
-  - `from apscheduler.executors.tornado import TornadoExecutor`
-- `TwistedExecutor`：
-  - `Twisted`程序执行器
-  - `from apscheduler.executors.twisted import TwistedExecutor`
-- `AsyncIOExecutor`：
-  - `asyncio`程序执行器
-  - `from apscheduler.executors.asyncio import AsyncIOExecutor`
+### `ThreadPoolExecutor`
+- 默认执行器
+- 线程池执行器
+- `from apscheduler.executors.pool import ThreadPoolExecutor`
+
+### `ProcessPoolExecutor`
+- 进程池执行器
+- 适用于涉及到一些CPU密集计算的操作
+- `from apscheduler.executors.pool import ProcessPoolExecutor`
+
+### `GeventExecutor`
+- `Gevent`程序执行器
+- `from apscheduler.executors.gevent import GeventExecutor`
+
+### `TornadoExecutor`
+- `Tornado`程序执行器
+- `from apscheduler.executors.tornado import TornadoExecutor`
+
+### `TwistedExecutor`
+- `Twisted`程序执行器
+- `from apscheduler.executors.twisted import TwistedExecutor`
+
+### `AsyncIOExecutor`
+- `asyncio`程序执行器
+- `from apscheduler.executors.asyncio import AsyncIOExecutor`
+
 
 ## 八、定时任务调度配置
 
-- `jobstores` 用来配置存储器
-  - 使用SQLAlchemy进行存储
-  - 使用sqlite数据库，会自动创建数据库，并创建apscheduler_jobs表
-- `executors` 用来配置执行器
-  - 使用线程池进行执行
-  - 设置最大线程数为20个
-- `job_defaults` 创建job时的默认参数
-  - `coalesce` 是否合并执行
+### `jobstores` 用来配置存储器
+- 使用SQLAlchemy进行存储
+- 使用sqlite数据库，会自动创建数据库，并创建apscheduler_jobs表
+### `executors` 用来配置执行器
+- 使用线程池进行执行
+- 设置最大线程数为20个
+### `job_defaults` 创建job时的默认参数
+- `coalesce` 是否合并执行
     - 比如由于某个原因导致某个任务积攒了很多次没有执行（比如有一个任务是1分钟跑一次，但是系统原因断了5分钟）
     - 如果 coalesce=True，那么下次恢复运行的时候，会只执行一次，
     - 而如果设置 coalesce=False，那么就不会合并，会5次全部执行。
-  - `max_instances` 最大实例数, 同一个任务同一时间最多只能有n个实例在运行。
+- `max_instances` 最大实例数, 同一个任务同一时间最多只能有n个实例在运行。
     - 比如一个耗时10分钟的job，被指定每分钟运行1次，如果我 max_instance值5，那么在第6~10分钟上，新的运行实例不会被执行，因为已经有5个实例在跑了。
 
 ```python
@@ -270,11 +268,11 @@ scheduler = BlockingScheduler(**interval_task)
 ### 1、添加job
 
 - 1）调用`add_job()`方法
-  - 最常用的方式
-  - 返回一个`apscheduler.job.Job`实例，可以用它在之后修改或移除job
-  - 如果调度的job在一个持久化的存储器里，当初始化应用程序时，必须要为job定义一个显示的ID并使用` replace_existing=True`, 否则每次应用程序重启时都会得到那个job的一个新副本
+    - 最常用的方式
+    - 返回一个`apscheduler.job.Job`实例，可以用它在之后修改或移除job
+    - 如果调度的job在一个持久化的存储器里，当初始化应用程序时，必须要为job定义一个显示的ID并使用` replace_existing=True`, 否则每次应用程序重启时都会得到那个job的一个新副本
 - 2）在任务中使用`scheduled_job()`装饰器
-  - 通过声明job而不修改应用程序运行时是最为方便的
+    - 通过声明job而不修改应用程序运行时是最为方便的
 
 ```python
 # 最常用的方式
@@ -328,8 +326,8 @@ scheduler.resume_job(job_id="job_remove")
 ### 4、获取作业调度列表
 
 - `get_jobs`获取机器上可处理的作业调度列表
-  - 返回一个Job实例列表
-  - 如果只对特定的存储器中的job感兴趣，可以将存储器的别名作为第二个参数
+    - 返回一个Job实例列表
+    - 如果只对特定的存储器中的job感兴趣，可以将存储器的别名作为第二个参数
 - `print_jobs` 格式化输出作业列表以及他们的触发器和下一次的运行时间
 
 ### 5、修改job
@@ -361,8 +359,8 @@ scheduler.reschedule_job(job_id="job_modify", trigger='cron', minute='*/5')
 ### 1、终止调度器
 
 - `shutdown()`
-  - 默认情况，会终止任务存储器以及执行器，然后等待所有目前执行的job完成后（自动终止）
-  - `wait=False` 此参数不会等待任何运行中的任务完成，直接终止
+    - 默认情况，会终止任务存储器以及执行器，然后等待所有目前执行的job完成后（自动终止）
+    - `wait=False` 此参数不会等待任何运行中的任务完成，直接终止
 
 ```python
 scheduler.shutdown()
@@ -375,7 +373,7 @@ scheduler.shutdown(wait=False)
 - `scheduler.pause()` 暂停被调度的job的运行
 - `scheduler.resume()` 恢复job的运行，会导致调度器在被恢复之前一致处于休眠状态
 - `scheduler.start(paused=True)` 如果没有进行过唤醒，也可以对处于暂停状态的调度器执行`start`操作
-  - 可以有机会在不想要的job运行之前将它们排除掉
+    - 可以有机会在不想要的job运行之前将它们排除掉
 
 ## 十一、调度器事件操作
 
