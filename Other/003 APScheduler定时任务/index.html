@@ -724,12 +724,59 @@
     2、interval触发器
   </a>
   
+    <nav class="md-nav" aria-label="2、interval触发器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    在固定的时间间隔触发事件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interval" class="md-nav__link">
+    interval触发器可以设置的触发参数：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
   <a href="#3cron" class="md-nav__link">
     3、cron触发器
   </a>
+  
+    <nav class="md-nav" aria-label="3、cron触发器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    在某个确切的时间周期性的触发时间
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    参数：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    也可以使用表达式类型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -835,7 +882,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     八、定时任务调度配置
   </a>
   
@@ -869,7 +916,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     九、任务操作
   </a>
   
@@ -917,7 +964,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     十、调度器操作
   </a>
   
@@ -944,7 +991,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     十一、调度器事件操作
   </a>
   
@@ -1134,12 +1181,59 @@
     2、interval触发器
   </a>
   
+    <nav class="md-nav" aria-label="2、interval触发器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    在固定的时间间隔触发事件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interval" class="md-nav__link">
+    interval触发器可以设置的触发参数：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
   <a href="#3cron" class="md-nav__link">
     3、cron触发器
   </a>
+  
+    <nav class="md-nav" aria-label="3、cron触发器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    在某个确切的时间周期性的触发时间
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    参数：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    也可以使用表达式类型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1245,7 +1339,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     八、定时任务调度配置
   </a>
   
@@ -1279,7 +1373,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     九、任务操作
   </a>
   
@@ -1327,7 +1421,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     十、调度器操作
   </a>
   
@@ -1354,7 +1448,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     十一、调度器事件操作
   </a>
   
@@ -1489,9 +1583,9 @@ scheduler.start()
 <pre><code class="language-bash">2021-05-25 15:43:00 Hello world, desire
 </code></pre>
 <h3 id="2interval">2、interval触发器</h3>
+<h4 id="_3">在固定的时间间隔触发事件</h4>
+<h4 id="interval"><code>interval</code>触发器可以设置的触发参数：</h4>
 <ul>
-<li>在固定的时间间隔触发事件</li>
-<li><code>interval</code>触发器可以设置的触发参数：<ul>
 <li><code>weeks</code>：周，int</li>
 <li><code>days</code>：一个月中的天，int</li>
 <li><code>hours</code>：小时，int</li>
@@ -1501,15 +1595,13 @@ scheduler.start()
 <li><code>end_date</code>：间隔触发的结束时间</li>
 <li><code>jitter</code>：触发的时间误差</li>
 </ul>
-</li>
-</ul>
 <pre><code class="language-python"># 三秒执行一次
 scheduler.add_job(func, 'interval', seconds=3, args=[&quot;desire&quot;])
 </code></pre>
 <h3 id="3cron">3、cron触发器</h3>
+<h4 id="_4">在某个确切的时间周期性的触发时间</h4>
+<h4 id="_5">参数：</h4>
 <ul>
-<li>在某个确切的时间周期性的触发时间</li>
-<li>参数：<ul>
 <li><code>year</code>：4位数的年份</li>
 <li><code>month</code>：1-12月份</li>
 <li><code>day</code>：1-31日</li>
@@ -1527,8 +1619,8 @@ scheduler.add_job(func, 'interval', seconds=3, args=[&quot;desire&quot;])
 <li><code>timezone</code>：时区</li>
 <li><code>jitter</code>：任务触发的误差时间</li>
 </ul>
-</li>
-<li>也可以使用表达式类型<ul>
+<h4 id="_6">也可以使用表达式类型</h4>
+<ul>
 <li><code>*</code>       任何      在每个值都触发</li>
 <li><code>*/a</code>     任何      每隔<code>a</code>触发一次</li>
 <li><code>a-b</code>     任何      在<code>a-b</code>区间内任何一个时间触发(a&lt;b)</li>
@@ -1537,8 +1629,6 @@ scheduler.add_job(func, 'interval', seconds=3, args=[&quot;desire&quot;])
 <li><code>last y</code>      day     最后一个星期<code>x</code>触发</li>
 <li><code>last</code>        day     一个月中的最后一天触发</li>
 <li><code>x,y,z</code>       任何      可以把上面的表达式进行组合</li>
-</ul>
-</li>
 </ul>
 <pre><code class="language-python"># 在每个50秒的时候触发
 scheduler.add_job(func, 'cron', second=50, args=[&quot;desire&quot;])
@@ -1600,7 +1690,7 @@ scheduler.add_job(func, 'cron', day=&quot;4th sun&quot;, args=[&quot;desire&quot
 <li><code>asyncio</code>程序执行器</li>
 <li><code>from apscheduler.executors.asyncio import AsyncIOExecutor</code></li>
 </ul>
-<h2 id="_3">八、定时任务调度配置</h2>
+<h2 id="_7">八、定时任务调度配置</h2>
 <h3 id="jobstores"><code>jobstores</code> 用来配置存储器</h3>
 <ul>
 <li>使用SQLAlchemy进行存储</li>
@@ -1648,7 +1738,7 @@ interval_task = {
 }
 scheduler = BlockingScheduler(**interval_task)
 </code></pre>
-<h2 id="_4">九、任务操作</h2>
+<h2 id="_8">九、任务操作</h2>
 <h3 id="1job">1、添加job</h3>
 <ul>
 <li>1）调用<code>add_job()</code>方法<ul>
@@ -1735,7 +1825,7 @@ job.reschedule(trigger='cron', minute='*/5')
 # reschedule_job
 scheduler.reschedule_job(job_id=&quot;job_modify&quot;, trigger='cron', minute='*/5')
 </code></pre>
-<h2 id="_5">十、调度器操作</h2>
+<h2 id="_9">十、调度器操作</h2>
 <h3 id="1">1、终止调度器</h3>
 <ul>
 <li><code>shutdown()</code><ul>
@@ -1757,7 +1847,7 @@ scheduler.shutdown(wait=False)
 </ul>
 </li>
 </ul>
-<h2 id="_6">十一、调度器事件操作</h2>
+<h2 id="_10">十一、调度器事件操作</h2>
 <ul>
 <li><code>add_listener</code> 通过此方法对调度器绑定事件监听器</li>
 </ul>
