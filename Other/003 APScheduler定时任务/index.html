@@ -647,6 +647,61 @@
     四、调度器（schedulers）
   </a>
   
+    <nav class="md-nav" aria-label="四、调度器（schedulers）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blockingscheduler" class="md-nav__link">
+    BlockingScheduler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backgroundscheduler" class="md-nav__link">
+    BackgroundScheduler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asyncioscheduler" class="md-nav__link">
+    AsyncIOScheduler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geventscheduler" class="md-nav__link">
+    GeventScheduler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#twistedscheduler" class="md-nav__link">
+    TwistedScheduler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qtscheduler" class="md-nav__link">
+    QtScheduler：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tornadoscheduler" class="md-nav__link">
+    TornadoScheduler
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -893,6 +948,61 @@
     四、调度器（schedulers）
   </a>
   
+    <nav class="md-nav" aria-label="四、调度器（schedulers）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blockingscheduler" class="md-nav__link">
+    BlockingScheduler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backgroundscheduler" class="md-nav__link">
+    BackgroundScheduler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asyncioscheduler" class="md-nav__link">
+    AsyncIOScheduler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geventscheduler" class="md-nav__link">
+    GeventScheduler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#twistedscheduler" class="md-nav__link">
+    TwistedScheduler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qtscheduler" class="md-nav__link">
+    QtScheduler：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tornadoscheduler" class="md-nav__link">
+    TornadoScheduler
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1099,70 +1209,42 @@ scheduler.start()
 2021-05-25 15:04:45 Hello world, desire
 </code></pre>
 <h2 id="schedulers">四、调度器（schedulers）</h2>
+<h3 id="blockingscheduler"><code>BlockingScheduler</code></h3>
 <ul>
-<li>
-<p><code>BlockingScheduler</code>：阻塞型调度器，最基本的调度器，调用<code>start</code>函数会阻塞当前线程，不能立即返回</p>
-</li>
-<li>
-<p>适用于调度程序时进程中唯一运行的进程</p>
-</li>
-<li>
-<p><code>from apscheduler.schedulers.blocking import BlockingScheduler</code></p>
-</li>
-<li>
-<p><code>BackgroundScheduler</code>：后台运行调度器，调用<code>start</code>后主线程不会阻塞</p>
-</li>
-<li>
-<p>适用于调度程序在应用程序的后台运行</p>
-</li>
-<li>
-<p><code>from apscheduler.schedulers.background import BackgroundScheduler</code></p>
-</li>
-<li>
-<p><code>AsyncIOScheduler</code>：</p>
-</li>
-<li>
-<p>适用于使用了<code>asyncio</code>模块的应用程序</p>
-</li>
-<li>
-<p><code>from apscheduler.schedulers.asyncio import AsyncIOScheduler</code></p>
-</li>
-<li>
-<p><code>GeventScheduler</code>：</p>
-</li>
-<li>
-<p>适用于使用<code>gevent</code>模块的应用程序</p>
-</li>
-<li>
-<p><code>from apscheduler.schedulers.gevent import GeventScheduler</code></p>
-</li>
-<li>
-<p><code>TwistedScheduler</code>：</p>
-</li>
-<li>
-<p>适用于构建<code>Twisted</code>的应用程序</p>
-</li>
-<li>
-<p><code>from apscheduler.schedulers.twisted import TwistedScheduler</code></p>
-</li>
-<li>
-<p><code>QtScheduler</code>：</p>
-</li>
-<li>
-<p>适用于构建<code>Qt</code>的应用程序</p>
-</li>
-<li>
-<p><code>from apscheduler.schedulers.qt import QtScheduler</code></p>
-</li>
-<li>
-<p><code>TornadoScheduler</code>：</p>
-</li>
-<li>
-<p>适用于构建<code>Tornado</code>的应用程序</p>
-</li>
-<li>
-<p><code>from apscheduler.schedulers.tornado import TornadoScheduler</code></p>
-</li>
+<li>阻塞型调度器，最基本的调度器，调用<code>start</code>函数会阻塞当前线程，不能立即返回</li>
+<li>适用于调度程序时进程中唯一运行的进程</li>
+<li><code>from apscheduler.schedulers.blocking import BlockingScheduler</code></li>
+</ul>
+<h3 id="backgroundscheduler"><code>BackgroundScheduler</code></h3>
+<ul>
+<li>后台运行调度器，调用<code>start</code>后主线程不会阻塞</li>
+<li>适用于调度程序在应用程序的后台运行</li>
+<li><code>from apscheduler.schedulers.background import BackgroundScheduler</code></li>
+</ul>
+<h3 id="asyncioscheduler"><code>AsyncIOScheduler</code></h3>
+<ul>
+<li>适用于使用了<code>asyncio</code>模块的应用程序</li>
+<li><code>from apscheduler.schedulers.asyncio import AsyncIOScheduler</code></li>
+</ul>
+<h3 id="geventscheduler"><code>GeventScheduler</code></h3>
+<ul>
+<li>适用于使用<code>gevent</code>模块的应用程序</li>
+<li><code>from apscheduler.schedulers.gevent import GeventScheduler</code></li>
+</ul>
+<h3 id="twistedscheduler"><code>TwistedScheduler</code></h3>
+<ul>
+<li>适用于构建<code>Twisted</code>的应用程序</li>
+<li><code>from apscheduler.schedulers.twisted import TwistedScheduler</code></li>
+</ul>
+<h3 id="qtscheduler"><code>QtScheduler</code>：</h3>
+<ul>
+<li>适用于构建<code>Qt</code>的应用程序</li>
+<li><code>from apscheduler.schedulers.qt import QtScheduler</code></li>
+</ul>
+<h3 id="tornadoscheduler"><code>TornadoScheduler</code></h3>
+<ul>
+<li>适用于构建<code>Tornado</code>的应用程序</li>
+<li><code>from apscheduler.schedulers.tornado import TornadoScheduler</code></li>
 </ul>
 <h2 id="triggers">五、触发器（triggers）</h2>
 <h3 id="1date">1、date触发器</h3>
@@ -1207,7 +1289,7 @@ scheduler.add_job(func, 'interval', seconds=3, args=[&quot;desire&quot;])
 <h3 id="3cron">3、cron触发器</h3>
 <ul>
 <li>在某个确切的时间周期性的触发时间</li>
-<li>参数：</li>
+<li>参数：<ul>
 <li><code>year</code>：4位数的年份</li>
 <li><code>month</code>：1-12月份</li>
 <li><code>day</code>：1-31日</li>
@@ -1224,15 +1306,19 @@ scheduler.add_job(func, 'interval', seconds=3, args=[&quot;desire&quot;])
 <li><code>end_date</code>：datetime类型或字符串类型，结束时间</li>
 <li><code>timezone</code>：时区</li>
 <li><code>jitter</code>：任务触发的误差时间</li>
-<li>也可以使用表达式类型</li>
-<li><code>*</code>     任何      在每个值都触发</li>
-<li><code>*/a</code>       任何      每隔<code>a</code>触发一次</li>
-<li><code>a-b</code>       任何      在<code>a-b</code>区间内任何一个时间触发(a&lt;b)</li>
-<li><code>a-b/c</code>     任何      在<code>a-b</code>区间内每隔<code>c</code>触发一次</li>
-<li><code>xth y</code>     day     第<code>x</code>个星期<code>y</code>触发</li>
-<li><code>last y</code>        day     最后一个星期<code>x</code>触发</li>
-<li><code>last</code>      day     一个月中的最后一天触发</li>
-<li><code>x,y,z</code>     任何      可以把上面的表达式进行组合</li>
+</ul>
+</li>
+<li>也可以使用表达式类型<ul>
+<li><code>*</code>       任何      在每个值都触发</li>
+<li><code>*/a</code>     任何      每隔<code>a</code>触发一次</li>
+<li><code>a-b</code>     任何      在<code>a-b</code>区间内任何一个时间触发(a&lt;b)</li>
+<li><code>a-b/c</code>       任何      在<code>a-b</code>区间内每隔<code>c</code>触发一次</li>
+<li><code>xth y</code>       day     第<code>x</code>个星期<code>y</code>触发</li>
+<li><code>last y</code>      day     最后一个星期<code>x</code>触发</li>
+<li><code>last</code>        day     一个月中的最后一天触发</li>
+<li><code>x,y,z</code>       任何      可以把上面的表达式进行组合</li>
+</ul>
+</li>
 </ul>
 <pre><code class="language-python"># 在每个50秒的时候触发
 scheduler.add_job(func, 'cron', second=50, args=[&quot;desire&quot;])
