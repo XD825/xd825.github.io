@@ -493,6 +493,40 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#2-fastapi" class="md-nav__link">
+    2. 启动FastAPI之前启动定时任务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-app" class="md-nav__link">
+    3. 挂载到app上
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 挂载到app上">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1）创建注册定时器的方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2app" class="md-nav__link">
+    2）挂载到app上
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -751,6 +785,40 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#2-fastapi" class="md-nav__link">
+    2. 启动FastAPI之前启动定时任务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-app" class="md-nav__link">
+    3. 挂载到app上
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 挂载到app上">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1）创建注册定时器的方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2app" class="md-nav__link">
+    2）挂载到app上
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -775,7 +843,7 @@
                 
                 <h1 id="fastapiapscheduler">FastAPI集成APScheduler</h1>
 <h2 id="_1">前言</h2>
-<p><code>APScheduler</code>定时任务<a href="https://xd825.github.io/other/003%20APScheduler%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">传送门</a></p>
+<p><code>APScheduler</code>定时任务<a href="https://xd825.github.io/Other/003%20APScheduler%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">传送门</a></p>
 <h2 id="fastapiaapscheduler">在FastAPI中集成aAPScheduler</h2>
 <ul>
 <li>使用FastAPI启动前后处理程序进行启动任务</li>
@@ -823,6 +891,41 @@ interval_task = {
 scheduler = AsyncIOScheduler(**interval_task)
 # 添加一个定时任务
 scheduler.add_job(func, 'interval', seconds=3, args=[&quot;desire&quot;], id=&quot;desire_job&quot;, replace_existing=True)
+</code></pre>
+<h3 id="2-fastapi">2. 启动FastAPI之前启动定时任务</h3>
+<pre><code class="language-python">from fastapi import FastAPI
+
+# 导入定时任务配置
+from scheduler import scheduler
+
+app = FastAPI()
+
+@app.on_event(&quot;startup&quot;)
+async def start_event():
+    scheduler.start()
+    print(&quot;定时任务启动成功&quot;)
+
+@app.get(&quot;/list&quot;)
+async def jobs():
+    jobs = scheduler.get_jobs()
+
+    return [job.id for job in jobs]
+
+</code></pre>
+<h3 id="3-app">3. 挂载到app上</h3>
+<h4 id="1_1">1）创建注册定时器的方法</h4>
+<pre><code class="language-python">def register_scheduler(app: FastAPI):
+    @app.on_event(&quot;startup&quot;)
+    async def start_event():
+        scheduler.start()
+        print(&quot;定时任务启动成功&quot;)
+</code></pre>
+<h4 id="2app">2）挂载到app上</h4>
+<pre><code class="language-python">from fastapi import FastAPI
+
+app = FastAPI()
+# 进行挂载
+register_scheduler(app)
 </code></pre>
                 
               

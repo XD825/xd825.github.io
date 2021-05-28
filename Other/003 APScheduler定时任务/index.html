@@ -1100,51 +1100,69 @@ scheduler.start()
 </code></pre>
 <h2 id="schedulers">四、调度器（schedulers）</h2>
 <ul>
-<li><code>BlockingScheduler</code>：阻塞型调度器，最基本的调度器，调用<code>start</code>函数会阻塞当前线程，不能立即返回</li>
-<li>适用于调度程序时进程中唯一运行的进程</li>
+<li>
+<p><code>BlockingScheduler</code>：阻塞型调度器，最基本的调度器，调用<code>start</code>函数会阻塞当前线程，不能立即返回</p>
+</li>
+<li>
+<p>适用于调度程序时进程中唯一运行的进程</p>
+</li>
 <li>
 <p><code>from apscheduler.schedulers.blocking import BlockingScheduler</code></p>
 </li>
 <li>
 <p><code>BackgroundScheduler</code>：后台运行调度器，调用<code>start</code>后主线程不会阻塞</p>
 </li>
-<li>适用于调度程序在应用程序的后台运行</li>
+<li>
+<p>适用于调度程序在应用程序的后台运行</p>
+</li>
 <li>
 <p><code>from apscheduler.schedulers.background import BackgroundScheduler</code></p>
 </li>
 <li>
 <p><code>AsyncIOScheduler</code>：</p>
 </li>
-<li>适用于使用了<code>asyncio</code>模块的应用程序</li>
+<li>
+<p>适用于使用了<code>asyncio</code>模块的应用程序</p>
+</li>
 <li>
 <p><code>from apscheduler.schedulers.asyncio import AsyncIOScheduler</code></p>
 </li>
 <li>
 <p><code>GeventScheduler</code>：</p>
 </li>
-<li>适用于使用<code>gevent</code>模块的应用程序</li>
+<li>
+<p>适用于使用<code>gevent</code>模块的应用程序</p>
+</li>
 <li>
 <p><code>from apscheduler.schedulers.gevent import GeventScheduler</code></p>
 </li>
 <li>
 <p><code>TwistedScheduler</code>：</p>
 </li>
-<li>适用于构建<code>Twisted</code>的应用程序</li>
+<li>
+<p>适用于构建<code>Twisted</code>的应用程序</p>
+</li>
 <li>
 <p><code>from apscheduler.schedulers.twisted import TwistedScheduler</code></p>
 </li>
 <li>
 <p><code>QtScheduler</code>：</p>
 </li>
-<li>适用于构建<code>Qt</code>的应用程序</li>
+<li>
+<p>适用于构建<code>Qt</code>的应用程序</p>
+</li>
 <li>
 <p><code>from apscheduler.schedulers.qt import QtScheduler</code></p>
 </li>
 <li>
 <p><code>TornadoScheduler</code>：</p>
 </li>
-<li>适用于构建<code>Tornado</code>的应用程序</li>
-<li><code>from apscheduler.schedulers.tornado import TornadoScheduler</code></li>
+<li>
+<p>适用于构建<code>Tornado</code>的应用程序</p>
+</li>
+<li>
+<p><code>from apscheduler.schedulers.tornado import TornadoScheduler</code></p>
+</li>
 </ul>
 <h2 id="triggers">五、触发器（triggers）</h2>
 <h3 id="1date">1、date触发器</h3>
