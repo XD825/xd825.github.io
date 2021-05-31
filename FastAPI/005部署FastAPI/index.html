@@ -989,9 +989,11 @@ ENTRYPOINT [&quot;gunicorn&quot;, &quot;--preload&quot;, &quot;-c&quot;, &quot;g
 ├── requirements.txt
 └── start.sh
 </code></pre>
-<p>2）启动的时候可以使用<code>shell脚本（start.sh）</code>进行启动
-- 先进入到main.py目录
-- 指定启动配置文件时使用<code>../gunicorn.conf.py</code>表示上一级目录下的<code>gunicorn.conf.py</code></p>
+<p>2）启动的时候可以使用<code>shell脚本（start.sh）</code>进行启动</p>
+<ul>
+<li>先进入到main.py目录</li>
+<li>指定启动配置文件时使用<code>../gunicorn.conf.py</code>表示上一级目录下的<code>gunicorn.conf.py</code></li>
+</ul>
 <pre><code class="language-sh">cd app
 gunicorn --preload -c ../gunicorn.conf.py main:app
 </code></pre>
