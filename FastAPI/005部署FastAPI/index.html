@@ -470,18 +470,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1liunx" class="md-nav__link">
-    1.、Liunx命令行后台启动
+  <a href="#iliunx" class="md-nav__link">
+    I、Liunx命令行后台启动
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-docker" class="md-nav__link">
-    2、 docker部署
+  <a href="#ii-docker" class="md-nav__link">
+    II、 docker部署
   </a>
   
-    <nav class="md-nav" aria-label="2、 docker部署">
+    <nav class="md-nav" aria-label="II、 docker部署">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -507,7 +507,14 @@
         
           <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
-    4.运行容器
+    4. 运行容器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 小拓
   </a>
   
 </li>
@@ -812,18 +819,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1liunx" class="md-nav__link">
-    1.、Liunx命令行后台启动
+  <a href="#iliunx" class="md-nav__link">
+    I、Liunx命令行后台启动
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-docker" class="md-nav__link">
-    2、 docker部署
+  <a href="#ii-docker" class="md-nav__link">
+    II、 docker部署
   </a>
   
-    <nav class="md-nav" aria-label="2、 docker部署">
+    <nav class="md-nav" aria-label="II、 docker部署">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -849,7 +856,14 @@
         
           <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
-    4.运行容器
+    4. 运行容器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 小拓
   </a>
   
 </li>
@@ -893,10 +907,10 @@
 <li>用来管理<code>Uvicorn</code></li>
 </ul>
 <h2 id="gunicornuvicornworker">使用Gunicorn和Uvicorn的worker类生产环境部署</h2>
-<h3 id="1liunx">1.、Liunx命令行后台启动</h3>
+<h3 id="iliunx">I、Liunx命令行后台启动</h3>
 <pre><code class="language-bash">nohup gunicorn -c main:app --host 0.0.0.0 --port 8080 -w 4 -k uvicorn.workers.UvicornWorker
 </code></pre>
-<h3 id="2-docker">2、 docker部署</h3>
+<h3 id="ii-docker">II、 docker部署</h3>
 <h4 id="1-gunicorngunicornconfpy">1. Gunicorn配置文件(gunicorn.conf.py)</h4>
 <pre><code class="language-python">import multiprocessing
 
@@ -940,6 +954,7 @@ errorlog = &quot;/tmp/gunicorn_fasttest_error.log&quot;
 <li>然后安装python依赖包</li>
 <li>指定容器中可以暴露的端口（EXPOSE）</li>
 <li>运行容器时，需要执行的命令（ENTRYPOINT）</li>
+<li><code>--preload</code> 此参数可查看详细的报错信息</li>
 </ul>
 <pre><code class="language-dockerfile">FROM python:3.8.5
 
@@ -956,13 +971,32 @@ RUN apt-get update &amp;&amp; apt-get install -y build-essential gcc libc-dev ma
 
 EXPOSE 8000
 
-ENTRYPOINT [&quot;gunicorn&quot;, &quot;-c&quot;, &quot;gunicorn.conf.py&quot;, &quot;main:app&quot;]
+ENTRYPOINT [&quot;gunicorn&quot;, &quot;--preload&quot;, &quot;-c&quot;, &quot;gunicorn.conf.py&quot;, &quot;main:app&quot;]
 </code></pre>
 <h4 id="3">3. 构建镜像</h4>
 <pre><code class="language-bash">docker build -t fastapi_gunicorn:v1 -f Dockerfile .
 </code></pre>
-<h4 id="4">4.运行容器</h4>
+<h4 id="4">4. 运行容器</h4>
 <pre><code class="language-bash">docker run -di -p 8000:8000 --name fastapi_gunicorn fastapi_gunicorn:v1
+</code></pre>
+<h4 id="5">5. 小拓</h4>
+<p>1）如果<code>gunicorn.conf.py</code>文件和<code>main.py</code>没有在同一个目录下</p>
+<p><strong>目录如下：</strong></p>
+<pre><code class="language-bash">├── app
+│   └── main.py
+├── Dockerfile
+├── gunicorn.conf.py
+├── requirements.txt
+└── start.sh
+</code></pre>
+<p>2）启动的时候可以使用<code>shell脚本（start.sh）</code>进行启动
+- 先进入到main.py目录
+- 指定启动配置文件时使用<code>../gunicorn.conf.py</code>表示上一级目录下的<code>gunicorn.conf.py</code></p>
+<pre><code class="language-sh">cd app
+gunicorn --preload -c ../gunicorn.conf.py main:app
+</code></pre>
+<p>3）Dockerfile只需要把启动命令换成执行shell脚本即可</p>
+<pre><code class="language-dockerfile">ENTRYPOINT [ &quot;bash&quot;, &quot;start.sh&quot; ]
 </code></pre>
                 
               
