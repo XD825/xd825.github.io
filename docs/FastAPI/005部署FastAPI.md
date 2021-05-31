@@ -113,8 +113,11 @@ docker run -di -p 8000:8000 --name fastapi_gunicorn fastapi_gunicorn:v1
 └── start.sh
 ```
 2）启动的时候可以使用`shell脚本（start.sh）`进行启动
+
 - 先进入到main.py目录
+
 - 指定启动配置文件时使用`../gunicorn.conf.py`表示上一级目录下的`gunicorn.conf.py`
+
 ```sh
 cd app
 gunicorn --preload -c ../gunicorn.conf.py main:app
