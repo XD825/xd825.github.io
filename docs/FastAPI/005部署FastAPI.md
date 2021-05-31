@@ -12,13 +12,13 @@
 
 ## 使用Gunicorn和Uvicorn的worker类生产环境部署
 
-### 1.、Liunx命令行后台启动
+### I、Liunx命令行后台启动
 
 ```bash
 nohup gunicorn -c main:app --host 0.0.0.0 --port 8080 -w 4 -k uvicorn.workers.UvicornWorker
 ```
 
-### 2、 docker部署
+### II、 docker部署
 
 #### 1. Gunicorn配置文件(gunicorn.conf.py)
 
@@ -66,6 +66,7 @@ errorlog = "/tmp/gunicorn_fasttest_error.log"
 - 然后安装python依赖包
 - 指定容器中可以暴露的端口（EXPOSE）
 - 运行容器时，需要执行的命令（ENTRYPOINT）
+- `--preload` 此参数可查看详细的报错信息
 ```dockerfile
 FROM python:3.8.5
 
@@ -82,7 +83,7 @@ RUN apt-get update && apt-get install -y build-essential gcc libc-dev make pytho
 
 EXPOSE 8000
 
-ENTRYPOINT ["gunicorn", "-c", "gunicorn.conf.py", "main:app"]
+ENTRYPOINT ["gunicorn", "--preload", "-c", "gunicorn.conf.py", "main:app"]
 ```
 
 #### 3. 构建镜像
@@ -93,8 +94,32 @@ docker build -t fastapi_gunicorn:v1 -f Dockerfile .
 
 
 
-#### 4.运行容器
+#### 4. 运行容器
 
 ```bash
 docker run -di -p 8000:8000 --name fastapi_gunicorn fastapi_gunicorn:v1
+```
+
+#### 5. 小拓
+1）如果`gunicorn.conf.py`文件和`main.py`没有在同一个目录下
+
+**目录如下：**
+```bash
+├── app
+│   └── main.py
+├── Dockerfile
+├── gunicorn.conf.py
+├── requirements.txt
+└── start.sh
+```
+2）启动的时候可以使用`shell脚本（start.sh）`进行启动
+- 先进入到main.py目录
+- 指定启动配置文件时使用`../gunicorn.conf.py`表示上一级目录下的`gunicorn.conf.py`
+```sh
+cd app
+gunicorn --preload -c ../gunicorn.conf.py main:app
+```
+3）Dockerfile只需要把启动命令换成执行shell脚本即可
+```dockerfile
+ENTRYPOINT [ "bash", "start.sh" ]
 ```
