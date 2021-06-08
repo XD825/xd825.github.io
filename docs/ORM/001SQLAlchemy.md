@@ -649,3 +649,47 @@ mary
 fred
 ```
 
+### 10、范围查询
+
+#### 1. `BETWEEN ... AND ...`
+- `between` 范围查询
+- 查询确定范围的值，这些值可以是数字，文本或日期
+- 范围包含开始和结束值
+```python
+q = session.query(User).filter(User.id.between(2,4)).all()
+for user in q:
+    print(user.id, user)
+```
+==> sql
+```sql
+SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
+FROM users
+WHERE users.id BETWEEN %(id_1)s AND %(id_2)s
+-- [generated in 0.00053s] {'id_1': 2, 'id_2': 4}
+```
+==> 打印结果
+```bash
+2 <User(name='wendy', fullname='Wendy Williams', password='windy')>
+3 <User(name='mary', fullname='Mary Contrary', password='mary')>
+4 <User(name='fred', fullname='Fred Flintstone', password='freddy')>
+```
+#### 2. `NOT BETWEEN ... AND ...`
+- 只需在`between`查询的基础上添加`~`
+```python
+q = session.query(User).filter(~User.id.between(2,4)).all()
+for user in q:
+    print(user.id,user)
+```
+==> sql
+```sql
+SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
+FROM users
+WHERE users.id NOT BETWEEN %(id_1)s AND %(id_2)s
+-- [generated in 0.00042s] {'id_1': 2, 'id_2': 4}
+```
+==> 打印结果
+```bash
+1 <User(name='desire', fullname='asdfasdf', password='123123')>
+7 <User(name='mary', fullname='Mary Contrary', password='mary')>
+8 <User(name='fred', fullname='Fred Flintstone', password='654321')>
+```
