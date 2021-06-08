@@ -478,6 +478,110 @@ WHERE users.id = %(pk_1)s
 <User(name='desire', fullname='asdfasdf', password='123123')>
 ```
 
+#### 10）范围查询
+
+##### 1. `BETWEEN ... AND ...`
+- `between` 范围查询
+- 查询确定范围的值，这些值可以是数字，文本或日期
+- 范围包含开始和结束值
+```python
+q = session.query(User).filter(User.id.between(2,4)).all()
+for user in q:
+    print(user.id, user)
+```
+==> sql
+```sql
+SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
+FROM users
+WHERE users.id BETWEEN %(id_1)s AND %(id_2)s
+-- [generated in 0.00053s] {'id_1': 2, 'id_2': 4}
+```
+==> 打印结果
+```bash
+2 <User(name='wendy', fullname='Wendy Williams', password='windy')>
+3 <User(name='mary', fullname='Mary Contrary', password='mary')>
+4 <User(name='fred', fullname='Fred Flintstone', password='freddy')>
+```
+##### 2. `NOT BETWEEN ... AND ...`
+- 只需在`between`查询的基础上添加`~`
+```python
+q = session.query(User).filter(~User.id.between(2,4)).all()
+for user in q:
+    print(user.id,user)
+```
+==> sql
+```sql
+SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
+FROM users
+WHERE users.id NOT BETWEEN %(id_1)s AND %(id_2)s
+-- [generated in 0.00042s] {'id_1': 2, 'id_2': 4}
+```
+==> 打印结果
+```bash
+1 <User(name='desire', fullname='asdfasdf', password='123123')>
+7 <User(name='mary', fullname='Mary Contrary', password='mary')>
+8 <User(name='fred', fullname='Fred Flintstone', password='654321')>
+```
+
+
+#### 11）分组查询
+##### `group_by` 分组查询
+```python
+q = session.query(User).group_by(User.name).all()
+for user in q:
+    print(user.id,user)
+```
+==> sql
+```sql
+SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
+FROM users GROUP BY users.name
+-- [generated in 0.00048s] {}
+```
+==> 打印结果
+```bash
+1 <User(name='desire', fullname='asdfasdf', password='123123')>
+2 <User(name='wendy', fullname='Wendy Williams', password='windy')>
+3 <User(name='mary', fullname='Mary Contrary', password='mary')>
+4 <User(name='fred', fullname='Fred Flintstone', password='freddy')>
+```
+##### `having` 聚合操作（使用聚合操作 需要导入 `func` 库）
+```python
+from sqlalchemy.sql import func
+q = session.query(User).group_by(User.name).having(func.min(User.id)>3).all()
+for user in q:
+    print(user.id,user)
+```
+==> sql
+```sql
+SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
+FROM users GROUP BY users.name
+HAVING min(users.id) > %(min_1)s
+-- [generated in 0.00083s] {'min_1': 3}
+```
+==> 打印结果
+```bash
+4 <User(name='fred', fullname='Fred Flintstone', password='freddy')>
+```
+##### 统计分组后的数据量
+```python
+from sqlalchemy.sql import func
+q = session.query(User.name, func.count(User.name)) \
+    .group_by(User.name).all()
+print(q)
+```
+==> sql
+```sql
+SELECT users.name AS users_name, count(users.name) AS count_1
+FROM users GROUP BY users.name
+-- [generated in 0.00184s] {}
+```
+==> 打印结果
+```bash
+[('desire', 1), ('wendy', 1), ('mary', 2), ('fred', 2)]
+```
+
+
+
 ### 4、删除
 - `delete` 删除操作
 - 删除操作后，要进行提交`commit`
@@ -649,47 +753,3 @@ mary
 fred
 ```
 
-### 10、范围查询
-
-#### 1. `BETWEEN ... AND ...`
-- `between` 范围查询
-- 查询确定范围的值，这些值可以是数字，文本或日期
-- 范围包含开始和结束值
-```python
-q = session.query(User).filter(User.id.between(2,4)).all()
-for user in q:
-    print(user.id, user)
-```
-==> sql
-```sql
-SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
-FROM users
-WHERE users.id BETWEEN %(id_1)s AND %(id_2)s
--- [generated in 0.00053s] {'id_1': 2, 'id_2': 4}
-```
-==> 打印结果
-```bash
-2 <User(name='wendy', fullname='Wendy Williams', password='windy')>
-3 <User(name='mary', fullname='Mary Contrary', password='mary')>
-4 <User(name='fred', fullname='Fred Flintstone', password='freddy')>
-```
-#### 2. `NOT BETWEEN ... AND ...`
-- 只需在`between`查询的基础上添加`~`
-```python
-q = session.query(User).filter(~User.id.between(2,4)).all()
-for user in q:
-    print(user.id,user)
-```
-==> sql
-```sql
-SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
-FROM users
-WHERE users.id NOT BETWEEN %(id_1)s AND %(id_2)s
--- [generated in 0.00042s] {'id_1': 2, 'id_2': 4}
-```
-==> 打印结果
-```bash
-1 <User(name='desire', fullname='asdfasdf', password='123123')>
-7 <User(name='mary', fullname='Mary Contrary', password='mary')>
-8 <User(name='fred', fullname='Fred Flintstone', password='654321')>
-```
