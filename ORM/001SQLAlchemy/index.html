@@ -821,6 +821,33 @@
     11）分组查询
   </a>
   
+    <nav class="md-nav" aria-label="11）分组查询">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#group_by" class="md-nav__link">
+    group_by 分组查询
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#having-func" class="md-nav__link">
+    having 聚合操作（使用聚合操作 需要导入 func 库）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    统计分组后的数据量
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1340,6 +1367,33 @@
     11）分组查询
   </a>
   
+    <nav class="md-nav" aria-label="11）分组查询">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#group_by" class="md-nav__link">
+    group_by 分组查询
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#having-func" class="md-nav__link">
+    having 聚合操作（使用聚合操作 需要导入 func 库）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    统计分组后的数据量
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1858,9 +1912,7 @@ WHERE users.id NOT BETWEEN %(id_1)s AND %(id_2)s
 8 &lt;User(name='fred', fullname='Fred Flintstone', password='654321')&gt;
 </code></pre>
 <h4 id="11">11）分组查询</h4>
-<ul>
-<li><code>group_by</code> 分组查询</li>
-</ul>
+<h5 id="group_by"><code>group_by</code> 分组查询</h5>
 <pre><code class="language-python">q = session.query(User).group_by(User.name).all()
 for user in q:
     print(user.id,user)
@@ -1876,9 +1928,7 @@ FROM users GROUP BY users.name
 3 &lt;User(name='mary', fullname='Mary Contrary', password='mary')&gt;
 4 &lt;User(name='fred', fullname='Fred Flintstone', password='freddy')&gt;
 </code></pre>
-<ul>
-<li><code>having</code> 聚合操作（使用聚合操作 需要导入 <code>func</code> 库）</li>
-</ul>
+<h5 id="having-func"><code>having</code> 聚合操作（使用聚合操作 需要导入 <code>func</code> 库）</h5>
 <pre><code class="language-python">from sqlalchemy.sql import func
 q = session.query(User).group_by(User.name).having(func.min(User.id)&gt;3).all()
 for user in q:
@@ -1893,9 +1943,7 @@ HAVING min(users.id) &gt; %(min_1)s
 <p>==&gt; 打印结果</p>
 <pre><code class="language-bash">4 &lt;User(name='fred', fullname='Fred Flintstone', password='freddy')&gt;
 </code></pre>
-<ul>
-<li>统计分组后的数据量</li>
-</ul>
+<h5 id="_8">统计分组后的数据量</h5>
 <pre><code class="language-python">from sqlalchemy.sql import func
 q = session.query(User.name, func.count(User.name)) \
     .group_by(User.name).all()
