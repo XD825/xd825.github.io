@@ -1958,8 +1958,8 @@ fred
 <li>范围包含开始和结束值</li>
 </ul>
 <pre><code class="language-python">q = session.query(User).filter(User.id.between(2,4)).all()
-    for user in q:
-        print(user.id, user)
+for user in q:
+    print(user.id, user)
 </code></pre>
 <p>==&gt; sql</p>
 <pre><code class="language-sql">SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
@@ -1977,8 +1977,8 @@ WHERE users.id BETWEEN %(id_1)s AND %(id_2)s
 <li>只需在<code>between</code>查询的基础上添加<code>~</code></li>
 </ul>
 <pre><code class="language-python">q = session.query(User).filter(~User.id.between(2,4)).all()
-    for user in q:
-        print(user.id,user)
+for user in q:
+    print(user.id,user)
 </code></pre>
 <p>==&gt; sql</p>
 <pre><code class="language-sql">SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
