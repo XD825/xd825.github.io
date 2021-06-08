@@ -876,6 +876,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    10、范围查询
+  </a>
+  
+    <nav class="md-nav" aria-label="10、范围查询">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-between-and" class="md-nav__link">
+    1. BETWEEN ... AND ...
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-not-between-and" class="md-nav__link">
+    2. NOT BETWEEN ... AND ...
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1352,6 +1379,33 @@
           <li class="md-nav__item">
   <a href="#2_4" class="md-nav__link">
     2. 为列指定别名
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    10、范围查询
+  </a>
+  
+    <nav class="md-nav" aria-label="10、范围查询">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-between-and" class="md-nav__link">
+    1. BETWEEN ... AND ...
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-not-between-and" class="md-nav__link">
+    2. NOT BETWEEN ... AND ...
   </a>
   
 </li>
@@ -1895,6 +1949,47 @@ FROM users
 wendy
 mary
 fred
+</code></pre>
+<h3 id="10">10、范围查询</h3>
+<h4 id="1-between-and">1. <code>BETWEEN ... AND ...</code></h4>
+<ul>
+<li><code>between</code> 范围查询</li>
+<li>查询确定范围的值，这些值可以是数字，文本或日期</li>
+<li>范围包含开始和结束值</li>
+</ul>
+<pre><code class="language-python">q = session.query(User).filter(User.id.between(2,4)).all()
+    for user in q:
+        print(user.id, user)
+</code></pre>
+<p>==&gt; sql</p>
+<pre><code class="language-sql">SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
+FROM users
+WHERE users.id BETWEEN %(id_1)s AND %(id_2)s
+-- [generated in 0.00053s] {'id_1': 2, 'id_2': 4}
+</code></pre>
+<p>==&gt; 打印结果</p>
+<pre><code class="language-bash">2 &lt;User(name='wendy', fullname='Wendy Williams', password='windy')&gt;
+3 &lt;User(name='mary', fullname='Mary Contrary', password='mary')&gt;
+4 &lt;User(name='fred', fullname='Fred Flintstone', password='freddy')&gt;
+</code></pre>
+<h4 id="2-not-between-and">2. <code>NOT BETWEEN ... AND ...</code></h4>
+<ul>
+<li>只需在<code>between</code>查询的基础上添加<code>~</code></li>
+</ul>
+<pre><code class="language-python">q = session.query(User).filter(~User.id.between(2,4)).all()
+    for user in q:
+        print(user.id,user)
+</code></pre>
+<p>==&gt; sql</p>
+<pre><code class="language-sql">SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
+FROM users
+WHERE users.id NOT BETWEEN %(id_1)s AND %(id_2)s
+-- [generated in 0.00042s] {'id_1': 2, 'id_2': 4}
+</code></pre>
+<p>==&gt; 打印结果</p>
+<pre><code class="language-bash">1 &lt;User(name='desire', fullname='asdfasdf', password='123123')&gt;
+7 &lt;User(name='mary', fullname='Mary Contrary', password='mary')&gt;
+8 &lt;User(name='fred', fullname='Fred Flintstone', password='654321')&gt;
 </code></pre>
                 
               
