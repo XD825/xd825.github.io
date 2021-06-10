@@ -126,3 +126,15 @@ gunicorn --preload -c ../gunicorn.conf.py main:app
 ```dockerfile
 ENTRYPOINT [ "bash", "start.sh" ]
 ```
+
+#### 6. 导包问题
+
+![报错信息](./assets/Snipaste_2021-06-10_11-22-04.png)
+
+##### 报错原因：
+
+- 入口文件放在app文件夹中，启动时的寻包路径就从app开始了，所以找不到包
+
+##### 解决：
+
+- 把入口文件main.py放到项目根目录下
