@@ -391,6 +391,60 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#dockermysql" class="md-nav__link">
+    Docker安装mysql
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker安装mysql">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1mysql-docker" class="md-nav__link">
+    1、查看mysql-docker镜像
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2pull-mysql" class="md-nav__link">
+    2、pull mysql镜像
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、运行容器
+  </a>
+  
+    <nav class="md-nav" aria-label="3、运行容器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1）创建映射文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2）运行容器，添加映射
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -806,6 +860,60 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#dockermysql" class="md-nav__link">
+    Docker安装mysql
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker安装mysql">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1mysql-docker" class="md-nav__link">
+    1、查看mysql-docker镜像
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2pull-mysql" class="md-nav__link">
+    2、pull mysql镜像
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、运行容器
+  </a>
+  
+    <nav class="md-nav" aria-label="3、运行容器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1）创建映射文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2）运行容器，添加映射
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -841,6 +949,26 @@ docker pull rabbitmq:management
 <h3 id="_1">访问管理后台</h3>
 <pre><code class="language-bash">http://ip:15672
 </code></pre>
+<h2 id="dockermysql">Docker安装mysql</h2>
+<h3 id="1mysql-docker">1、查看mysql-docker镜像</h3>
+<pre><code class="language-bash">docker search mysql
+</code></pre>
+<h3 id="2pull-mysql">2、pull mysql镜像</h3>
+<pre><code class="language-bah">docker pull mysql
+</code></pre>
+<h3 id="3">3、运行容器</h3>
+<h4 id="1">1）创建映射文件</h4>
+<pre><code class="language-bash">mkdir -p /home/docker/mysql/conf.d
+mkdir -p /home/docker/mysql/data
+</code></pre>
+<h4 id="2">2）运行容器，添加映射</h4>
+<pre><code class="language-bash">docker run -di -p 3306:3306 -v /home/docker/mysql/conf.d:/etc/mysql/conf.d -v /home/docker/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 --name mysql mysql
+</code></pre>
+<ul>
+<li>-v 映射目录，将容器内的配置与数据文件夹，映射到宿主机目录</li>
+<li>-p 代表端口映射，格式为 宿主机映射端口:容器运行端口</li>
+<li>-e 代表添加环境变量  MYSQL_ROOT_PASSWORD是root用户的登陆密码</li>
+</ul>
                 
               
               
