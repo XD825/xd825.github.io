@@ -36,29 +36,6 @@ docker run hello-world
 ```bash
 docker version
 ```
-## 安装mysql
-
-### 1、查看mysql-docker镜像
-```bash
-docker search mysql
-```
-### 2、pull mysql镜像
-```bah
-docker pull mysql
-```
-### 3、运行容器
-#### 1）创建映射文件
-```bash
-mkdir -p /home/docker/mysql/conf.d
-mkdir -p /home/docker/mysql/data
-```
-#### 2）运行容器，添加映射
-```bash
-docker run -di -p 3306:3306 -v /home/docker/mysql/conf.d:/etc/mysql/conf.d -v /home/docker/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 --name mysql mysql
-```
-- -v 映射目录，将容器内的配置与数据文件夹，映射到宿主机目录
-- -p 代表端口映射，格式为 宿主机映射端口:容器运行端口
-- -e 代表添加环境变量  MYSQL_ROOT_PASSWORD是root用户的登陆密码
 
 ## docker
 ### 一、docker基本操作
